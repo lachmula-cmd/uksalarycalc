@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Convert your annual salary to hourly rate quickly with our UK salary calculator. See your daily and weekly pay breakdown. Free, fast, and simple.">
+    <meta name="google-adsense-account" content="ca-pub-1923188531518538">
+    <title>Salary to Hourly Calculator UK - Free Conversion Tool</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Google AdSense - Top Banner Placeholder -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1923188531518538"
+     crossorigin="anonymous"></script>
+</head>
+<body>
+
+<header>
+    <nav class="container">
+        <ul>
+            <li><a href="index.html" class="active">Salary &rarr; Hourly</a></li>
+            <li><a href="hourly-to-salary.html">Hourly &rarr; Salary</a></li>
+            <li><a href="privacy.html">Privacy</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<div class="container">
+    <!-- AdSense Placeholder: Top Banner -->
+    <div class="ad-placeholder ad-top">
+        AdSense Banner Placeholder (970x90 or Responsive)
+    </div>
+</div>
+
+<main class="container">
+    <h1>Salary to Hourly Calculator (UK)</h1>
+    <p style="text-align: center; color: var(--text-muted);">Enter your annual salary to see your hourly, daily, and weekly rate.</p>
+
+    <div class="calculator-card">
+        <div class="input-group">
+            <label for="salary-input">Annual Salary (&pound;)</label>
+            <input type="number" id="salary-input" value="30000" min="0" step="100">
+            <span class="help-text">Gross annual income before tax</span>
+        </div>
+
+        <div class="input-group">
+            <label for="hours-input">Hours per Week</label>
+            <input type="number" id="hours-input" value="37.5" min="1" step="0.5">
+            <span class="help-text">Standard UK full-time is often 37.5 or 40</span>
+        </div>
+
+        <div class="input-group">
+            <label for="weeks-input">Weeks per Year</label>
+            <input type="number" id="weeks-input" value="52" min="1" max="52">
+        </div>
+
+        <div class="input-group">
+            <label for="days-input">Days per Week</label>
+            <input type="number" id="days-input" value="5" min="1" max="7">
+        </div>
+
+        <button id="reset-btn" class="btn btn-secondary">Reset to Defaults</button>
+
+        <!-- Results -->
+        <div class="results">
+            <div class="result-item">
+                <span class="result-label">Hourly Rate</span>
+                <span class="result-value large" id="result-hourly">&pound;0.00</span>
+            </div>
+            <div class="result-item">
+                <span class="result-label">Weekly Pay</span>
+                <span class="result-value" id="result-weekly">&pound;0.00</span>
+            </div>
+            <div class="result-item">
+                <span class="result-label">Daily Pay</span>
+                <span class="result-value" id="result-daily">&pound;0.00</span>
+            </div>
+        </div>
+        <p class="disclaimer">* This calculator provides a simple conversion and does not include tax, pension contributions, bonuses, unpaid breaks, or overtime.</p>
+    </div>
+
+    <!-- AdSense Placeholder: Inline -->
+    <div class="ad-placeholder ad-inline">
+        AdSense In-Article Placeholder (Responsive)
+    </div>
+
+    <section class="faq-section">
+        <h2>Frequently Asked Questions</h2>
+        
+        <div class="faq-item">
+            <h3>How do I convert salary to hourly in the UK?</h3>
+            <p>To calculate your hourly rate manually, divide your annual salary by the number of weeks you work (usually 52), then divide that result by your weekly hours.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Is 37.5 hours full-time in the UK?</h3>
+            <p>Yes, many UK employment contracts specify 37.5 hours per week (e.g., 9am to 5:30pm with an hour unpaid lunch). 40 hours is also common.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Does this calculator include tax?</h3>
+            <p>No, this tool calculates your <strong>gross</strong> hourly rate properly before any deductions for Income Tax or National Insurance.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>What if I work 40 hours per week?</h3>
+            <p>Simply change the "Hours per Week" field to 40. The calculator updates instantly to show your new rate.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>How do unpaid breaks affect pay?</h3>
+            <p>If your breaks are unpaid, do not include them in your "Hours per Week". For example, if you are at work for 40 hours but have 1 hour unpaid break daily (5 hours total), enter 35 hours.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Can I use this for part-time work?</h3>
+            <p>Absolutely. Just enter your pro-rated annual salary and the actual number of hours you work per week to see your hourly equivalent.</p>
+        </div>
+    </section>
+</main>
+
+<div class="container">
+    <!-- AdSense Placeholder: Bottom Banner -->
+    <div class="ad-placeholder ad-bottom">
+        AdSense Bottom Banner (970x250 or Responsive)
+    </div>
+</div>
+
+<footer>
+    <div class="container">
+        <p>&copy; 2024 UK Salary Calculator. All rights reserved.</p>
+        <p><a href="privacy.html">Privacy Policy</a> | <a href="about.html">About Us</a> | <a href="contact.html">Contact</a></p>
+    </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
+
+

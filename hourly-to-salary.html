@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Convert your hourly rate to an annual salary with our UK calculator. Find out what your hourly wage equals per year, week, and day.">
+    <meta name="google-adsense-account" content="ca-pub-1923188531518538">
+    <title>Hourly to Salary Calculator UK - Annual Income Estimator</title>
+
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Google AdSense - Top Banner Placeholder -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1923188531518538"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+    <header>
+        <nav class="container">
+            <ul>
+                <li><a href="index.html">Salary &rarr; Hourly</a></li>
+                <li><a href="hourly-to-salary.html" class="active">Hourly &rarr; Salary</a></li>
+                <li><a href="privacy.html">Privacy</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <!-- AdSense Placeholder: Top Banner -->
+        <div class="ad-placeholder ad-top">
+            AdSense Banner Placeholder (970x90 or Responsive)
+        </div>
+    </div>
+
+    <main class="container">
+        <h1>Hourly to Salary Calculator (UK)</h1>
+        <p style="text-align: center; color: var(--text-muted);">See what your hourly wage equals as an annual salary.
+        </p>
+
+        <div class="calculator-card">
+            <div class="input-group">
+                <label for="hourly-input">Hourly Rate (&pound;)</label>
+                <input type="number" id="hourly-input" value="15" min="0" step="0.50">
+                <span class="help-text">Your gross hourly wage</span>
+            </div>
+
+            <div class="input-group">
+                <label for="hours-input">Hours per Week</label>
+                <input type="number" id="hours-input" value="37.5" min="1" step="0.5">
+                <span class="help-text">Standard UK full-time is often 37.5 or 40</span>
+            </div>
+
+            <div class="input-group">
+                <label for="weeks-input">Weeks per Year</label>
+                <input type="number" id="weeks-input" value="52" min="1" max="52">
+            </div>
+
+            <div class="input-group">
+                <label for="days-input">Days per Week</label>
+                <input type="number" id="days-input" value="5" min="1" max="7">
+            </div>
+
+            <button id="reset-btn" class="btn btn-secondary">Reset to Defaults</button>
+
+            <!-- Results -->
+            <div class="results">
+                <div class="result-item">
+                    <span class="result-label">Annual Salary</span>
+                    <span class="result-value large" id="result-salary">&pound;0.00</span>
+                </div>
+                <div class="result-item">
+                    <span class="result-label">Weekly Pay</span>
+                    <span class="result-value" id="result-weekly">&pound;0.00</span>
+                </div>
+                <div class="result-item">
+                    <span class="result-label">Daily Pay</span>
+                    <span class="result-value" id="result-daily">&pound;0.00</span>
+                </div>
+            </div>
+            <p class="disclaimer">* This calculator provides a simple conversion and does not include tax, pension
+                contributions, bonuses, unpaid breaks, or overtime.</p>
+        </div>
+
+        <!-- AdSense Placeholder: Inline -->
+        <div class="ad-placeholder ad-inline">
+            AdSense In-Article Placeholder (Responsive)
+        </div>
+
+        <section class="faq-section">
+            <h2>Frequently Asked Questions</h2>
+
+            <div class="faq-item">
+                <h3>How is the annual salary calculated?</h3>
+                <p>We multiply your hourly rate by the number of hours you work a week, and then multiply that by the
+                    weeks worked in a year (usually 52).</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>Does this figure include holiday pay?</h3>
+                <p>If you are a full-time employee, your annual salary usually includes paid holiday. For contractors or
+                    zero-hour workers, this calculates your gross earnings if you work 52 weeks.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>What about National Minimum Wage?</h3>
+                <p>This calculator accepts any hourly rate. Always ensure your hourly rate meets the current UK National
+                    Minimum Wage or Living Wage standards.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>Is this calculation accurate for taxes?</h3>
+                <p>No. This shows your <strong>gross</strong> income. Your take-home pay will be lower after tax and
+                    National Insurance deductions.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>Why ask for working days per week?</h3>
+                <p>We use this purely to estimate your "Daily Pay". It does not affect the calculation of your annual
+                    salary.</p>
+            </div>
+        </section>
+    </main>
+
+    <div class="container">
+        <!-- AdSense Placeholder: Bottom Banner -->
+        <div class="ad-placeholder ad-bottom">
+            AdSense Bottom Banner (970x250 or Responsive)
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 UK Salary Calculator. All rights reserved.</p>
+            <p><a href="privacy.html">Privacy Policy</a> | <a href="about.html">About Us</a> | <a
+                    href="contact.html">Contact</a></p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+
+</html>
+
