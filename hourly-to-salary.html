@@ -10,10 +10,10 @@
     <title>Hourly to Salary Calculator UK - Annual Income Estimator</title>
 
     <link rel="stylesheet" href="style.css">
-    
+
     <!-- Google AdSense - Top Banner Placeholder -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1923188531518538"
-     crossorigin="anonymous"></script>
+        crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -65,9 +65,28 @@
                 <input type="number" id="days-input" value="5" min="1" max="7">
             </div>
 
+            <div class="input-group">
+                <label for="region-select">Region</label>
+                <select id="region-select">
+                    <option value="ENG_2025_26" selected>England/Wales/Northern Ireland</option>
+                    <option value="SCO_2025_26">Scotland</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label for="taxyear-select">Tax Year</label>
+                <select id="taxyear-select">
+                    <option value="2025_26" selected>2025/26</option>
+                </select>
+                <span class="help-text">*Calculates Income Tax only using standard rules and standard Personal
+                    Allowance; does not include National Insurance, pension, student loan, benefits, bonuses, or other
+                    deductions.</span>
+            </div>
+
             <button id="reset-btn" class="btn btn-secondary">Reset to Defaults</button>
 
-            <!-- Results -->
+            <!-- Gross Results -->
+            <h3 style="margin-top: 2rem; margin-bottom: 0.5rem; font-size: 1.125rem;">Gross Pay</h3>
             <div class="results">
                 <div class="result-item">
                     <span class="result-label">Annual Salary</span>
@@ -82,8 +101,67 @@
                     <span class="result-value" id="result-daily">&pound;0.00</span>
                 </div>
             </div>
-            <p class="disclaimer">* This calculator provides a simple conversion and does not include tax, pension
-                contributions, bonuses, unpaid breaks, or overtime.</p>
+
+            <!-- Net Results (After Income Tax) -->
+            <h3 style="margin-top: 2rem; margin-bottom: 0.5rem; font-size: 1.125rem;">Net Pay (After Income Tax)</h3>
+            <div class="results">
+                <div class="result-item">
+                    <span class="result-label">Net Annual</span>
+                    <span class="result-value" id="result-net-annual">&pound;0.00</span>
+                </div>
+                <div class="result-item">
+                    <span class="result-label">Net Hourly</span>
+                    <span class="result-value" id="result-net-hourly">&pound;0.00</span>
+                </div>
+                <div class="result-item">
+                    <span class="result-label">Net Weekly</span>
+                    <span class="result-value" id="result-net-weekly">&pound;0.00</span>
+                </div>
+                <div class="result-item">
+                    <span class="result-label">Net Daily</span>
+                    <span class="result-value" id="result-net-daily">&pound;0.00</span>
+                </div>
+            </div>
+
+            <!-- Tax Summary -->
+            <h3 style="margin-top: 2rem; margin-bottom: 0.5rem; font-size: 1.125rem;">Tax Summary</h3>
+            <div class="tax-summary">
+                <div class="result-item">
+                    <span class="result-label">Personal Allowance used</span>
+                    <span class="result-value" id="result-personal-allowance">&pound;0.00</span>
+                </div>
+                <div class="result-item">
+                    <span class="result-label">Taxable income (gross - allowance, min 0)</span>
+                    <span class="result-value" id="result-taxable-income">&pound;0.00</span>
+                </div>
+                <div class="result-item">
+                    <span class="result-label">Total Income Tax (annual)</span>
+                    <span class="result-value" id="result-tax-total">&pound;0.00</span>
+                </div>
+                <div class="result-item">
+                    <span class="result-label">Effective tax rate (tax / gross)</span>
+                    <span class="result-value" id="result-effective-rate">0.0%</span>
+                </div>
+            </div>
+
+            <!-- Tax Breakdown Table -->
+            <h3 style="margin-top: 2rem; margin-bottom: 0.5rem; font-size: 1.125rem;">Tax Breakdown</h3>
+            <div class="table-container">
+                <table class="tax-breakdown">
+                    <thead>
+                        <tr>
+                            <th>Band name</th>
+                            <th>Rate</th>
+                            <th>Taxable amount in band</th>
+                            <th>Tax in band</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tax-breakdown-body">
+                    </tbody>
+                </table>
+            </div>
+            <p class="disclaimer">*Net pay includes Income Tax only. It does not include National Insurance, pension,
+                student loan, benefits, bonuses, or other deductions.</p>
         </div>
 
         <!-- AdSense Placeholder: Inline -->
@@ -114,8 +192,14 @@
 
             <div class="faq-item">
                 <h3>Is this calculation accurate for taxes?</h3>
-                <p>No. This shows your <strong>gross</strong> income. Your take-home pay will be lower after tax and
-                    National Insurance deductions.</p>
+                <p>Yes, this tool now calculates UK Income Tax and displays both gross and net pay. However, it does NOT
+                    include National Insurance, pension contributions, student loans, or other deductions.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>Why might your Personal Allowance be lower?</h3>
+                <p>If your income exceeds £100,000, your Personal Allowance is reduced by £1 for every £2 over this
+                    threshold. This means the Personal Allowance becomes £0 at £125,140 and above.</p>
             </div>
 
             <div class="faq-item">
@@ -146,4 +230,3 @@
 
 
 </html>
-
