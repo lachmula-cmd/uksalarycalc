@@ -1,3 +1,4 @@
-User-agent: *
-Allow: /
-Sitemap: https://username.github.io/repo-name/sitemap.xml
+UUser-agent: *
+Disallow:
+
+Sitemap: https://salaryukcalc.com/sitemap.xml
