@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Methodology &amp; Data Sources | SalaryUKCalc</title>
+  <meta name="description" content="How SalaryUKCalc calculators work. Our methodology, data sources, assumptions, and limitations for UK, EU, and global salary and tax estimates.">
+  <link rel="canonical" href="https://salaryukcalc.com/methodology.html">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div class="nav-wrapper">
+    <a href="index.html" class="nav-brand">Salary<span>UKCalc</span></a>
+    <nav aria-label="Main navigation">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="regions.html">Regions</a></li>
+        <li class="has-dropdown">
+          <a href="regions.html">Countries &#9662;</a>
+          <ul class="nav-dropdown">
+            <li class="nav-dropdown-header">🇬🇧 United Kingdom</li>
+            <li><a href="uk/index.html">🇬🇧 United Kingdom</a></li>
+            <li class="nav-dropdown-header">🇪🇺 European Union</li>
+            <li><a href="eu/ireland.html">🇮🇪 Ireland</a></li>
+            <li><a href="eu/germany.html">🇩🇪 Germany</a></li>
+            <li><a href="eu/france.html">🇫🇷 France</a></li>
+            <li><a href="eu/netherlands.html">🇳🇱 Netherlands</a></li>
+            <li><a href="eu/spain.html">🇪🇸 Spain</a></li>
+            <li><a href="eu/italy.html">🇮🇹 Italy</a></li>
+            <li><a href="eu/poland.html">🇵🇱 Poland</a></li>
+            <li class="nav-dropdown-header">🌍 Global</li>
+            <li><a href="global/usa.html">🇺🇸 USA</a></li>
+            <li><a href="global/canada.html">🇨🇦 Canada</a></li>
+            <li><a href="global/australia.html">🇦🇺 Australia</a></li>
+            <li><a href="global/switzerland.html">🇨🇭 Switzerland</a></li>
+            <li><a href="global/norway.html">🇳🇴 Norway</a></li>
+            <li><a href="global/uae.html">🇦🇪 UAE</a></li>
+          </ul>
+        </li>
+        <li><a href="guides/index.html">Guides</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <div class="breadcrumb-inner">
+    <a href="index.html">Home</a>
+    <span>›</span>
+    <span aria-current="page">Methodology</span>
+  </div>
+</nav>
+
+<div class="page-header">
+  <div class="page-header-inner">
+    <h1>Methodology &amp; Data Sources</h1>
+    <p>How our calculators work, where our data comes from, and what assumptions we make. Transparency is important to us — this page explains exactly how we produce our estimates.</p>
+  </div>
+</div>
+
+<main>
+  <div class="container-wide">
+    <div class="legal-content">
+
+      <div class="notice-box info">
+        <strong>Transparency commitment:</strong> We believe users deserve to understand how our calculators work. This page documents our methodology, data sources, and limitations in full. All results are estimates — we never claim otherwise.
+      </div>
+
+      <h2>1. General Approach</h2>
+      <p>SalaryUKCalc.com uses a <strong>client-side calculation model</strong>. All calculations run entirely in your browser using JavaScript. No salary data is sent to our servers — we never see, store, or process your financial information.</p>
+      <p>Our calculators use a <strong>simplified progressive tax model</strong>. We apply published tax bands and rates to a gross annual salary figure, deduct applicable allowances, and calculate estimated income tax and social contributions. The result is an estimated net annual salary.</p>
+      <p>We distinguish between two tiers of calculator:</p>
+      <div class="deductions-list">
+        <div class="deduction-item">
+          <div class="deduction-name">Tier 1: UK Detailed Calculator</div>
+          <div class="deduction-desc">Our UK salary calculator uses official HMRC tax bands for the current tax year (2025/26). It applies the standard Personal Allowance and progressive Income Tax bands for both England/Wales/Northern Ireland and Scotland. This is our most accurate calculator. It calculates Income Tax only — National Insurance and other deductions are not included but are clearly noted.</div>
+        </div>
+        <div class="deduction-item">
+          <div class="deduction-name">Tier 2: EU &amp; Global Estimators</div>
+          <div class="deduction-desc">Our EU and Global country calculators are simplified estimators. They use publicly available national/federal tax rates and standard deductions to produce a gross-to-net estimate. These are clearly labelled as estimates throughout the site. They do not include state/provincial taxes, personal deductions beyond standard allowances, or other individual circumstances.</div>
+        </div>
+      </div>
+
+      <h2>2. UK Calculator Methodology</h2>
+      <h3>Data Source</h3>
+      <p>UK Income Tax bands and rates are sourced from <a href="https://www.gov.uk/income-tax-rates" target="_blank" rel="noopener noreferrer">HM Revenue &amp; Customs (HMRC)</a>. Scotland rates are sourced from the <a href="https://www.gov.scot/policies/income-tax/" target="_blank" rel="noopener noreferrer">Scottish Government</a>.</p>
+
+      <h3>Calculation Steps</h3>
+      <div class="worked-example">
+        <div class="worked-example-step">
+          <div class="step-number">1</div>
+          <div class="step-content">
+            <h4>Input: Gross Annual Salary</h4>
+            <p>User enters gross annual salary, hours per week, weeks per year, and days per week.</p>
+          </div>
+        </div>
+        <div class="worked-example-step">
+          <div class="step-number">2</div>
+          <div class="step-content">
+            <h4>Apply Personal Allowance</h4>
+            <p>Taxable income = Gross salary − Personal Allowance (£12,570 for 2025/26). If gross exceeds £100,000, the Personal Allowance is tapered at £1 for every £2 above £100,000, reaching £0 at £125,140.</p>
+          </div>
+        </div>
+        <div class="worked-example-step">
+          <div class="step-number">3</div>
+          <div class="step-content">
+            <h4>Apply Progressive Tax Bands</h4>
+            <p>Each portion of taxable income is taxed at the applicable band rate. For England/Wales: 20% (Basic), 40% (Higher), 45% (Additional). For Scotland: 19% (Starter), 20% (Basic), 21% (Intermediate), 42% (Higher), 45% (Advanced), 48% (Top).</p>
+          </div>
+        </div>
+        <div class="worked-example-step">
+          <div class="step-number">4</div>
+          <div class="step-content">
+            <h4>Calculate Net Annual</h4>
+            <p>Net Annual = Gross − Total Income Tax. Hourly/daily/weekly/monthly rates are derived by dividing net annual by the appropriate periods.</p>
+          </div>
+        </div>
+      </div>
+
+      <h3>What Is Not Included</h3>
+      <ul>
+        <li>National Insurance contributions</li>
+        <li>Pension contributions (auto-enrolment or otherwise)</li>
+        <li>Student loan repayments</li>
+        <li>Salary sacrifice deductions</li>
+        <li>Benefits in kind</li>
+        <li>Tax code adjustments beyond the standard Personal Allowance</li>
+      </ul>
+
+      <h2>3. EU Country Estimator Methodology</h2>
+      <p>EU country estimators use a simplified model based on publicly available 2024 national tax rates. The general approach for each country is:</p>
+
+      <div class="table-container">
+        <table class="tax-breakdown-table">
+          <thead>
+            <tr><th>Country</th><th>Income Tax Basis</th><th>Social Contributions</th><th>Key Allowance</th><th>Source</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>🇩🇪 Germany</td>
+              <td>Progressive Lohnsteuer (14%–45%), Tax Class I assumed</td>
+              <td>~20.05% employee share (pension, health, unemployment, care)</td>
+              <td>Grundfreibetrag €11,604</td>
+              <td><a href="https://www.bundesfinanzministerium.de" target="_blank" rel="noopener noreferrer">BMF</a></td>
+            </tr>
+            <tr>
+              <td>🇫🇷 France</td>
+              <td>Progressive IRPP (0%–45%), 10% employment deduction applied</td>
+              <td>~22% employee social contributions (CSG, CRDS, health, pension)</td>
+              <td>10% employment deduction (capped)</td>
+              <td><a href="https://www.impots.gouv.fr" target="_blank" rel="noopener noreferrer">impots.gouv.fr</a></td>
+            </tr>
+            <tr>
+              <td>🇳🇱 Netherlands</td>
+              <td>Box 1: 36.97% (up to €75,518), 49.5% above. Includes social contributions.</td>
+              <td>Integrated into Box 1 rate</td>
+              <td>General tax credit ~€3,362</td>
+              <td><a href="https://www.belastingdienst.nl" target="_blank" rel="noopener noreferrer">Belastingdienst</a></td>
+            </tr>
+            <tr>
+              <td>🇪🇸 Spain</td>
+              <td>Progressive IRPF (19%–47%), mínimo personal €5,550</td>
+              <td>~6.35% Social Security employee contributions</td>
+              <td>Mínimo personal €5,550</td>
+              <td><a href="https://www.agenciatributaria.es" target="_blank" rel="noopener noreferrer">AEAT</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>4. Global Country Estimator Methodology</h2>
+      <div class="table-container">
+        <table class="tax-breakdown-table">
+          <thead>
+            <tr><th>Country</th><th>Income Tax Basis</th><th>Social Contributions</th><th>Key Allowance</th><th>Source</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>🇺🇸 USA</td>
+              <td>Federal progressive (10%–37%), single filer, standard deduction $14,600</td>
+              <td>FICA: SS 6.2% (cap $168,600) + Medicare 1.45%</td>
+              <td>Standard deduction $14,600</td>
+              <td><a href="https://www.irs.gov" target="_blank" rel="noopener noreferrer">IRS</a></td>
+            </tr>
+            <tr>
+              <td>🇨🇦 Canada</td>
+              <td>Federal progressive (15%–33%), BPA CA$15,705 as 15% credit</td>
+              <td>CPP 5.95% (ceiling CA$68,500, base CA$3,500) + EI 1.66% (ceiling CA$63,200)</td>
+              <td>Basic Personal Amount CA$15,705</td>
+              <td><a href="https://www.canada.ca/en/revenue-agency.html" target="_blank" rel="noopener noreferrer">CRA</a></td>
+            </tr>
+            <tr>
+              <td>🇦🇺 Australia</td>
+              <td>PAYG progressive (0%–45%), tax-free threshold A$18,200</td>
+              <td>Medicare Levy 2%. Superannuation (11.5%) is employer-paid — not deducted from gross.</td>
+              <td>Tax-free threshold A$18,200</td>
+              <td><a href="https://www.ato.gov.au" target="_blank" rel="noopener noreferrer">ATO</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>5. What Our Estimators Do Not Include</h2>
+      <p>The following are <strong>not included</strong> in any of our EU or Global estimators:</p>
+      <ul>
+        <li><strong>State / provincial / regional / local taxes</strong> — US state income taxes, Canadian provincial taxes, German church tax (Kirchensteuer), Spanish regional IRPF surcharges, etc.</li>
+        <li><strong>Filing status variations</strong> — married filing jointly, dependants, household composition</li>
+        <li><strong>Personal deductions beyond standard allowances</strong> — mortgage interest, charitable donations, business expenses, etc.</li>
+        <li><strong>Tax credits</strong> — child tax credits, earned income credits, etc.</li>
+        <li><strong>Employer-specific arrangements</strong> — salary sacrifice, company cars, private health insurance</li>
+        <li><strong>Self-employment income</strong> — all calculators assume standard employment income</li>
+        <li><strong>Investment income</strong> — dividends, capital gains, rental income</li>
+      </ul>
+
+      <h2>6. Data Currency and Update Policy</h2>
+      <p>We aim to update our calculators and tax rate data promptly when official rates change. The tax year and data vintage for each calculator is stated on the relevant page.</p>
+      <div class="table-container">
+        <table class="tax-breakdown-table">
+          <thead>
+            <tr><th>Region / Country</th><th>Data Vintage</th><th>Tax Year</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>🇬🇧 United Kingdom</td><td>HMRC 2025/26</td><td>6 April 2025 – 5 April 2026</td></tr>
+            <tr><td>🇩🇪 Germany</td><td>BMF 2024</td><td>Calendar year 2024</td></tr>
+            <tr><td>🇫🇷 France</td><td>DGFiP 2024</td><td>Calendar year 2024</td></tr>
+            <tr><td>🇳🇱 Netherlands</td><td>Belastingdienst 2024</td><td>Calendar year 2024</td></tr>
+            <tr><td>🇪🇸 Spain</td><td>AEAT 2024</td><td>Calendar year 2024</td></tr>
+            <tr><td>🇺🇸 USA</td><td>IRS 2024</td><td>Calendar year 2024</td></tr>
+            <tr><td>🇨🇦 Canada</td><td>CRA 2024</td><td>Calendar year 2024</td></tr>
+            <tr><td>🇦🇺 Australia</td><td>ATO 2024–25</td><td>1 July 2024 – 30 June 2025</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>7. Technical Implementation</h2>
+      <p>All calculations are implemented in vanilla JavaScript (no frameworks or external libraries). The core calculation logic is contained in <code>data/countries.js</code>, which stores tax band data and the <code>estimateNetSalary()</code> function. The UK calculator logic is in <code>script.js</code>.</p>
+      <p>Key technical characteristics:</p>
+      <ul>
+        <li>All calculations run client-side in the browser</li>
+        <li>No data is sent to any server</li>
+        <li>No cookies are set by the calculators themselves</li>
+        <li>Results update in real time as inputs change</li>
+        <li>Currency formatting uses the browser's built-in <code>Intl.NumberFormat</code> API</li>
+      </ul>
+
+      <h2>8. Reporting Errors</h2>
+      <p>If you believe any tax rate, threshold, or calculation on this site is incorrect, please <a href="contact.html">contact us</a> with details. We take accuracy seriously and will investigate and correct any errors promptly.</p>
+      <p>Please include: the country/calculator, the input values you used, the result you received, and what you believe the correct result should be (with a source reference if possible).</p>
+
+      <div class="notice-box info" style="margin-top: 2rem;">
+        <strong>Related pages:</strong>
+        <a href="disclaimer.html">Disclaimer</a> ·
+        <a href="terms.html">Terms of Use</a> ·
+        <a href="privacy.html">Privacy Policy</a> ·
+        <a href="about.html">About Us</a> ·
+        <a href="contact.html">Contact</a>
+      </div>
+
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-col footer-brand">
+      <a href="index.html" class="nav-brand">Salary<span>UKCalc</span></a>
+      <p>Free salary and tax calculators for the UK, EU, and global countries. All calculations run in your browser. Results are estimates only — not professional tax advice.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Regions</h4>
+      <ul>
+        <li><a href="uk/index.html">🇬🇧 United Kingdom</a></li>
+        <li><a href="eu/index.html">🇪🇺 European Union</a></li>
+        <li><a href="global/index.html">🌍 Global</a></li>
+        <li><a href="regions.html">All Regions</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Countries</h4>
+      <ul>
+        <li><a href="eu/ireland.html">🇮🇪 Ireland</a></li>
+        <li><a href="eu/germany.html">🇩🇪 Germany</a></li>
+        <li><a href="eu/france.html">🇫🇷 France</a></li>
+        <li><a href="global/usa.html">🇺🇸 USA</a></li>
+        <li><a href="global/australia.html">🇦🇺 Australia</a></li>
+        <li><a href="global/uae.html">🇦🇪 UAE</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Guides</h4>
+      <ul>
+        <li><a href="guides/gross-vs-net-salary.html">Gross vs Net Salary</a></li>
+        <li><a href="guides/income-tax-vs-social-contributions.html">Tax vs Social Contributions</a></li>
+        <li><a href="guides/how-payroll-deductions-work.html">Payroll Deductions</a></li>
+        <li><a href="guides/tax-residency-basics.html">Tax Residency</a></li>
+        <li><a href="guides/why-net-salary-differs-by-country.html">Why Net Pay Differs</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <ul>
+        <li><a href="privacy.html">Privacy Policy</a></li>
+        <li><a href="terms.html">Terms of Use</a></li>
+        <li><a href="disclaimer.html">Disclaimer</a></li>
+        <li><a href="methodology.html">Methodology</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; <span id="footer-year">2025</span> SalaryUKCalc.com — All results are estimates for informational purposes only.</p>
+    <div class="footer-bottom-links">
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+      <a href="disclaimer.html">Disclaimer</a>
+      <a href="methodology.html">Methodology</a>
+    </div>
+  </div>
+</footer>
+<script>document.getElementById('footer-year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

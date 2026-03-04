@@ -1,4 +1,7 @@
-UUser-agent: *
-Disallow:
+User-agent: *
+Allow: /
+
+# Block data directory from indexing (JS data file, not a page)
+Disallow: /data/
 
 Sitemap: https://salaryukcalc.com/sitemap.xml

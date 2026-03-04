@@ -1,134 +1,134 @@
 /**
- * UK Salary Calculator - Shared Logic
- * Handles calculations for both Salary -> Hourly and Hourly -> Salary pages.
+ * SalaryUKCalc.com — Shared Calculator Logic
+ * Handles UK Salary → Hourly and Hourly → Salary calculators.
+ * EU and Global country estimators use data/countries.js directly via inline scripts.
+ *
+ * Version: 2.0 — Multi-region platform
  */
 
-// ============================================
-// UK INCOME TAX CALCULATION MODULE
-// ============================================
+// UK Income Tax Configuration — 2025/26
+const TAX_CONFIG = {
+    personalAllowance: 12570,
+    personalAllowanceTaperThreshold: 100000,
+    personalAllowanceTaperRate: 0.5, // £1 reduction per £2 over threshold
 
-// Personal Allowance for 2025/26
-const PERSONAL_ALLOWANCE_FULL = 12570;
-const PA_TAPER_THRESHOLD = 100000;
-const TOP_RATE_THRESHOLD = 125140; // Top rate always starts here regardless of PA
-
-// Taxable band sizes (not gross endpoints)
-const TAXABLE_BANDS = {
-    ENG_2025_26: [
-        { name: "Basic rate", rate: 0.20, taxableSize: 37700 },
-        { name: "Higher rate", rate: 0.40, taxableSize: null }, // Goes to top rate threshold
-        { name: "Additional rate", rate: 0.45, taxableSize: null } // Infinity
-    ],
-    SCO_2025_26: [
-        { name: "Starter rate", rate: 0.19, taxableSize: 2827 },
-        { name: "Basic rate", rate: 0.20, taxableSize: 12094 }, // 14921 - 2827
-        { name: "Intermediate rate", rate: 0.21, taxableSize: 16171 }, // 31092 - 14921
-        { name: "Higher rate", rate: 0.42, taxableSize: 31338 }, // 62430 - 31092
-        { name: "Advanced rate", rate: 0.45, taxableSize: null }, // Goes to top rate threshold
-        { name: "Top rate", rate: 0.48, taxableSize: null } // Infinity
-    ]
+    bands: {
+        'ENG_2025_26': [
+            { name: "Basic rate",      rate: 0.20, upTo: 37700  },
+            { name: "Higher rate",     rate: 0.40, upTo: 112570 },
+            { name: "Additional rate", rate: 0.45, upTo: Infinity }
+        ],
+        'SCT_2025_26': [
+            { name: "Starter rate",      rate: 0.19, upTo: 2306   },
+            { name: "Basic rate",        rate: 0.20, upTo: 13991  },
+            { name: "Intermediate rate", rate: 0.21, upTo: 31092  },
+            { name: "Higher rate",       rate: 0.42, upTo: 62430  },
+            { name: "Advanced rate",     rate: 0.45, upTo: 112570 },
+            { name: "Top rate",          rate: 0.48, upTo: Infinity }
+        ]
+    }
 };
 
 /**
  * Calculate Personal Allowance with tapering for high earners
- * PA reduces by £1 for every £2 over £100,000
  */
 function calculatePersonalAllowance(grossIncome) {
-    if (grossIncome <= PA_TAPER_THRESHOLD) {
-        return PERSONAL_ALLOWANCE_FULL;
+    const { personalAllowance, personalAllowanceTaperThreshold, personalAllowanceTaperRate } = TAX_CONFIG;
+
+    if (grossIncome <= personalAllowanceTaperThreshold) {
+        return personalAllowance;
     }
 
-    const reduction = (grossIncome - PA_TAPER_THRESHOLD) / 2;
-    const personalAllowance = Math.max(0, PERSONAL_ALLOWANCE_FULL - reduction);
-    return personalAllowance;
+    const excessIncome = grossIncome - personalAllowanceTaperThreshold;
+    const reduction = Math.floor(excessIncome * personalAllowanceTaperRate);
+    const adjustedPA = Math.max(0, personalAllowance - reduction);
+
+    return adjustedPA;
 }
 
 /**
- * Calculate taxable income (gross - personal allowance)
+ * Calculate tax breakdown by band
  */
-function calculateTaxableIncome(grossIncome, personalAllowance) {
-    return Math.max(0, grossIncome - personalAllowance);
-}
-
-/**
- * Build tax bands dynamically based on actual Personal Allowance
- * This ensures bands shift correctly when PA tapers
- */
-function buildTaxBands(personalAllowance, region) {
-    const bandTemplates = TAXABLE_BANDS[region] || TAXABLE_BANDS.ENG_2025_26;
-    const bands = [];
-    let cumulativeTaxable = 0;
-
-    for (let i = 0; i < bandTemplates.length; i++) {
-        const template = bandTemplates[i];
-        let grossUpTo;
-
-        if (template.taxableSize === null) {
-            // Special handling for bands that extend to top rate threshold or infinity
-            if (i === bandTemplates.length - 1) {
-                // Last band goes to infinity
-                grossUpTo = Infinity;
-            } else {
-                // Penultimate band goes to top rate threshold
-                grossUpTo = TOP_RATE_THRESHOLD;
-            }
-        } else {
-            // Normal band: PA + cumulative taxable
-            cumulativeTaxable += template.taxableSize;
-            grossUpTo = personalAllowance + cumulativeTaxable;
-        }
-
-        bands.push({
-            name: template.name,
-            rate: template.rate,
-            grossUpTo: grossUpTo
-        });
-    }
-
-    return bands;
-}
-
-/**
- * Calculate Income Tax with band-by-band breakdown
- * Builds bands dynamically from actual PA, then calculates tax
- * Returns: { totalTax: number, breakdown: array }
- */
-function calculateIncomeTax(grossIncome, personalAllowance, region) {
-    const bands = buildTaxBands(personalAllowance, region);
+function calculateTaxBreakdown(taxableIncome, bands) {
     const breakdown = [];
-    let totalTax = 0;
-    let prevGrossThreshold = personalAllowance;
+    let remaining = taxableIncome;
+    let prevLimit = 0;
 
     for (const band of bands) {
-        const currentGrossThreshold = band.grossUpTo;
+        const bandCap = band.upTo;
+        const bandSize = (bandCap === Infinity) ? remaining : Math.max(0, Math.min(remaining, bandCap - prevLimit));
 
-        // Calculate how much gross income falls in this band
-        const grossInBand = Math.max(0, Math.min(grossIncome, currentGrossThreshold) - prevGrossThreshold);
+        if (bandSize > 0) {
+            const tax = bandSize * band.rate;
+            breakdown.push({
+                bandName: band.name,
+                rate: band.rate,
+                amountInBand: bandSize,
+                taxInBand: tax
+            });
 
-        // This gross amount is all taxable (since it's above PA)
-        const taxableInBand = grossInBand;
-        const tax = taxableInBand * band.rate;
+            remaining -= bandSize;
+            prevLimit = bandCap;
 
-        breakdown.push({
-            name: band.name,
-            rate: band.rate,
-            amountInBand: taxableInBand,
-            taxInBand: tax
-        });
-
-        totalTax += tax;
-        prevGrossThreshold = currentGrossThreshold;
-
-        // Stop if we've processed all income
-        if (grossIncome <= currentGrossThreshold) break;
+            if (remaining <= 0) break;
+        }
     }
 
-    return { totalTax, breakdown };
+    return breakdown;
+}
+
+/**
+ * Calculate Income Tax (returns detailed breakdown)
+ */
+function calculateIncomeTax(grossIncome, region, taxYear) {
+    // Calculate Personal Allowance with tapering
+    const personalAllowance = calculatePersonalAllowance(grossIncome);
+
+    // Calculate taxable income
+    const taxableIncome = Math.max(0, grossIncome - personalAllowance);
+
+    // Get appropriate tax bands
+    const bandKey = `${region}_${taxYear}`;
+    const bands = TAX_CONFIG.bands[bandKey];
+
+    if (!bands) {
+        console.error(`Tax bands not found for ${bandKey}`);
+        return {
+            totalTax: 0,
+            breakdown: [],
+            personalAllowance,
+            taxableIncome: 0,
+            effectiveRate: 0
+        };
+    }
+
+    // Calculate breakdown
+    const breakdown = calculateTaxBreakdown(taxableIncome, bands);
+
+    // Sum total tax
+    const totalTax = breakdown.reduce((sum, band) => sum + band.taxInBand, 0);
+
+    // Calculate effective rate
+    const effectiveRate = grossIncome > 0 ? (totalTax / grossIncome) : 0;
+
+    return {
+        totalTax,
+        breakdown,
+        personalAllowance,
+        taxableIncome,
+        effectiveRate
+    };
+}
+
+// ─── Utility: safe DOM setter ────────────────────────────────────────────────
+// Sets textContent only if the element exists — prevents crashes when a page
+// uses a subset of the result elements.
+function setEl(id, value) {
+    const el = document.getElementById(id);
+    if (el) el.textContent = value;
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    const isSalaryPage = document.getElementById('salary-input');
-    const isHourlyPage = document.getElementById('hourly-input');
 
     const formatCurrency = (amount) => {
         return new Intl.NumberFormat('en-GB', {
@@ -139,239 +139,194 @@ document.addEventListener('DOMContentLoaded', () => {
         }).format(amount);
     };
 
-    /**
-     * CALCULATOR 1: Salary -> Hourly
-     */
-    if (isSalaryPage) {
-        const salaryInput = document.getElementById('salary-input');
-        const hoursInput = document.getElementById('hours-input');
-        const weeksInput = document.getElementById('weeks-input');
-        const daysInput = document.getElementById('days-input');
+    // ─── CALCULATOR 1: Salary → Hourly ───────────────────────────────────────
+    // Used on: index.html (homepage), uk/salary-calculator.html
+    if (document.getElementById('salary-input')) {
+
+        const salaryInput  = document.getElementById('salary-input');
+        const hoursInput   = document.getElementById('hours-input');
+        const weeksInput   = document.getElementById('weeks-input');
+        const daysInput    = document.getElementById('days-input');
         const regionSelect = document.getElementById('region-select');
-        const taxYearSelect = document.getElementById('taxyear-select');
-        const resetBtn = document.getElementById('reset-btn');
-
-        const resultHourly = document.getElementById('result-hourly');
-        const resultWeekly = document.getElementById('result-weekly');
-        const resultDaily = document.getElementById('result-daily');
-
-        // Net result elements
-        const resultNetAnnual = document.getElementById('result-net-annual');
-        const resultNetWeekly = document.getElementById('result-net-weekly');
-        const resultNetDaily = document.getElementById('result-net-daily');
-        const resultNetHourly = document.getElementById('result-net-hourly');
-
-        // Tax summary elements
-        const resultPersonalAllowance = document.getElementById('result-personal-allowance');
-        const resultTaxableIncome = document.getElementById('result-taxable-income');
-        const resultTaxTotal = document.getElementById('result-tax-total');
-        const resultEffectiveRate = document.getElementById('result-effective-rate');
-
-        // Tax breakdown table
+        const taxyearSelect = document.getElementById('taxyear-select');
+        const resetBtn     = document.getElementById('reset-btn');
         const taxBreakdownBody = document.getElementById('tax-breakdown-body');
 
         const calculateFromSalary = () => {
-            let salary = parseFloat(salaryInput.value) || 0;
-            let hours = parseFloat(hoursInput.value) || 0;
-            let weeks = parseFloat(weeksInput.value) || 0;
-            let days = parseFloat(daysInput.value) || 0;
-            const region = regionSelect ? regionSelect.value : 'ENG_2025_26';
+            const salary  = parseFloat(salaryInput.value)  || 0;
+            const hours   = parseFloat(hoursInput.value)   || 0;
+            const weeks   = parseFloat(weeksInput.value)   || 0;
+            const days    = parseFloat(daysInput.value)    || 0;
+            const region  = regionSelect ? regionSelect.value : 'ENG';
+            const taxYear = taxyearSelect ? taxyearSelect.value : '2025_26';
 
-            if (salary < 0 || hours <= 0 || weeks <= 0 || days <= 0) {
-                return; // Invalid input, do nothing or show error
-            }
+            if (salary < 0 || hours <= 0 || weeks <= 0 || days <= 0) return;
 
-            // GROSS Calculation Logic (existing)
-            const weeklyPay = salary / weeks;
-            const dailyPay = weeklyPay / days;
+            // ── Gross rates ──
+            const weeklyPay  = salary / weeks;
+            const dailyPay   = weeklyPay / days;
             const hourlyRate = weeklyPay / hours;
+            const monthlyPay = salary / 12;
 
-            // Update GROSS DOM (existing)
-            resultHourly.textContent = formatCurrency(hourlyRate);
-            resultWeekly.textContent = formatCurrency(weeklyPay);
-            resultDaily.textContent = formatCurrency(dailyPay);
+            setEl('result-hourly',  formatCurrency(hourlyRate));
+            setEl('result-daily',   formatCurrency(dailyPay));
+            setEl('result-weekly',  formatCurrency(weeklyPay));
+            setEl('result-monthly', formatCurrency(monthlyPay));
+            setEl('result-annual',  formatCurrency(salary));
+            setEl('result-gross',   formatCurrency(salary));
 
-            // TAX Calculation
-            const personalAllowance = calculatePersonalAllowance(salary);
-            const taxableIncome = calculateTaxableIncome(salary, personalAllowance);
-            const { totalTax, breakdown } = calculateIncomeTax(salary, personalAllowance, region);
-            const netAnnual = salary - totalTax;
-            const effectiveRate = salary > 0 ? (totalTax / salary) * 100 : 0;
+            // ── Tax calculation ──
+            const taxData  = calculateIncomeTax(salary, region, taxYear);
+            const netAnnual  = salary - taxData.totalTax;
+            const netMonthly = netAnnual / 12;
+            const netWeekly  = netAnnual / weeks;
+            const netDaily   = netWeekly / days;
+            const netHourly  = netWeekly / hours;
 
-            // Calculate NET outputs
-            const netWeekly = netAnnual / weeks;
-            const netDaily = netWeekly / days;
-            const netHourly = netWeekly / hours;
+            setEl('result-net-hourly',  formatCurrency(netHourly));
+            setEl('result-net-daily',   formatCurrency(netDaily));
+            setEl('result-net-weekly',  formatCurrency(netWeekly));
+            setEl('result-net-monthly', formatCurrency(netMonthly));
+            setEl('result-net-annual',  formatCurrency(netAnnual));
 
-            // Update NET results
-            if (resultNetAnnual) resultNetAnnual.textContent = formatCurrency(netAnnual);
-            if (resultNetWeekly) resultNetWeekly.textContent = formatCurrency(netWeekly);
-            if (resultNetDaily) resultNetDaily.textContent = formatCurrency(netDaily);
-            if (resultNetHourly) resultNetHourly.textContent = formatCurrency(netHourly);
+            // ── Tax summary ──
+            setEl('result-personal-allowance', formatCurrency(taxData.personalAllowance));
+            setEl('result-taxable-income',     formatCurrency(taxData.taxableIncome));
+            setEl('result-tax-total',          formatCurrency(taxData.totalTax));
+            setEl('result-effective-rate',     (taxData.effectiveRate * 100).toFixed(1) + '%');
 
-            // Update TAX SUMMARY
-            if (resultPersonalAllowance) resultPersonalAllowance.textContent = formatCurrency(personalAllowance);
-            if (resultTaxableIncome) resultTaxableIncome.textContent = formatCurrency(taxableIncome);
-            if (resultTaxTotal) resultTaxTotal.textContent = formatCurrency(totalTax);
-            if (resultEffectiveRate) resultEffectiveRate.textContent = effectiveRate.toFixed(1) + '%';
-
-            // Update TAX BREAKDOWN TABLE
+            // ── Tax breakdown table ──
             if (taxBreakdownBody) {
                 taxBreakdownBody.innerHTML = '';
-                breakdown.forEach(band => {
-                    if (band.amountInBand > 0) {
-                        const row = document.createElement('tr');
-                        row.innerHTML = `
-                            <td>${band.name}</td>
-                            <td>${(band.rate * 100).toFixed(0)}%</td>
-                            <td>${formatCurrency(band.amountInBand)}</td>
-                            <td>${formatCurrency(band.taxInBand)}</td>
-                        `;
-                        taxBreakdownBody.appendChild(row);
-                    }
+                taxData.breakdown.forEach(band => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${band.bandName}</td>
+                        <td>${(band.rate * 100).toFixed(0)}%</td>
+                        <td>${formatCurrency(band.amountInBand)}</td>
+                        <td>${formatCurrency(band.taxInBand)}</td>
+                    `;
+                    taxBreakdownBody.appendChild(row);
                 });
             }
         };
 
-        // Event Listeners
-        const inputs = [salaryInput, hoursInput, weeksInput, daysInput];
-        if (regionSelect) inputs.push(regionSelect);
-        if (taxYearSelect) inputs.push(taxYearSelect);
+        // Event listeners — recalculate on any input change
+        [salaryInput, hoursInput, weeksInput, daysInput, regionSelect, taxyearSelect]
+            .filter(Boolean)
+            .forEach(el => {
+                el.addEventListener('input',  calculateFromSalary);
+                el.addEventListener('change', calculateFromSalary);
+            });
 
-        inputs.forEach(input => {
-            input.addEventListener('input', calculateFromSalary);
-            input.addEventListener('change', calculateFromSalary);
-        });
+        if (resetBtn) {
+            resetBtn.addEventListener('click', () => {
+                salaryInput.value  = 30000;
+                hoursInput.value   = 37.5;
+                weeksInput.value   = 52;
+                daysInput.value    = 5;
+                if (regionSelect)  regionSelect.value  = 'ENG';
+                if (taxyearSelect) taxyearSelect.value = '2025_26';
+                calculateFromSalary();
+            });
+        }
 
-        resetBtn.addEventListener('click', () => {
-            salaryInput.value = 30000;
-            hoursInput.value = 37.5;
-            weeksInput.value = 52;
-            daysInput.value = 5;
-            if (regionSelect) regionSelect.value = 'ENG_2025_26';
-            if (taxYearSelect) taxYearSelect.value = '2025_26';
-            calculateFromSalary();
-        });
-
-        // Initial Calc
+        // Run on load
         calculateFromSalary();
     }
 
-    /**
-     * CALCULATOR 2: Hourly -> Salary
-     */
-    if (isHourlyPage) {
-        const hourlyInput = document.getElementById('hourly-input');
-        const hoursInput = document.getElementById('hours-input');
-        const weeksInput = document.getElementById('weeks-input');
-        const daysInput = document.getElementById('days-input');
+    // ─── CALCULATOR 2: Hourly → Salary ───────────────────────────────────────
+    // Used on: hourly-to-salary.html
+    if (document.getElementById('hourly-input')) {
+
+        const hourlyInput  = document.getElementById('hourly-input');
+        const hoursInput   = document.getElementById('hours-input');
+        const weeksInput   = document.getElementById('weeks-input');
+        const daysInput    = document.getElementById('days-input');
         const regionSelect = document.getElementById('region-select');
-        const taxYearSelect = document.getElementById('taxyear-select');
-        const resetBtn = document.getElementById('reset-btn');
-
-        const resultSalary = document.getElementById('result-salary');
-        const resultWeekly = document.getElementById('result-weekly');
-        const resultDaily = document.getElementById('result-daily');
-
-        // Net result elements
-        const resultNetAnnual = document.getElementById('result-net-annual');
-        const resultNetWeekly = document.getElementById('result-net-weekly');
-        const resultNetDaily = document.getElementById('result-net-daily');
-        const resultNetHourly = document.getElementById('result-net-hourly');
-
-        // Tax summary elements
-        const resultPersonalAllowance = document.getElementById('result-personal-allowance');
-        const resultTaxableIncome = document.getElementById('result-taxable-income');
-        const resultTaxTotal = document.getElementById('result-tax-total');
-        const resultEffectiveRate = document.getElementById('result-effective-rate');
-
-        // Tax breakdown table
+        const taxyearSelect = document.getElementById('taxyear-select');
+        const resetBtn     = document.getElementById('reset-btn');
         const taxBreakdownBody = document.getElementById('tax-breakdown-body');
 
         const calculateFromHourly = () => {
-            let hourly = parseFloat(hourlyInput.value) || 0;
-            let hours = parseFloat(hoursInput.value) || 0;
-            let weeks = parseFloat(weeksInput.value) || 0;
-            let days = parseFloat(daysInput.value) || 0;
-            const region = regionSelect ? regionSelect.value : 'ENG_2025_26';
+            const hourly  = parseFloat(hourlyInput.value)  || 0;
+            const hours   = parseFloat(hoursInput.value)   || 0;
+            const weeks   = parseFloat(weeksInput.value)   || 0;
+            const days    = parseFloat(daysInput.value)    || 0;
+            const region  = regionSelect ? regionSelect.value : 'ENG';
+            const taxYear = taxyearSelect ? taxyearSelect.value : '2025_26';
 
-            if (hourly < 0 || hours <= 0 || weeks <= 0 || days <= 0) {
-                return;
-            }
+            if (hourly < 0 || hours <= 0 || weeks <= 0 || days <= 0) return;
 
-            // GROSS Calculation Logic (existing)
-            const weeklyPay = hourly * hours;
+            // ── Gross rates ──
+            const weeklyPay    = hourly * hours;
             const annualSalary = weeklyPay * weeks;
-            const dailyPay = weeklyPay / days;
+            const dailyPay     = weeklyPay / days;
+            const monthlyPay   = annualSalary / 12;
 
-            // Update GROSS DOM (existing)
-            resultSalary.textContent = formatCurrency(annualSalary);
-            resultWeekly.textContent = formatCurrency(weeklyPay);
-            resultDaily.textContent = formatCurrency(dailyPay);
+            setEl('result-salary',  formatCurrency(annualSalary));
+            setEl('result-weekly',  formatCurrency(weeklyPay));
+            setEl('result-daily',   formatCurrency(dailyPay));
+            setEl('result-monthly', formatCurrency(monthlyPay));
 
-            // TAX Calculation
-            const personalAllowance = calculatePersonalAllowance(annualSalary);
-            const taxableIncome = calculateTaxableIncome(annualSalary, personalAllowance);
-            const { totalTax, breakdown } = calculateIncomeTax(annualSalary, personalAllowance, region);
-            const netAnnual = annualSalary - totalTax;
-            const effectiveRate = annualSalary > 0 ? (totalTax / annualSalary) * 100 : 0;
+            // ── Tax calculation ──
+            const taxData    = calculateIncomeTax(annualSalary, region, taxYear);
+            const netAnnual  = annualSalary - taxData.totalTax;
+            const netMonthly = netAnnual / 12;
+            const netWeekly  = netAnnual / weeks;
+            const netDaily   = netWeekly / days;
+            const netHourly  = netWeekly / hours;
 
-            // Calculate NET outputs
-            const netWeekly = netAnnual / weeks;
-            const netDaily = netWeekly / days;
-            const netHourly = netWeekly / hours;
+            setEl('result-net-hourly',  formatCurrency(netHourly));
+            setEl('result-net-daily',   formatCurrency(netDaily));
+            setEl('result-net-weekly',  formatCurrency(netWeekly));
+            setEl('result-net-monthly', formatCurrency(netMonthly));
+            setEl('result-net-annual',  formatCurrency(netAnnual));
 
-            // Update NET results
-            if (resultNetAnnual) resultNetAnnual.textContent = formatCurrency(netAnnual);
-            if (resultNetWeekly) resultNetWeekly.textContent = formatCurrency(netWeekly);
-            if (resultNetDaily) resultNetDaily.textContent = formatCurrency(netDaily);
-            if (resultNetHourly) resultNetHourly.textContent = formatCurrency(netHourly);
+            // ── Tax summary ──
+            setEl('result-personal-allowance', formatCurrency(taxData.personalAllowance));
+            setEl('result-taxable-income',     formatCurrency(taxData.taxableIncome));
+            setEl('result-tax-total',          formatCurrency(taxData.totalTax));
+            setEl('result-effective-rate',     (taxData.effectiveRate * 100).toFixed(1) + '%');
 
-            // Update TAX SUMMARY
-            if (resultPersonalAllowance) resultPersonalAllowance.textContent = formatCurrency(personalAllowance);
-            if (resultTaxableIncome) resultTaxableIncome.textContent = formatCurrency(taxableIncome);
-            if (resultTaxTotal) resultTaxTotal.textContent = formatCurrency(totalTax);
-            if (resultEffectiveRate) resultEffectiveRate.textContent = effectiveRate.toFixed(1) + '%';
-
-            // Update TAX BREAKDOWN TABLE
+            // ── Tax breakdown table ──
             if (taxBreakdownBody) {
                 taxBreakdownBody.innerHTML = '';
-                breakdown.forEach(band => {
-                    if (band.amountInBand > 0) {
-                        const row = document.createElement('tr');
-                        row.innerHTML = `
-                            <td>${band.name}</td>
-                            <td>${(band.rate * 100).toFixed(0)}%</td>
-                            <td>${formatCurrency(band.amountInBand)}</td>
-                            <td>${formatCurrency(band.taxInBand)}</td>
-                        `;
-                        taxBreakdownBody.appendChild(row);
-                    }
+                taxData.breakdown.forEach(band => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${band.bandName}</td>
+                        <td>${(band.rate * 100).toFixed(0)}%</td>
+                        <td>${formatCurrency(band.amountInBand)}</td>
+                        <td>${formatCurrency(band.taxInBand)}</td>
+                    `;
+                    taxBreakdownBody.appendChild(row);
                 });
             }
         };
 
-        // Event Listeners
-        const inputs = [hourlyInput, hoursInput, weeksInput, daysInput];
-        if (regionSelect) inputs.push(regionSelect);
-        if (taxYearSelect) inputs.push(taxYearSelect);
+        // Event listeners
+        [hourlyInput, hoursInput, weeksInput, daysInput, regionSelect, taxyearSelect]
+            .filter(Boolean)
+            .forEach(el => {
+                el.addEventListener('input',  calculateFromHourly);
+                el.addEventListener('change', calculateFromHourly);
+            });
 
-        inputs.forEach(input => {
-            input.addEventListener('input', calculateFromHourly);
-            input.addEventListener('change', calculateFromHourly);
-        });
+        if (resetBtn) {
+            resetBtn.addEventListener('click', () => {
+                hourlyInput.value  = 15;
+                hoursInput.value   = 37.5;
+                weeksInput.value   = 52;
+                daysInput.value    = 5;
+                if (regionSelect)  regionSelect.value  = 'ENG';
+                if (taxyearSelect) taxyearSelect.value = '2025_26';
+                calculateFromHourly();
+            });
+        }
 
-        resetBtn.addEventListener('click', () => {
-            hourlyInput.value = 15;
-            hoursInput.value = 37.5;
-            weeksInput.value = 52;
-            daysInput.value = 5;
-            if (regionSelect) regionSelect.value = 'ENG_2025_26';
-            if (taxYearSelect) taxYearSelect.value = '2025_26';
-            calculateFromHourly();
-        });
-
-        // Initial Calc
+        // Run on load
         calculateFromHourly();
     }
+
 });

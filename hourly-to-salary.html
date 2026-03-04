@@ -1,232 +1,423 @@
 <!DOCTYPE html>
 <html lang="en-GB">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description"
-        content="Convert your hourly rate to an annual salary with our UK calculator. Find out what your hourly wage equals per year, week, and day.">
-    <meta name="google-adsense-account" content="ca-pub-1923188531518538">
-    <title>Hourly to Salary Calculator UK - Annual Income Estimator</title>
-
-    <link rel="stylesheet" href="style.css">
-
-    <!-- Google AdSense - Top Banner Placeholder -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1923188531518538"
-        crossorigin="anonymous"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UK Hourly to Annual Salary Calculator 2025/26 | SalaryUKCalc</title>
+  <meta name="description" content="Convert your UK hourly rate to an annual salary. See what your hourly wage equals per year, month, week, and day — with net income after Income Tax for 2025/26.">
+  <link rel="canonical" href="https://salaryukcalc.com/hourly-to-salary.html">
+  <link rel="stylesheet" href="style.css">
+  <!-- Google AdSense -->
+  <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script> -->
 </head>
-
 <body>
 
-    <header>
-        <nav class="container">
-            <ul>
-                <li><a href="index.html">Salary &rarr; Hourly</a></li>
-                <li><a href="hourly-to-salary.html" class="active">Hourly &rarr; Salary</a></li>
-                <li><a href="privacy.html">Privacy</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+<header>
+  <div class="nav-wrapper">
+    <a href="index.html" class="nav-brand">Salary<span>UKCalc</span></a>
+    <nav aria-label="Main navigation">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="regions.html">Regions</a></li>
+        <li class="has-dropdown">
+          <a href="regions.html">Countries &#9662;</a>
+          <ul class="nav-dropdown">
+            <li class="nav-dropdown-header">🇬🇧 United Kingdom</li>
+            <li><a href="uk/index.html">🇬🇧 United Kingdom</a></li>
+            <li class="nav-dropdown-header">🇪🇺 European Union</li>
+            <li><a href="eu/ireland.html">🇮🇪 Ireland</a></li>
+            <li><a href="eu/germany.html">🇩🇪 Germany</a></li>
+            <li><a href="eu/france.html">🇫🇷 France</a></li>
+            <li><a href="eu/netherlands.html">🇳🇱 Netherlands</a></li>
+            <li><a href="eu/spain.html">🇪🇸 Spain</a></li>
+            <li><a href="eu/italy.html">🇮🇹 Italy</a></li>
+            <li><a href="eu/poland.html">🇵🇱 Poland</a></li>
+            <li class="nav-dropdown-header">🌍 Global</li>
+            <li><a href="global/usa.html">🇺🇸 USA</a></li>
+            <li><a href="global/canada.html">🇨🇦 Canada</a></li>
+            <li><a href="global/australia.html">🇦🇺 Australia</a></li>
+            <li><a href="global/switzerland.html">🇨🇭 Switzerland</a></li>
+            <li><a href="global/norway.html">🇳🇴 Norway</a></li>
+            <li><a href="global/uae.html">🇦🇪 UAE</a></li>
+          </ul>
+        </li>
+        <li><a href="guides/index.html">Guides</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
 
-    <div class="container">
-        <!-- AdSense Placeholder: Top Banner -->
-        <div class="ad-placeholder ad-top">
-            AdSense Banner Placeholder (970x90 or Responsive)
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <div class="breadcrumb-inner">
+    <a href="index.html">Home</a>
+    <span>›</span>
+    <a href="uk/index.html">🇬🇧 United Kingdom</a>
+    <span>›</span>
+    <span aria-current="page">Hourly to Salary</span>
+  </div>
+</nav>
+
+<div class="page-header page-header-uk">
+  <div class="page-header-inner">
+    <h1>UK Hourly Rate to Annual Salary Calculator 2025/26</h1>
+    <p>Enter your hourly rate to see your equivalent annual salary, monthly, weekly, and daily pay — both gross and net after Income Tax. Includes 2025/26 HMRC bands for England, Wales, and Scotland.</p>
+    <div class="page-header-meta">
+      <span>Tax Year: 2025/26</span>
+      <span>System: PAYE / HMRC</span>
+      <span>Currency: GBP (£)</span>
+      <span>Income Tax only</span>
+    </div>
+  </div>
+</div>
+
+<main>
+  <div class="country-page-layout">
+    <div class="country-page-main">
+
+      <!-- AD: TOP -->
+      <div class="ad-placeholder ad-top">AdSense Banner (Responsive)</div>
+
+      <!-- CALCULATOR -->
+      <div class="calculator-card">
+        <div class="calculator-card-header">
+          <h2>Hourly Rate to Salary</h2>
+          <a href="uk/salary-calculator.html" class="btn-link">Switch: Salary → Hourly ↗</a>
         </div>
+
+        <div class="calc-grid-2">
+          <div class="input-group">
+            <label for="region-select">Region</label>
+            <select id="region-select">
+              <option value="ENG">England / Wales / N. Ireland</option>
+              <option value="SCT">Scotland</option>
+            </select>
+            <span class="help-text">Tax bands differ by region</span>
+          </div>
+          <div class="input-group">
+            <label for="taxyear-select">Tax Year</label>
+            <select id="taxyear-select">
+              <option value="2025_26">2025/26</option>
+            </select>
+          </div>
+        </div>
+
+        <hr class="calc-divider">
+
+        <div class="calc-grid-2">
+          <div class="input-group">
+            <label for="hourly-input">Hourly Rate (£)</label>
+            <input type="number" id="hourly-input" value="15" min="0" step="0.50">
+            <span class="help-text">Your gross hourly wage before tax</span>
+          </div>
+          <div class="input-group">
+            <label for="hours-input">Hours per Week</label>
+            <input type="number" id="hours-input" value="37.5" min="1" step="0.5">
+            <span class="help-text">Standard UK full-time: 37.5 or 40</span>
+          </div>
+          <div class="input-group">
+            <label for="weeks-input">Weeks per Year</label>
+            <input type="number" id="weeks-input" value="52" min="1" max="52">
+          </div>
+          <div class="input-group">
+            <label for="days-input">Days per Week</label>
+            <input type="number" id="days-input" value="5" min="1" max="7">
+          </div>
+        </div>
+
+        <button id="reset-btn" class="btn btn-secondary">Reset to Defaults</button>
+
+        <!-- GROSS RESULTS -->
+        <h3 class="results-heading">Gross Income</h3>
+        <div class="results">
+          <div class="result-item">
+            <span class="result-label">Annual Salary</span>
+            <span class="result-value large" id="result-salary">£0.00</span>
+          </div>
+          <div class="result-item">
+            <span class="result-label">Monthly Pay</span>
+            <span class="result-value" id="result-monthly">£0.00</span>
+          </div>
+          <div class="result-item">
+            <span class="result-label">Weekly Pay</span>
+            <span class="result-value" id="result-weekly">£0.00</span>
+          </div>
+          <div class="result-item">
+            <span class="result-label">Daily Pay</span>
+            <span class="result-value" id="result-daily">£0.00</span>
+          </div>
+        </div>
+
+        <!-- NET RESULTS -->
+        <h3 class="results-heading">Net Income (after Income Tax only)</h3>
+        <div class="results results-net">
+          <div class="result-item">
+            <span class="result-label">Net Annual</span>
+            <span class="result-value large" id="result-net-annual">£0.00</span>
+          </div>
+          <div class="result-item">
+            <span class="result-label">Net Monthly</span>
+            <span class="result-value" id="result-net-monthly">£0.00</span>
+          </div>
+          <div class="result-item">
+            <span class="result-label">Net Weekly</span>
+            <span class="result-value" id="result-net-weekly">£0.00</span>
+          </div>
+          <div class="result-item">
+            <span class="result-label">Net Daily</span>
+            <span class="result-value" id="result-net-daily">£0.00</span>
+          </div>
+          <div class="result-item">
+            <span class="result-label">Net Hourly</span>
+            <span class="result-value" id="result-net-hourly">£0.00</span>
+          </div>
+        </div>
+
+        <!-- TAX SUMMARY -->
+        <h3 class="results-heading">Tax Summary</h3>
+        <div class="tax-summary">
+          <div class="tax-summary-item">
+            <span class="tax-summary-label">Personal Allowance:</span>
+            <span class="tax-summary-value" id="result-personal-allowance">£12,570</span>
+          </div>
+          <div class="tax-summary-item">
+            <span class="tax-summary-label">Taxable Income:</span>
+            <span class="tax-summary-value" id="result-taxable-income">£0.00</span>
+          </div>
+          <div class="tax-summary-item">
+            <span class="tax-summary-label">Total Income Tax:</span>
+            <span class="tax-summary-value" id="result-tax-total">£0.00</span>
+          </div>
+          <div class="tax-summary-item">
+            <span class="tax-summary-label">Effective Tax Rate:</span>
+            <span class="tax-summary-value" id="result-effective-rate">0.0%</span>
+          </div>
+        </div>
+
+        <!-- TAX BREAKDOWN -->
+        <h3 class="results-heading">Tax Breakdown by Band</h3>
+        <div class="table-container">
+          <table class="tax-breakdown-table">
+            <thead>
+              <tr>
+                <th>Band</th>
+                <th>Rate</th>
+                <th>Amount in band</th>
+                <th>Tax in band</th>
+              </tr>
+            </thead>
+            <tbody id="tax-breakdown-body"></tbody>
+          </table>
+        </div>
+
+        <p class="disclaimer">* Net pay shows Income Tax deduction only. National Insurance (8% on £12,570–£50,270, 2% above), pension contributions, student loan repayments, and other deductions are not included. Your actual take-home pay will be lower. Results are estimates only. <a href="disclaimer.html">Full disclaimer.</a></p>
+      </div>
+
+      <!-- AD: INLINE -->
+      <div class="ad-placeholder ad-inline">AdSense In-Article (Responsive)</div>
+
+      <!-- HOW IT WORKS -->
+      <section class="content-section">
+        <h2>How This Calculator Works</h2>
+        <p>This calculator converts your gross hourly rate into annual, monthly, weekly, and daily equivalents — both before and after Income Tax.</p>
+
+        <h3>Gross Salary Calculation</h3>
+        <div class="worked-example">
+          <div class="worked-example-step">
+            <div class="step-number">1</div>
+            <div class="step-content">
+              <h4>Hourly × Hours × Weeks = Annual</h4>
+              <p>Example: £15.00 × 37.5 hours × 52 weeks = <strong>£29,250 per year</strong></p>
+            </div>
+          </div>
+          <div class="worked-example-step">
+            <div class="step-number">2</div>
+            <div class="step-content">
+              <h4>Annual ÷ 12 = Monthly</h4>
+              <p>£29,250 ÷ 12 = <strong>£2,437.50 per month</strong></p>
+            </div>
+          </div>
+          <div class="worked-example-step">
+            <div class="step-number">3</div>
+            <div class="step-content">
+              <h4>Weekly ÷ Days = Daily</h4>
+              <p>£562.50 ÷ 5 days = <strong>£112.50 per day</strong></p>
+            </div>
+          </div>
+        </div>
+
+        <h3>Net Income Calculation</h3>
+        <p>The net figures apply the UK Income Tax bands to the calculated annual salary, then divide back down to hourly/daily/weekly/monthly rates. The Personal Allowance (£12,570 for 2025/26) is deducted before tax is applied.</p>
+      </section>
+
+      <!-- NATIONAL MINIMUM WAGE NOTE -->
+      <section class="content-section">
+        <h2>UK National Minimum Wage Reference (2025)</h2>
+        <div class="table-container">
+          <table class="tax-breakdown-table">
+            <thead>
+              <tr><th>Age Group</th><th>Minimum Hourly Rate</th><th>Equivalent Annual (37.5h/52w)</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Age 21+ (National Living Wage)</td><td>£12.21</td><td>~£23,810</td></tr>
+              <tr><td>Age 18–20</td><td>£10.00</td><td>~£19,500</td></tr>
+              <tr><td>Age 16–17</td><td>£7.55</td><td>~£14,723</td></tr>
+              <tr><td>Apprentice</td><td>£7.55</td><td>~£14,723</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="disclaimer">* Rates shown are for April 2025. Always verify current rates with the <a href="https://www.gov.uk/national-minimum-wage-rates" target="_blank" rel="noopener noreferrer">official GOV.UK page</a>.</p>
+      </section>
+
+      <!-- FAQ -->
+      <section class="content-section">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-list">
+          <div class="faq-item">
+            <h3 class="faq-question">How is the annual salary calculated from an hourly rate?</h3>
+            <div class="faq-answer">
+              <p>Multiply your hourly rate by your weekly hours, then multiply by the number of weeks you work per year. For a standard 37.5-hour, 52-week year: <strong>Hourly × 37.5 × 52</strong>. For a 40-hour week: <strong>Hourly × 40 × 52</strong>.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <h3 class="faq-question">Does this include holiday pay?</h3>
+            <div class="faq-answer">
+              <p>If you are a salaried employee, your annual salary typically includes paid holiday. This calculator assumes you work the full number of weeks entered (default 52). If you are a contractor or zero-hours worker, your actual earnings will depend on the weeks you actually work.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <h3 class="faq-question">Why is my net pay different from my actual take-home?</h3>
+            <div class="faq-answer">
+              <p>This calculator shows Income Tax only. Your actual take-home pay will also be reduced by National Insurance contributions (8% on earnings between £12,570 and £50,270), pension contributions, student loan repayments, and any other deductions your employer makes.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <h3 class="faq-question">What is the Personal Allowance for 2025/26?</h3>
+            <div class="faq-answer">
+              <p>The standard Personal Allowance is <strong>£12,570</strong>. This is the amount you can earn before paying Income Tax. If your income exceeds £100,000, the allowance is reduced by £1 for every £2 over that threshold, reaching £0 at £125,140.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <h3 class="faq-question">Does Scotland have different rates?</h3>
+            <div class="faq-answer">
+              <p>Yes. Select "Scotland" in the Region dropdown to apply Scottish Income Tax rates. Scotland has more bands (including a 19% Starter Rate and 21% Intermediate Rate) and higher top rates than the rest of the UK.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- DISCLAIMER -->
+      <div class="notice-box warning">
+        <strong>Disclaimer:</strong> Results are estimates for informational purposes only. This calculator shows Income Tax only and does not account for National Insurance, pension contributions, student loan repayments, or other deductions. Always check your payslip and consult HMRC or a qualified tax adviser for advice specific to your situation. <a href="disclaimer.html">Read our full disclaimer.</a>
+      </div>
+
+      <!-- AD: BOTTOM -->
+      <div class="ad-placeholder ad-bottom">AdSense Bottom Banner (Responsive)</div>
+
     </div>
 
-    <main class="container">
-        <h1>Hourly to Salary Calculator (UK)</h1>
-        <p style="text-align: center; color: var(--text-muted);">See what your hourly wage equals as an annual salary.
-        </p>
+    <!-- SIDEBAR -->
+    <aside class="country-page-sidebar">
+      <div class="sidebar-card">
+        <h3>UK Tax Facts 2025/26</h3>
+        <ul class="sidebar-list">
+          <li><strong>Personal Allowance:</strong> £12,570</li>
+          <li><strong>Basic Rate:</strong> 20% (up to £50,270)</li>
+          <li><strong>Higher Rate:</strong> 40% (up to £125,140)</li>
+          <li><strong>Additional Rate:</strong> 45%</li>
+          <li><strong>NI Employee Rate:</strong> 8% / 2%</li>
+          <li><strong>Tax System:</strong> PAYE</li>
+        </ul>
+        <a href="https://www.gov.uk/income-tax-rates" target="_blank" rel="noopener noreferrer" class="sidebar-source-link">Official HMRC rates ↗</a>
+      </div>
 
-        <div class="calculator-card">
-            <div class="input-group">
-                <label for="hourly-input">Hourly Rate (&pound;)</label>
-                <input type="number" id="hourly-input" value="15" min="0" step="0.50">
-                <span class="help-text">Your gross hourly wage</span>
-            </div>
+      <div class="sidebar-card">
+        <h3>Related Calculators</h3>
+        <ul class="sidebar-list">
+          <li><a href="uk/salary-calculator.html">UK Salary → Hourly</a></li>
+          <li><a href="eu/germany.html">Germany Estimator</a></li>
+          <li><a href="eu/france.html">France Estimator</a></li>
+          <li><a href="global/usa.html">USA Estimator</a></li>
+          <li><a href="global/australia.html">Australia Estimator</a></li>
+        </ul>
+      </div>
 
-            <div class="input-group">
-                <label for="hours-input">Hours per Week</label>
-                <input type="number" id="hours-input" value="37.5" min="1" step="0.5">
-                <span class="help-text">Standard UK full-time is often 37.5 or 40</span>
-            </div>
+      <div class="sidebar-card">
+        <h3>Useful Guides</h3>
+        <ul class="sidebar-list">
+          <li><a href="guides/gross-vs-net-salary.html">Gross vs Net Salary</a></li>
+          <li><a href="guides/how-payroll-deductions-work.html">Payroll Deductions</a></li>
+          <li><a href="guides/income-tax-vs-social-contributions.html">Tax vs NI</a></li>
+          <li><a href="methodology.html">Our Methodology</a></li>
+        </ul>
+      </div>
+    </aside>
+  </div>
+</main>
 
-            <div class="input-group">
-                <label for="weeks-input">Weeks per Year</label>
-                <input type="number" id="weeks-input" value="52" min="1" max="52">
-            </div>
-
-            <div class="input-group">
-                <label for="days-input">Days per Week</label>
-                <input type="number" id="days-input" value="5" min="1" max="7">
-            </div>
-
-            <div class="input-group">
-                <label for="region-select">Region</label>
-                <select id="region-select">
-                    <option value="ENG_2025_26" selected>England/Wales/Northern Ireland</option>
-                    <option value="SCO_2025_26">Scotland</option>
-                </select>
-            </div>
-
-            <div class="input-group">
-                <label for="taxyear-select">Tax Year</label>
-                <select id="taxyear-select">
-                    <option value="2025_26" selected>2025/26</option>
-                </select>
-                <span class="help-text">*Calculates Income Tax only using standard rules and standard Personal
-                    Allowance; does not include National Insurance, pension, student loan, benefits, bonuses, or other
-                    deductions.</span>
-            </div>
-
-            <button id="reset-btn" class="btn btn-secondary">Reset to Defaults</button>
-
-            <!-- Gross Results -->
-            <h3 style="margin-top: 2rem; margin-bottom: 0.5rem; font-size: 1.125rem;">Gross Pay</h3>
-            <div class="results">
-                <div class="result-item">
-                    <span class="result-label">Annual Salary</span>
-                    <span class="result-value large" id="result-salary">&pound;0.00</span>
-                </div>
-                <div class="result-item">
-                    <span class="result-label">Weekly Pay</span>
-                    <span class="result-value" id="result-weekly">&pound;0.00</span>
-                </div>
-                <div class="result-item">
-                    <span class="result-label">Daily Pay</span>
-                    <span class="result-value" id="result-daily">&pound;0.00</span>
-                </div>
-            </div>
-
-            <!-- Net Results (After Income Tax) -->
-            <h3 style="margin-top: 2rem; margin-bottom: 0.5rem; font-size: 1.125rem;">Net Pay (After Income Tax)</h3>
-            <div class="results">
-                <div class="result-item">
-                    <span class="result-label">Net Annual</span>
-                    <span class="result-value" id="result-net-annual">&pound;0.00</span>
-                </div>
-                <div class="result-item">
-                    <span class="result-label">Net Hourly</span>
-                    <span class="result-value" id="result-net-hourly">&pound;0.00</span>
-                </div>
-                <div class="result-item">
-                    <span class="result-label">Net Weekly</span>
-                    <span class="result-value" id="result-net-weekly">&pound;0.00</span>
-                </div>
-                <div class="result-item">
-                    <span class="result-label">Net Daily</span>
-                    <span class="result-value" id="result-net-daily">&pound;0.00</span>
-                </div>
-            </div>
-
-            <!-- Tax Summary -->
-            <h3 style="margin-top: 2rem; margin-bottom: 0.5rem; font-size: 1.125rem;">Tax Summary</h3>
-            <div class="tax-summary">
-                <div class="result-item">
-                    <span class="result-label">Personal Allowance used</span>
-                    <span class="result-value" id="result-personal-allowance">&pound;0.00</span>
-                </div>
-                <div class="result-item">
-                    <span class="result-label">Taxable income (gross - allowance, min 0)</span>
-                    <span class="result-value" id="result-taxable-income">&pound;0.00</span>
-                </div>
-                <div class="result-item">
-                    <span class="result-label">Total Income Tax (annual)</span>
-                    <span class="result-value" id="result-tax-total">&pound;0.00</span>
-                </div>
-                <div class="result-item">
-                    <span class="result-label">Effective tax rate (tax / gross)</span>
-                    <span class="result-value" id="result-effective-rate">0.0%</span>
-                </div>
-            </div>
-
-            <!-- Tax Breakdown Table -->
-            <h3 style="margin-top: 2rem; margin-bottom: 0.5rem; font-size: 1.125rem;">Tax Breakdown</h3>
-            <div class="table-container">
-                <table class="tax-breakdown">
-                    <thead>
-                        <tr>
-                            <th>Band name</th>
-                            <th>Rate</th>
-                            <th>Taxable amount in band</th>
-                            <th>Tax in band</th>
-                        </tr>
-                    </thead>
-                    <tbody id="tax-breakdown-body">
-                    </tbody>
-                </table>
-            </div>
-            <p class="disclaimer">*Net pay includes Income Tax only. It does not include National Insurance, pension,
-                student loan, benefits, bonuses, or other deductions.</p>
-        </div>
-
-        <!-- AdSense Placeholder: Inline -->
-        <div class="ad-placeholder ad-inline">
-            AdSense In-Article Placeholder (Responsive)
-        </div>
-
-        <section class="faq-section">
-            <h2>Frequently Asked Questions</h2>
-
-            <div class="faq-item">
-                <h3>How is the annual salary calculated?</h3>
-                <p>We multiply your hourly rate by the number of hours you work a week, and then multiply that by the
-                    weeks worked in a year (usually 52).</p>
-            </div>
-
-            <div class="faq-item">
-                <h3>Does this figure include holiday pay?</h3>
-                <p>If you are a full-time employee, your annual salary usually includes paid holiday. For contractors or
-                    zero-hour workers, this calculates your gross earnings if you work 52 weeks.</p>
-            </div>
-
-            <div class="faq-item">
-                <h3>What about National Minimum Wage?</h3>
-                <p>This calculator accepts any hourly rate. Always ensure your hourly rate meets the current UK National
-                    Minimum Wage or Living Wage standards.</p>
-            </div>
-
-            <div class="faq-item">
-                <h3>Is this calculation accurate for taxes?</h3>
-                <p>Yes, this tool now calculates UK Income Tax and displays both gross and net pay. However, it does NOT
-                    include National Insurance, pension contributions, student loans, or other deductions.</p>
-            </div>
-
-            <div class="faq-item">
-                <h3>Why might your Personal Allowance be lower?</h3>
-                <p>If your income exceeds £100,000, your Personal Allowance is reduced by £1 for every £2 over this
-                    threshold. This means the Personal Allowance becomes £0 at £125,140 and above.</p>
-            </div>
-
-            <div class="faq-item">
-                <h3>Why ask for working days per week?</h3>
-                <p>We use this purely to estimate your "Daily Pay". It does not affect the calculation of your annual
-                    salary.</p>
-            </div>
-        </section>
-    </main>
-
-    <div class="container">
-        <!-- AdSense Placeholder: Bottom Banner -->
-        <div class="ad-placeholder ad-bottom">
-            AdSense Bottom Banner (970x250 or Responsive)
-        </div>
+<footer>
+  <div class="footer-grid">
+    <div class="footer-col footer-brand">
+      <a href="index.html" class="nav-brand">Salary<span>UKCalc</span></a>
+      <p>Free salary and tax calculators for the UK, EU, and global countries. All calculations run in your browser. Results are estimates only — not professional tax advice.</p>
     </div>
+    <div class="footer-col">
+      <h4>Regions</h4>
+      <ul>
+        <li><a href="uk/index.html">🇬🇧 United Kingdom</a></li>
+        <li><a href="eu/index.html">🇪🇺 European Union</a></li>
+        <li><a href="global/index.html">🌍 Global</a></li>
+        <li><a href="regions.html">All Regions</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Countries</h4>
+      <ul>
+        <li><a href="eu/ireland.html">🇮🇪 Ireland</a></li>
+        <li><a href="eu/germany.html">🇩🇪 Germany</a></li>
+        <li><a href="eu/france.html">🇫🇷 France</a></li>
+        <li><a href="global/usa.html">🇺🇸 USA</a></li>
+        <li><a href="global/australia.html">🇦🇺 Australia</a></li>
+        <li><a href="global/uae.html">🇦🇪 UAE</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Guides</h4>
+      <ul>
+        <li><a href="guides/gross-vs-net-salary.html">Gross vs Net Salary</a></li>
+        <li><a href="guides/income-tax-vs-social-contributions.html">Tax vs Social Contributions</a></li>
+        <li><a href="guides/how-payroll-deductions-work.html">Payroll Deductions</a></li>
+        <li><a href="guides/tax-residency-basics.html">Tax Residency</a></li>
+        <li><a href="guides/why-net-salary-differs-by-country.html">Why Net Pay Differs</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <ul>
+        <li><a href="privacy.html">Privacy Policy</a></li>
+        <li><a href="terms.html">Terms of Use</a></li>
+        <li><a href="disclaimer.html">Disclaimer</a></li>
+        <li><a href="methodology.html">Methodology</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; <span id="footer-year">2025</span> SalaryUKCalc.com — All results are estimates for informational purposes only.</p>
+    <div class="footer-bottom-links">
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+      <a href="disclaimer.html">Disclaimer</a>
+      <a href="methodology.html">Methodology</a>
+    </div>
+  </div>
+</footer>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2024 UK Salary Calculator. All rights reserved.</p>
-            <p><a href="privacy.html">Privacy Policy</a> | <a href="about.html">About Us</a> | <a
-                    href="contact.html">Contact</a></p>
-        </div>
-    </footer>
-
-    <script src="script.js"></script>
+<script src="script.js"></script>
+<script>
+  document.getElementById('footer-year').textContent = new Date().getFullYear();
+</script>
 </body>
-
-
 </html>

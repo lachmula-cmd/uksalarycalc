@@ -1,236 +1,758 @@
 <!DOCTYPE html>
-<html lang="en-GB">
-
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description"
-        content="Convert your annual salary to hourly rate quickly with our UK salary calculator. See your daily and weekly pay breakdown. Free, fast, and simple.">
-    <meta name="google-adsense-account" content="ca-pub-1923188531518538">
-    <title>Salary to Hourly Calculator UK - Free Conversion Tool</title>
-    <link rel="stylesheet" href="style.css">
-
-    <!-- Google AdSense - Top Banner Placeholder -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1923188531518538"
-        crossorigin="anonymous"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UK Salary Calculator 2025/26 — Accurate Take-Home Pay</title>
+  <meta name="description" content="Calculate your exact UK take-home pay after income tax and National Insurance. Covers England, Scotland, Wales and Northern Ireland with 2025/26 rates.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
 </head>
-
 <body>
 
-    <header>
-        <nav class="container">
-            <ul>
-                <li><a href="index.html" class="active">Salary &rarr; Hourly</a></li>
-                <li><a href="hourly-to-salary.html">Hourly &rarr; Salary</a></li>
-                <li><a href="privacy.html">Privacy</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <div class="container">
-        <!-- AdSense Placeholder: Top Banner -->
-        <div class="ad-placeholder ad-top">
-            AdSense Banner Placeholder (970x90 or Responsive)
+  <!-- NAVIGATION -->
+  <header class="nav-wrapper">
+    <nav class="nav">
+      <a href="/" class="nav__logo">
+        <div class="nav__logo-mark">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+            <rect width="22" height="22" rx="6" fill="#2563eb"/>
+            <path d="M7 11.5C7 9.015 9.015 7 11.5 7C13.985 7 16 9.015 16 11.5" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
+            <path d="M7 11.5C7 13.985 9.015 16 11.5 16" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
+            <circle cx="11.5" cy="11.5" r="1.5" fill="white"/>
+          </svg>
         </div>
+        <span class="nav__logo-text">PayCalc<strong>UK</strong></span>
+      </a>
+      <div class="nav__center">
+        <span class="nav__badge">
+          <span class="nav__badge-dot"></span>
+          2025/26 Tax Year
+        </span>
+      </div>
+      <div class="nav__right">
+        <a href="#how-it-works" class="nav__link">How it works</a>
+        <a href="#tax-rates" class="nav__link">Tax Rates</a>
+        <a href="#faq" class="nav__link">FAQ</a>
+        <a href="#calculator" class="btn btn--primary btn--sm">Calculate Now</a>
+      </div>
+      <button class="nav__mobile-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+    <div class="nav__mobile-menu" id="mobileMenu">
+      <a href="#how-it-works" class="nav__mobile-link">How it works</a>
+      <a href="#tax-rates" class="nav__mobile-link">Tax Rates</a>
+      <a href="#faq" class="nav__mobile-link">FAQ</a>
+      <a href="#calculator" class="btn btn--primary btn--full">Calculate Now</a>
     </div>
+  </header>
 
-    <main class="container">
-        <h1>Salary to Hourly Calculator (UK)</h1>
-        <p style="text-align: center; color: var(--text-muted);">Enter your annual salary to see your hourly, daily, and
-            weekly rate.</p>
-
-        <div class="calculator-card">
-            <div class="input-group">
-                <label for="salary-input">Annual Salary (&pound;)</label>
-                <input type="number" id="salary-input" value="30000" min="0" step="100">
-                <span class="help-text">Gross annual income before tax</span>
-            </div>
-
-            <div class="input-group">
-                <label for="hours-input">Hours per Week</label>
-                <input type="number" id="hours-input" value="37.5" min="1" step="0.5">
-                <span class="help-text">Standard UK full-time is often 37.5 or 40</span>
-            </div>
-
-            <div class="input-group">
-                <label for="weeks-input">Weeks per Year</label>
-                <input type="number" id="weeks-input" value="52" min="1" max="52">
-            </div>
-
-            <div class="input-group">
-                <label for="days-input">Days per Week</label>
-                <input type="number" id="days-input" value="5" min="1" max="7">
-            </div>
-
-            <div class="input-group">
-                <label for="region-select">Region</label>
-                <select id="region-select">
-                    <option value="ENG_2025_26" selected>England/Wales/Northern Ireland</option>
-                    <option value="SCO_2025_26">Scotland</option>
-                </select>
-            </div>
-
-            <div class="input-group">
-                <label for="taxyear-select">Tax Year</label>
-                <select id="taxyear-select">
-                    <option value="2025_26" selected>2025/26</option>
-                </select>
-                <span class="help-text">*Calculates Income Tax only using standard rules and standard Personal
-                    Allowance; does not include National Insurance, pension, student loan, benefits, bonuses, or other
-                    deductions.</span>
-            </div>
-
-            <button id="reset-btn" class="btn btn-secondary">Reset to Defaults</button>
-
-            <!-- Gross Results -->
-            <h3 style="margin-top: 2rem; margin-bottom: 0.5rem; font-size: 1.125rem;">Gross Pay</h3>
-            <div class="results">
-                <div class="result-item">
-                    <span class="result-label">Hourly Rate</span>
-                    <span class="result-value large" id="result-hourly">&pound;0.00</span>
-                </div>
-                <div class="result-item">
-                    <span class="result-label">Weekly Pay</span>
-                    <span class="result-value" id="result-weekly">&pound;0.00</span>
-                </div>
-                <div class="result-item">
-                    <span class="result-label">Daily Pay</span>
-                    <span class="result-value" id="result-daily">&pound;0.00</span>
-                </div>
-            </div>
-
-            <!-- Net Results (After Income Tax) -->
-            <h3 style="margin-top: 2rem; margin-bottom: 0.5rem; font-size: 1.125rem;">Net Pay (After Income Tax)</h3>
-            <div class="results">
-                <div class="result-item">
-                    <span class="result-label">Net Annual</span>
-                    <span class="result-value" id="result-net-annual">&pound;0.00</span>
-                </div>
-                <div class="result-item">
-                    <span class="result-label">Net Hourly</span>
-                    <span class="result-value" id="result-net-hourly">&pound;0.00</span>
-                </div>
-                <div class="result-item">
-                    <span class="result-label">Net Weekly</span>
-                    <span class="result-value" id="result-net-weekly">&pound;0.00</span>
-                </div>
-                <div class="result-item">
-                    <span class="result-label">Net Daily</span>
-                    <span class="result-value" id="result-net-daily">&pound;0.00</span>
-                </div>
-            </div>
-
-            <!-- Tax Summary -->
-            <h3 style="margin-top: 2rem; margin-bottom: 0.5rem; font-size: 1.125rem;">Tax Summary</h3>
-            <div class="tax-summary">
-                <div class="result-item">
-                    <span class="result-label">Personal Allowance used</span>
-                    <span class="result-value" id="result-personal-allowance">&pound;0.00</span>
-                </div>
-                <div class="result-item">
-                    <span class="result-label">Taxable income (gross - allowance, min 0)</span>
-                    <span class="result-value" id="result-taxable-income">&pound;0.00</span>
-                </div>
-                <div class="result-item">
-                    <span class="result-label">Total Income Tax (annual)</span>
-                    <span class="result-value" id="result-tax-total">&pound;0.00</span>
-                </div>
-                <div class="result-item">
-                    <span class="result-label">Effective tax rate (tax / gross)</span>
-                    <span class="result-value" id="result-effective-rate">0.0%</span>
-                </div>
-            </div>
-
-            <!-- Tax Breakdown Table -->
-            <h3 style="margin-top: 2rem; margin-bottom: 0.5rem; font-size: 1.125rem;">Tax Breakdown</h3>
-            <div class="table-container">
-                <table class="tax-breakdown">
-                    <thead>
-                        <tr>
-                            <th>Band name</th>
-                            <th>Rate</th>
-                            <th>Taxable amount in band</th>
-                            <th>Tax in band</th>
-                        </tr>
-                    </thead>
-                    <tbody id="tax-breakdown-body">
-                    </tbody>
-                </table>
-            </div>
-            <p class="disclaimer">*Net pay includes Income Tax only. It does not include National Insurance, pension,
-                student loan, benefits, bonuses, or other deductions.</p>
-        </div>
-
-        <!-- AdSense Placeholder: Inline -->
-        <div class="ad-placeholder ad-inline">
-            AdSense In-Article Placeholder (Responsive)
-        </div>
-
-        <section class="faq-section">
-            <h2>Frequently Asked Questions</h2>
-
-            <div class="faq-item">
-                <h3>How do I convert salary to hourly in the UK?</h3>
-                <p>To calculate your hourly rate manually, divide your annual salary by the number of weeks you work
-                    (usually 52), then divide that result by your weekly hours.</p>
-            </div>
-
-            <div class="faq-item">
-                <h3>Is 37.5 hours full-time in the UK?</h3>
-                <p>Yes, many UK employment contracts specify 37.5 hours per week (e.g., 9am to 5:30pm with an hour
-                    unpaid lunch). 40 hours is also common.</p>
-            </div>
-
-            <div class="faq-item">
-                <h3>Does this calculator include tax?</h3>
-                <p>Yes, this tool now calculates UK Income Tax and displays both gross and net pay. However, it does NOT
-                    include National Insurance, pension contributions, student loans, or other deductions.</p>
-            </div>
-
-            <div class="faq-item">
-                <h3>Why might your Personal Allowance be lower?</h3>
-                <p>If your income exceeds £100,000, your Personal Allowance is reduced by £1 for every £2 over this
-                    threshold. This means the Personal Allowance becomes £0 at £125,140 and above.</p>
-            </div>
-
-            <div class="faq-item">
-                <h3>What if I work 40 hours per week?</h3>
-                <p>Simply change the "Hours per Week" field to 40. The calculator updates instantly to show your new
-                    rate.</p>
-            </div>
-
-            <div class="faq-item">
-                <h3>How do unpaid breaks affect pay?</h3>
-                <p>If your breaks are unpaid, do not include them in your "Hours per Week". For example, if you are at
-                    work for 40 hours but have 1 hour unpaid break daily (5 hours total), enter 35 hours.</p>
-            </div>
-
-            <div class="faq-item">
-                <h3>Can I use this for part-time work?</h3>
-                <p>Absolutely. Just enter your pro-rated annual salary and the actual number of hours you work per week
-                    to see your hourly equivalent.</p>
-            </div>
-        </section>
-    </main>
-
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero__grid-overlay"></div>
     <div class="container">
-        <!-- AdSense Placeholder: Bottom Banner -->
-        <div class="ad-placeholder ad-bottom">
-            AdSense Bottom Banner (970x250 or Responsive)
+      <div class="hero__content">
+        <div class="hero__eyebrow">
+          <span class="pill pill--glass">
+            <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
+              <circle cx="6.5" cy="6.5" r="5.5" stroke="currentColor" stroke-width="1.4"/>
+              <path d="M4.5 6.5l1.5 1.5L8.5 4.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Updated for 2025/26 Tax Year
+          </span>
         </div>
+        <h1 class="hero__title">Your UK Take-Home Pay,<br class="hero__br"> Calculated Instantly</h1>
+        <p class="hero__subtitle">Accurate income tax and National Insurance calculations for England, Scotland, Wales and Northern Ireland. Includes pension, student loan, and more.</p>
+        <div class="hero__trust">
+          <div class="trust-item">
+            <svg width="15" height="15" viewBox="0 0 15 15" fill="none">
+              <path d="M7.5 1.5L9.327 5.196L13.5 5.793L10.5 8.72L11.154 12.879L7.5 10.96L3.846 12.879L4.5 8.72L1.5 5.793L5.673 5.196L7.5 1.5Z" fill="currentColor" opacity="0.9"/>
+            </svg>
+            HMRC-aligned rates
+          </div>
+          <span class="trust-sep">·</span>
+          <div class="trust-item">
+            <svg width="15" height="15" viewBox="0 0 15 15" fill="none">
+              <rect x="1.5" y="3" width="12" height="9" rx="1.5" stroke="currentColor" stroke-width="1.4"/>
+              <path d="M1.5 6h12" stroke="currentColor" stroke-width="1.4"/>
+              <circle cx="4.5" cy="9" r="0.75" fill="currentColor"/>
+              <circle cx="7.5" cy="9" r="0.75" fill="currentColor"/>
+            </svg>
+            All 4 UK nations
+          </div>
+          <span class="trust-sep">·</span>
+          <div class="trust-item">
+            <svg width="15" height="15" viewBox="0 0 15 15" fill="none">
+              <circle cx="7.5" cy="7.5" r="6" stroke="currentColor" stroke-width="1.4"/>
+              <path d="M7.5 4.5V7.5l2 2" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+            </svg>
+            Instant results
+          </div>
+          <span class="trust-sep">·</span>
+          <div class="trust-item">
+            <svg width="15" height="15" viewBox="0 0 15 15" fill="none">
+              <path d="M7.5 1.5C5 1.5 3 3.5 3 6c0 3.5 4.5 7.5 4.5 7.5S12 9.5 12 6c0-2.5-2-4.5-4.5-4.5Z" stroke="currentColor" stroke-width="1.4"/>
+              <circle cx="7.5" cy="6" r="1.5" fill="currentColor"/>
+            </svg>
+            No sign-up needed
+          </div>
+        </div>
+      </div>
     </div>
+    <div class="hero__fade"></div>
+  </section>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2024 UK Salary Calculator. All rights reserved.</p>
-            <p><a href="privacy.html">Privacy Policy</a> | <a href="about.html">About Us</a> | <a
-                    href="contact.html">Contact</a></p>
+  <!-- CALCULATOR -->
+  <section class="calc-section" id="calculator">
+    <div class="container">
+      <div class="calc-card">
+
+        <!-- INPUT PANEL -->
+        <div class="calc-inputs">
+          <div class="calc-inputs__header">
+            <h2 class="calc-inputs__title">Your Details</h2>
+            <p class="calc-inputs__subtitle">Enter your salary and options below</p>
+          </div>
+
+          <!-- Salary Input -->
+          <div class="field-group">
+            <label class="field-label" for="salaryInput">Salary Amount</label>
+            <div class="salary-field">
+              <span class="salary-field__currency">£</span>
+              <input type="number" id="salaryInput" class="salary-field__input" value="35000" min="0" max="10000000" step="1000" placeholder="35,000" aria-label="Salary amount">
+            </div>
+            <div class="period-toggle" role="group" aria-label="Pay period">
+              <button class="period-btn active" data-period="annual">Annual</button>
+              <button class="period-btn" data-period="monthly">Monthly</button>
+              <button class="period-btn" data-period="weekly">Weekly</button>
+              <button class="period-btn" data-period="daily">Daily</button>
+              <button class="period-btn" data-period="hourly">Hourly</button>
+            </div>
+          </div>
+
+          <!-- Country Selector -->
+          <div class="field-group">
+            <label class="field-label">Country</label>
+            <div class="country-grid" role="group" aria-label="Select country">
+              <button class="country-card active" data-country="england" aria-pressed="true">
+                <span class="country-card__flag">
+                  <svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="60" height="40" fill="white"/>
+                    <rect x="26" width="8" height="40" fill="#CC0000"/>
+                    <rect y="16" width="60" height="8" fill="#CC0000"/>
+                  </svg>
+                </span>
+                <span class="country-card__name">England</span>
+              </button>
+              <button class="country-card" data-country="scotland" aria-pressed="false">
+                <span class="country-card__flag">
+                  <svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="60" height="40" fill="#003399"/>
+                    <line x1="0" y1="0" x2="60" y2="40" stroke="white" stroke-width="7"/>
+                    <line x1="60" y1="0" x2="0" y2="40" stroke="white" stroke-width="7"/>
+                  </svg>
+                </span>
+                <span class="country-card__name">Scotland</span>
+              </button>
+              <button class="country-card" data-country="wales" aria-pressed="false">
+                <span class="country-card__flag">
+                  <svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="60" height="20" fill="white"/>
+                    <rect y="20" width="60" height="20" fill="#00AB39"/>
+                    <ellipse cx="30" cy="20" rx="10" ry="14" fill="#CC0000"/>
+                    <ellipse cx="30" cy="20" rx="7" ry="10" fill="#CC0000"/>
+                  </svg>
+                </span>
+                <span class="country-card__name">Wales</span>
+              </button>
+              <button class="country-card" data-country="ni" aria-pressed="false">
+                <span class="country-card__flag">
+                  <svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="60" height="40" fill="white"/>
+                    <line x1="0" y1="0" x2="60" y2="40" stroke="#CC0000" stroke-width="5"/>
+                    <line x1="60" y1="0" x2="0" y2="40" stroke="#CC0000" stroke-width="5"/>
+                    <rect x="26" width="8" height="40" fill="#CC0000"/>
+                    <rect y="16" width="60" height="8" fill="#CC0000"/>
+                  </svg>
+                </span>
+                <span class="country-card__name">N. Ireland</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Additional Options -->
+          <div class="options-accordion" id="optionsAccordion">
+            <button class="options-toggle" id="optionsToggle" aria-expanded="false" aria-controls="optionsContent">
+              <span class="options-toggle__label">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                  <circle cx="8" cy="8" r="6.5" stroke="currentColor" stroke-width="1.4"/>
+                  <path d="M8 5v3M8 10v.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                </svg>
+                Additional Options
+              </span>
+              <svg class="options-toggle__chevron" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+            <div class="options-content" id="optionsContent">
+              <div class="option-row">
+                <div class="option-row__label">
+                  <span class="option-row__name">Pension Contribution</span>
+                  <span class="option-row__hint">Salary sacrifice (pre-tax)</span>
+                </div>
+                <div class="option-row__controls">
+                  <div class="input-with-unit">
+                    <input type="number" id="pensionInput" class="option-input" value="0" min="0" max="100" step="0.5" placeholder="0">
+                    <div class="unit-toggle">
+                      <button class="unit-btn active" data-unit="percent">%</button>
+                      <button class="unit-btn" data-unit="fixed">£</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="option-row">
+                <div class="option-row__label">
+                  <span class="option-row__name">Student Loan</span>
+                  <span class="option-row__hint">Repayment plan</span>
+                </div>
+                <div class="option-row__controls">
+                  <select id="studentLoanSelect" class="option-select">
+                    <option value="none">None</option>
+                    <option value="plan1">Plan 1 (pre-2012)</option>
+                    <option value="plan2">Plan 2 (post-2012)</option>
+                    <option value="plan4">Plan 4 (Scotland)</option>
+                    <option value="postgrad">Postgraduate</option>
+                  </select>
+                </div>
+              </div>
+              <div class="option-row">
+                <div class="option-row__label">
+                  <span class="option-row__name">Blind Person's Allowance</span>
+                  <span class="option-row__hint">Additional £3,070 allowance</span>
+                </div>
+                <div class="option-row__controls">
+                  <label class="toggle-switch">
+                    <input type="checkbox" id="blindAllowance">
+                    <span class="toggle-switch__track"></span>
+                  </label>
+                </div>
+              </div>
+              <div class="option-row">
+                <div class="option-row__label">
+                  <span class="option-row__name">Marriage Allowance</span>
+                  <span class="option-row__hint">Transfer £1,260 of allowance</span>
+                </div>
+                <div class="option-row__controls">
+                  <label class="toggle-switch">
+                    <input type="checkbox" id="marriageAllowance">
+                    <span class="toggle-switch__track"></span>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-    </footer>
 
-    <script src="script.js"></script>
+        <!-- RESULTS PANEL -->
+        <div class="calc-results" id="calcResults">
+          <div class="calc-results__header">
+            <div class="results-period-toggle" role="group" aria-label="Results period">
+              <button class="results-period-btn active" data-results-period="annual">Annual</button>
+              <button class="results-period-btn" data-results-period="monthly">Monthly</button>
+              <button class="results-period-btn" data-results-period="weekly">Weekly</button>
+            </div>
+          </div>
+
+          <div class="take-home-hero">
+            <div class="take-home-hero__label">Take-Home Pay</div>
+            <div class="take-home-hero__amount" id="takeHomeAmount">£26,340</div>
+            <div class="take-home-hero__period" id="takeHomePeriod">per year</div>
+          </div>
+
+          <div class="breakdown-bar" id="breakdownBar" aria-label="Salary breakdown chart">
+            <div class="breakdown-bar__segment breakdown-bar__segment--takehome" id="barTakeHome" style="width:75.3%"></div>
+            <div class="breakdown-bar__segment breakdown-bar__segment--tax" id="barTax" style="width:17.5%"></div>
+            <div class="breakdown-bar__segment breakdown-bar__segment--ni" id="barNI" style="width:7.2%"></div>
+            <div class="breakdown-bar__segment breakdown-bar__segment--pension" id="barPension" style="width:0%"></div>
+            <div class="breakdown-bar__segment breakdown-bar__segment--loan" id="barLoan" style="width:0%"></div>
+          </div>
+
+          <div class="breakdown-list">
+            <div class="breakdown-item">
+              <div class="breakdown-item__left">
+                <span class="breakdown-item__dot breakdown-item__dot--gross"></span>
+                <span class="breakdown-item__label">Gross Salary</span>
+              </div>
+              <span class="breakdown-item__value" id="grossDisplay">£35,000</span>
+            </div>
+            <div class="breakdown-item">
+              <div class="breakdown-item__left">
+                <span class="breakdown-item__dot breakdown-item__dot--tax"></span>
+                <span class="breakdown-item__label">Income Tax</span>
+              </div>
+              <span class="breakdown-item__value breakdown-item__value--deduction" id="taxDisplay">−£4,486</span>
+            </div>
+            <div class="breakdown-item">
+              <div class="breakdown-item__left">
+                <span class="breakdown-item__dot breakdown-item__dot--ni"></span>
+                <span class="breakdown-item__label">National Insurance</span>
+              </div>
+              <span class="breakdown-item__value breakdown-item__value--deduction" id="niDisplay">−£1,692</span>
+            </div>
+            <div class="breakdown-item" id="pensionRow" style="display:none">
+              <div class="breakdown-item__left">
+                <span class="breakdown-item__dot breakdown-item__dot--pension"></span>
+                <span class="breakdown-item__label">Pension</span>
+              </div>
+              <span class="breakdown-item__value breakdown-item__value--deduction" id="pensionDisplay">−£0</span>
+            </div>
+            <div class="breakdown-item" id="loanRow" style="display:none">
+              <div class="breakdown-item__left">
+                <span class="breakdown-item__dot breakdown-item__dot--loan"></span>
+                <span class="breakdown-item__label">Student Loan</span>
+              </div>
+              <span class="breakdown-item__value breakdown-item__value--deduction" id="loanDisplay">−£0</span>
+            </div>
+            <div class="breakdown-item breakdown-item--total">
+              <div class="breakdown-item__left">
+                <span class="breakdown-item__dot breakdown-item__dot--takehome"></span>
+                <span class="breakdown-item__label">Take-Home Pay</span>
+              </div>
+              <span class="breakdown-item__value breakdown-item__value--takehome" id="takeHomeDisplay">£26,340</span>
+            </div>
+          </div>
+
+          <div class="rate-cards">
+            <div class="rate-card">
+              <span class="rate-card__label">Effective Tax Rate</span>
+              <span class="rate-card__value" id="effectiveRate">24.7%</span>
+            </div>
+            <div class="rate-card">
+              <span class="rate-card__label">Marginal Rate</span>
+              <span class="rate-card__value" id="marginalRate">32%</span>
+            </div>
+            <div class="rate-card">
+              <span class="rate-card__label">Personal Allowance</span>
+              <span class="rate-card__value" id="personalAllowanceDisplay">£12,570</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="section section--light" id="how-it-works">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">Simple &amp; Transparent</span>
+        <h2 class="section-title">How It Works</h2>
+        <p class="section-subtitle">Three steps to your accurate take-home pay figure</p>
+      </div>
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-card__number">01</div>
+          <div class="step-card__icon">
+            <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+              <rect x="3" y="5" width="22" height="18" rx="3" stroke="currentColor" stroke-width="1.8"/>
+              <path d="M9 14h10M9 10h6M9 18h8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3 class="step-card__title">Enter Your Salary</h3>
+          <p class="step-card__desc">Input your gross salary — annual, monthly, weekly, daily or hourly. We convert it automatically.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-card__number">02</div>
+          <div class="step-card__icon">
+            <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+              <path d="M14 3C8.477 3 4 7.477 4 13s4.477 10 10 10 10-4.477 10-10S19.523 3 14 3Z" stroke="currentColor" stroke-width="1.8"/>
+              <path d="M9 13h10M14 8v10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3 class="step-card__title">Select Your Country</h3>
+          <p class="step-card__desc">Choose England, Scotland, Wales or Northern Ireland. Scotland uses different income tax bands.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-card__number">03</div>
+          <div class="step-card__icon">
+            <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+              <rect x="3" y="5" width="22" height="18" rx="3" stroke="currentColor" stroke-width="1.8"/>
+              <path d="M9 14h6M9 10h10M9 18h4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+              <circle cx="21" cy="18" r="4" fill="currentColor" opacity="0.15" stroke="currentColor" stroke-width="1.8"/>
+              <path d="M19.5 18l1 1 2-2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3 class="step-card__title">Get Instant Results</h3>
+          <p class="step-card__desc">See your take-home pay, tax breakdown, effective rate and more — updated in real time as you type.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TAX RATES -->
+  <section class="section" id="tax-rates">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">2025/26 Rates</span>
+        <h2 class="section-title">UK Tax Rates by Nation</h2>
+        <p class="section-subtitle">Income tax bands and National Insurance thresholds for the current tax year</p>
+      </div>
+
+      <div class="rates-tabs" role="tablist">
+        <button class="rates-tab active" data-tab="england-rates" role="tab" aria-selected="true">England &amp; Wales</button>
+        <button class="rates-tab" data-tab="scotland-rates" role="tab" aria-selected="false">Scotland</button>
+        <button class="rates-tab" data-tab="ni-rates" role="tab" aria-selected="false">N. Ireland</button>
+        <button class="rates-tab" data-tab="nic-rates" role="tab" aria-selected="false">NI &amp; Student Loans</button>
+      </div>
+
+      <!-- England & Wales -->
+      <div class="rates-panel active" id="england-rates" role="tabpanel">
+        <div class="rates-grid">
+          <div class="rates-table-card">
+            <div class="rates-table-card__header">
+              <h3>Income Tax — England &amp; Wales</h3>
+              <span class="rates-table-card__note">Tax year 6 April 2025 – 5 April 2026</span>
+            </div>
+            <table class="rates-table">
+              <thead>
+                <tr><th>Band</th><th>Taxable Income</th><th>Rate</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><span class="band-pill band-pill--zero">Personal Allowance</span></td>
+                  <td>Up to £12,570</td>
+                  <td><strong>0%</strong></td>
+                </tr>
+                <tr>
+                  <td><span class="band-pill band-pill--basic">Basic Rate</span></td>
+                  <td>£12,571 – £50,270</td>
+                  <td><strong>20%</strong></td>
+                </tr>
+                <tr>
+                  <td><span class="band-pill band-pill--higher">Higher Rate</span></td>
+                  <td>£50,271 – £125,140</td>
+                  <td><strong>40%</strong></td>
+                </tr>
+                <tr>
+                  <td><span class="band-pill band-pill--additional">Additional Rate</span></td>
+                  <td>Over £125,140</td>
+                  <td><strong>45%</strong></td>
+                </tr>
+              </tbody>
+            </table>
+            <p class="rates-note">The personal allowance reduces by £1 for every £2 of income over £100,000, reaching zero at £125,140.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Scotland -->
+      <div class="rates-panel" id="scotland-rates" role="tabpanel">
+        <div class="rates-grid">
+          <div class="rates-table-card">
+            <div class="rates-table-card__header">
+              <h3>Income Tax — Scotland</h3>
+              <span class="rates-table-card__note">Scottish rates set by the Scottish Parliament</span>
+            </div>
+            <table class="rates-table">
+              <thead>
+                <tr><th>Band</th><th>Taxable Income</th><th>Rate</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><span class="band-pill band-pill--zero">Personal Allowance</span></td>
+                  <td>Up to £12,570</td>
+                  <td><strong>0%</strong></td>
+                </tr>
+                <tr>
+                  <td><span class="band-pill band-pill--starter">Starter Rate</span></td>
+                  <td>£12,571 – £15,397</td>
+                  <td><strong>19%</strong></td>
+                </tr>
+                <tr>
+                  <td><span class="band-pill band-pill--basic">Basic Rate</span></td>
+                  <td>£15,398 – £27,491</td>
+                  <td><strong>20%</strong></td>
+                </tr>
+                <tr>
+                  <td><span class="band-pill band-pill--intermediate">Intermediate Rate</span></td>
+                  <td>£27,492 – £43,662</td>
+                  <td><strong>21%</strong></td>
+                </tr>
+                <tr>
+                  <td><span class="band-pill band-pill--higher">Higher Rate</span></td>
+                  <td>£43,663 – £75,000</td>
+                  <td><strong>42%</strong></td>
+                </tr>
+                <tr>
+                  <td><span class="band-pill band-pill--advanced">Advanced Rate</span></td>
+                  <td>£75,001 – £125,140</td>
+                  <td><strong>45%</strong></td>
+                </tr>
+                <tr>
+                  <td><span class="band-pill band-pill--additional">Top Rate</span></td>
+                  <td>Over £125,140</td>
+                  <td><strong>48%</strong></td>
+                </tr>
+              </tbody>
+            </table>
+            <p class="rates-note">National Insurance is calculated at UK-wide rates regardless of where you live in Scotland.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- N. Ireland -->
+      <div class="rates-panel" id="ni-rates" role="tabpanel">
+        <div class="rates-grid">
+          <div class="rates-table-card">
+            <div class="rates-table-card__header">
+              <h3>Income Tax — Northern Ireland</h3>
+              <span class="rates-table-card__note">Same rates as England and Wales</span>
+            </div>
+            <table class="rates-table">
+              <thead>
+                <tr><th>Band</th><th>Taxable Income</th><th>Rate</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><span class="band-pill band-pill--zero">Personal Allowance</span></td>
+                  <td>Up to £12,570</td>
+                  <td><strong>0%</strong></td>
+                </tr>
+                <tr>
+                  <td><span class="band-pill band-pill--basic">Basic Rate</span></td>
+                  <td>£12,571 – £50,270</td>
+                  <td><strong>20%</strong></td>
+                </tr>
+                <tr>
+                  <td><span class="band-pill band-pill--higher">Higher Rate</span></td>
+                  <td>£50,271 – £125,140</td>
+                  <td><strong>40%</strong></td>
+                </tr>
+                <tr>
+                  <td><span class="band-pill band-pill--additional">Additional Rate</span></td>
+                  <td>Over £125,140</td>
+                  <td><strong>45%</strong></td>
+                </tr>
+              </tbody>
+            </table>
+            <p class="rates-note">Northern Ireland uses the same income tax rates as England and Wales.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- NI & Student Loans -->
+      <div class="rates-panel" id="nic-rates" role="tabpanel">
+        <div class="rates-grid">
+          <div class="rates-table-card">
+            <div class="rates-table-card__header">
+              <h3>National Insurance — Employee Contributions</h3>
+              <span class="rates-table-card__note">Class 1 NIC — applies to all UK nations</span>
+            </div>
+            <table class="rates-table">
+              <thead>
+                <tr><th>Band</th><th>Annual Earnings</th><th>Rate</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><span class="band-pill band-pill--zero">Below Threshold</span></td>
+                  <td>Up to £12,570</td>
+                  <td><strong>0%</strong></td>
+                </tr>
+                <tr>
+                  <td><span class="band-pill band-pill--basic">Standard Rate</span></td>
+                  <td>£12,571 – £50,270</td>
+                  <td><strong>8%</strong></td>
+                </tr>
+                <tr>
+                  <td><span class="band-pill band-pill--higher">Upper Rate</span></td>
+                  <td>Over £50,270</td>
+                  <td><strong>2%</strong></td>
+                </tr>
+              </tbody>
+            </table>
+            <p class="rates-note">NI contributions were reduced from 10% to 8% in April 2024. The upper earnings limit aligns with the higher rate income tax threshold.</p>
+          </div>
+          <div class="rates-table-card">
+            <div class="rates-table-card__header">
+              <h3>Student Loan Repayment Thresholds</h3>
+              <span class="rates-table-card__note">2025/26 annual thresholds</span>
+            </div>
+            <table class="rates-table">
+              <thead>
+                <tr><th>Plan</th><th>Annual Threshold</th><th>Rate</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><span class="band-pill band-pill--starter">Plan 1</span></td>
+                  <td>£26,065</td>
+                  <td><strong>9%</strong></td>
+                </tr>
+                <tr>
+                  <td><span class="band-pill band-pill--basic">Plan 2</span></td>
+                  <td>£28,470</td>
+                  <td><strong>9%</strong></td>
+                </tr>
+                <tr>
+                  <td><span class="band-pill band-pill--intermediate">Plan 4</span></td>
+                  <td>£32,745</td>
+                  <td><strong>9%</strong></td>
+                </tr>
+                <tr>
+                  <td><span class="band-pill band-pill--higher">Postgraduate</span></td>
+                  <td>£21,000</td>
+                  <td><strong>6%</strong></td>
+                </tr>
+              </tbody>
+            </table>
+            <p class="rates-note">Plan 4 applies to Scottish students. Repayments are calculated on income above the threshold only.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section section--light" id="faq">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">Common Questions</span>
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <p class="section-subtitle">Everything you need to know about UK take-home pay calculations</p>
+      </div>
+      <div class="faq-grid">
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>What is the personal allowance for 2025/26?</span>
+            <svg class="faq-chevron" width="18" height="18" viewBox="0 0 18 18" fill="none">
+              <path d="M4.5 7l4.5 4.5L13.5 7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="faq-answer">
+            <p>The standard personal allowance for 2025/26 is <strong>£12,570</strong>. This is the amount of income you can earn before paying any income tax. It has been frozen at this level since 2021/22.</p>
+            <p>If your income exceeds £100,000, your personal allowance reduces by £1 for every £2 over that threshold, reaching zero at £125,140.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>Why is Scotland's income tax different?</span>
+            <svg class="faq-chevron" width="18" height="18" viewBox="0 0 18 18" fill="none">
+              <path d="M4.5 7l4.5 4.5L13.5 7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="faq-answer">
+            <p>Scotland has its own income tax rates and bands, set by the Scottish Parliament under devolved powers. Scottish taxpayers pay Scottish Income Tax (SRIT) on their non-savings, non-dividend income.</p>
+            <p>Scotland has more bands than the rest of the UK — including a 19% starter rate and a 42% higher rate — which means the calculation differs significantly for higher earners.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>What is the difference between effective and marginal tax rate?</span>
+            <svg class="faq-chevron" width="18" height="18" viewBox="0 0 18 18" fill="none">
+              <path d="M4.5 7l4.5 4.5L13.5 7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="faq-answer">
+            <p>Your <strong>effective tax rate</strong> is the average rate you pay across your entire income — total tax divided by total income. It gives you a true picture of your overall tax burden.</p>
+            <p>Your <strong>marginal tax rate</strong> is the rate you pay on your next pound of income. For example, at £35,000 your marginal income tax rate is 20%, but including NI it is 28% (20% + 8%).</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>How does pension salary sacrifice work?</span>
+            <svg class="faq-chevron" width="18" height="18" viewBox="0 0 18 18" fill="none">
+              <path d="M4.5 7l4.5 4.5L13.5 7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="faq-answer">
+            <p>With salary sacrifice, your pension contribution is deducted from your gross salary <em>before</em> tax and National Insurance are calculated. This means you save both income tax and NI on your pension contributions.</p>
+            <p>For example, a basic rate taxpayer contributing 5% of a £35,000 salary saves approximately £490 in tax and NI per year compared to contributing from net pay.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>Which student loan plan am I on?</span>
+            <svg class="faq-chevron" width="18" height="18" viewBox="0 0 18 18" fill="none">
+              <path d="M4.5 7l4.5 4.5L13.5 7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="faq-answer">
+            <p><strong>Plan 1:</strong> Started university before September 2012 (England/Wales), or any time in Northern Ireland.</p>
+            <p><strong>Plan 2:</strong> Started university on or after September 2012 in England or Wales.</p>
+            <p><strong>Plan 4:</strong> Scottish students who started university on or after September 1998.</p>
+            <p><strong>Postgraduate:</strong> Postgraduate Master's or Doctoral loan taken out on or after August 2016.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>Are these calculations 100% accurate?</span>
+            <svg class="faq-chevron" width="18" height="18" viewBox="0 0 18 18" fill="none">
+              <path d="M4.5 7l4.5 4.5L13.5 7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="faq-answer">
+            <p>Our calculator uses the official 2025/26 HMRC rates and is accurate for most standard employment situations. Results assume a standard tax code (1257L) and that all income is from employment.</p>
+            <p>Results may differ if you have multiple income sources, taxable benefits, or a non-standard tax code. For complex situations, consult a qualified accountant or use HMRC's own tools.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <a href="/" class="nav__logo footer__logo">
+            <div class="nav__logo-mark">
+              <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+                <rect width="22" height="22" rx="6" fill="#2563eb"/>
+                <path d="M7 11.5C7 9.015 9.015 7 11.5 7C13.985 7 16 9.015 16 11.5" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
+                <path d="M7 11.5C7 13.985 9.015 16 11.5 16" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
+                <circle cx="11.5" cy="11.5" r="1.5" fill="white"/>
+              </svg>
+            </div>
+            <span class="nav__logo-text">PayCalc<strong>UK</strong></span>
+          </a>
+          <p class="footer__tagline">Accurate UK take-home pay calculations for the 2025/26 tax year.</p>
+        </div>
+        <div class="footer__links">
+          <div class="footer__col">
+            <h4 class="footer__col-title">Calculator</h4>
+            <a href="#calculator" class="footer__link">Salary Calculator</a>
+            <a href="#tax-rates" class="footer__link">Tax Rates</a>
+            <a href="#how-it-works" class="footer__link">How It Works</a>
+          </div>
+          <div class="footer__col">
+            <h4 class="footer__col-title">Nations</h4>
+            <a href="#calculator" class="footer__link">England</a>
+            <a href="#calculator" class="footer__link">Scotland</a>
+            <a href="#calculator" class="footer__link">Wales</a>
+            <a href="#calculator" class="footer__link">Northern Ireland</a>
+          </div>
+          <div class="footer__col">
+            <h4 class="footer__col-title">Resources</h4>
+            <a href="#faq" class="footer__link">FAQ</a>
+            <a href="https://www.gov.uk/income-tax-rates" target="_blank" rel="noopener" class="footer__link">HMRC Rates</a>
+            <a href="https://www.gov.uk/check-income-tax-current-year" target="_blank" rel="noopener" class="footer__link">Check Your Tax</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p class="footer__disclaimer">
+          <strong>Disclaimer:</strong> PayCalcUK provides estimates based on standard 2025/26 HMRC rates. Results are for guidance only and do not constitute financial or tax advice. For personalised advice, consult a qualified tax professional or use HMRC's official tools.
+        </p>
+        <p class="footer__copy">© 2025 PayCalcUK. All rights reserved. Tax year 6 April 2025 – 5 April 2026.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/calculator.js"></script>
+  <script src="js/app.js"></script>
 </body>
-
 </html>
