@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Australia Salary Tax Estimator 2024–25 — Gross to Net | SalaryUKCalc</title>
+  <meta name="description" content="Estimate your net salary in Australia. Understand PAYG income tax bands, Medicare Levy, and approximate take-home pay. 2024–25 ATO rates. Superannuation is employer-paid and not deducted from gross.">
+  <link rel="canonical" href="https://salaryukcalc.com/global/australia.html">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<header>
+  <div class="nav-wrapper">
+    <a href="../index.html" class="nav-brand">Salary<span>UKCalc</span></a>
+    <nav aria-label="Main navigation">
+      <ul>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../regions.html">Regions</a></li>
+        <li class="has-dropdown">
+          <a href="../regions.html">Countries &#9662;</a>
+          <ul class="nav-dropdown">
+            <li class="nav-dropdown-header">🇬🇧 United Kingdom</li>
+            <li><a href="../uk/index.html">🇬🇧 United Kingdom</a></li>
+            <li class="nav-dropdown-header">🇪🇺 European Union</li>
+            <li><a href="../eu/ireland.html">🇮🇪 Ireland</a></li>
+            <li><a href="../eu/germany.html">🇩🇪 Germany</a></li>
+            <li><a href="../eu/france.html">🇫🇷 France</a></li>
+            <li><a href="../eu/netherlands.html">🇳🇱 Netherlands</a></li>
+            <li><a href="../eu/spain.html">🇪🇸 Spain</a></li>
+            <li><a href="../eu/italy.html">🇮🇹 Italy</a></li>
+            <li><a href="../eu/poland.html">🇵🇱 Poland</a></li>
+            <li class="nav-dropdown-header">🌍 Global</li>
+            <li><a href="usa.html">🇺🇸 USA</a></li>
+            <li><a href="canada.html">🇨🇦 Canada</a></li>
+            <li><a href="australia.html">🇦🇺 Australia</a></li>
+            <li><a href="switzerland.html">🇨🇭 Switzerland</a></li>
+            <li><a href="norway.html">🇳🇴 Norway</a></li>
+            <li><a href="uae.html">🇦🇪 UAE</a></li>
+          </ul>
+        </li>
+        <li><a href="../guides/index.html">Guides</a></li>
+        <li><a href="../about.html">About</a></li>
+        <li><a href="../contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <div class="breadcrumb-inner">
+    <a href="../index.html">Home</a>
+    <span>›</span>
+    <a href="index.html">🌍 Global</a>
+    <span>›</span>
+    <span aria-current="page">🇦🇺 Australia</span>
+  </div>
+</nav>
+
+<div class="page-header page-header-global">
+  <div class="page-header-inner">
+    <div class="page-header-flag">🇦🇺</div>
+    <h1>Australia Salary Tax Estimator 2024–25</h1>
+    <p>Estimate your gross-to-net salary in Australia. Understand PAYG income tax bands, the Medicare Levy, and approximate take-home pay. Based on 2024–25 ATO rates. Superannuation is employer-paid and is not deducted from your gross salary.</p>
+    <div class="page-header-meta">
+      <span>Tax Year: 2024–25</span>
+      <span>System: PAYG Withholding</span>
+      <span>Authority: ATO</span>
+      <span>Currency: AUD (A$)</span>
+      <span class="meta-estimate">⚠ Estimates only</span>
+    </div>
+  </div>
+</div>
+
+<main>
+  <div class="country-page-layout">
+    <div class="country-page-main">
+
+      <!-- AD: TOP -->
+      <div class="ad-placeholder ad-top">AdSense Banner (Responsive)</div>
+
+      <!-- ESTIMATE NOTICE -->
+      <div class="notice-box estimate">
+        <strong>Estimate notice:</strong> This tool estimates PAYG income tax and Medicare Levy only. The Low Income Tax Offset (LITO) and Low and Middle Income Tax Offset (LMITO) are not fully modelled. Superannuation (11.5%) is employer-paid and is not deducted from your gross salary. Results are simplified estimates for informational purposes only.
+      </div>
+
+      <!-- ESTIMATOR WIDGET -->
+      <div class="calculator-card">
+        <div class="calculator-card-header">
+          <h2>Australia Salary Estimator</h2>
+          <span class="estimate-badge">Estimate</span>
+        </div>
+
+        <div class="input-group">
+          <label for="au-salary">Annual Gross Salary (A$)</label>
+          <input type="number" id="au-salary" value="80000" min="0" step="1000">
+          <span class="help-text">Enter your gross annual salary in Australian Dollars</span>
+        </div>
+
+        <button class="btn btn-primary" id="au-calculate">Calculate Estimate</button>
+
+        <div id="au-results" class="estimate-results" style="display:none;">
+          <div class="notice-box estimate" style="margin-bottom:1rem;">
+            <strong>⚠ These are estimates only.</strong> LITO and other offsets are not fully modelled. Superannuation (11.5%) is employer-paid and not shown here. Consult the ATO or a registered tax agent for accurate figures.
+          </div>
+
+          <h3 class="results-heading">Estimated Annual Breakdown</h3>
+          <div class="results">
+            <div class="result-item">
+              <span class="result-label">Gross Annual Salary</span>
+              <span class="result-value" id="au-gross-out">A$0</span>
+            </div>
+            <div class="result-item">
+              <span class="result-label">Est. PAYG Income Tax</span>
+              <span class="result-value" id="au-tax-out">A$0</span>
+            </div>
+            <div class="result-item">
+              <span class="result-label">Est. Medicare Levy (2%)</span>
+              <span class="result-value" id="au-medicare-out">A$0</span>
+            </div>
+            <div class="result-item">
+              <span class="result-label">Est. Total Deductions</span>
+              <span class="result-value" id="au-deductions-out">A$0</span>
+            </div>
+            <div class="result-item highlight">
+              <span class="result-label">Est. Net Annual (Take-home)</span>
+              <span class="result-value large" id="au-net-out">A$0</span>
+            </div>
+            <div class="result-item">
+              <span class="result-label">Est. Net Monthly</span>
+              <span class="result-value" id="au-net-monthly-out">A$0</span>
+            </div>
+            <div class="result-item">
+              <span class="result-label">Effective Total Rate</span>
+              <span class="result-value" id="au-rate-out">0%</span>
+            </div>
+          </div>
+
+          <div class="notice-box info" style="margin-top:1rem;">
+            <strong>Superannuation note:</strong> Your employer also pays Superannuation at 11.5% of your gross salary (A$<span id="au-super-out">0</span> per year at this salary). This is paid on top of your gross salary — it is not deducted from your take-home pay.
+          </div>
+        </div>
+      </div>
+
+      <!-- AD: INLINE -->
+      <div class="ad-placeholder ad-inline">AdSense In-Article (Responsive)</div>
+
+      <!-- INTRO -->
+      <section class="content-section">
+        <h2>How Australian Income Tax Works</h2>
+        <p>Australia uses a <strong>PAYG (Pay As You Go) withholding</strong> system, administered by the Australian Taxation Office (ATO). Your employer withholds income tax from each pay period based on your Tax File Number (TFN) declaration. You lodge an annual tax return (typically by 31 October) to reconcile the actual amount owed.</p>
+        <p>Australia has a <strong>tax-free threshold</strong> of A$18,200 — the first A$18,200 of income is not subject to income tax. Above this, progressive rates apply.</p>
+        <p>The <strong>Medicare Levy</strong> (2%) is a separate charge that funds Australia's public healthcare system (Medicare). It applies to most taxpayers above a low-income threshold.</p>
+        <div class="notice-box info">
+          <strong>Superannuation:</strong> Australia's compulsory retirement savings system (Superannuation) requires employers to contribute 11.5% of your gross salary into a super fund. This is an employer cost paid on top of your gross salary — it is not deducted from your take-home pay. It is a significant benefit that makes Australian total compensation higher than the gross salary figure suggests.
+        </div>
+      </section>
+
+      <!-- TAX BANDS -->
+      <section class="content-section">
+        <h2>Australian Income Tax Rates 2024–25</h2>
+        <p>These rates apply to Australian residents. The tax-free threshold (A$18,200) means no income tax is payable on the first A$18,200 of income.</p>
+        <div class="table-container">
+          <table class="tax-breakdown-table">
+            <thead>
+              <tr><th>Band</th><th>Taxable Income</th><th>Rate</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Tax-free threshold</td><td>Up to A$18,200</td><td>0%</td></tr>
+              <tr><td>Band 1</td><td>A$18,201 – A$45,000</td><td>19%</td></tr>
+              <tr><td>Band 2</td><td>A$45,001 – A$120,000</td><td>32.5%</td></tr>
+              <tr><td>Band 3</td><td>A$120,001 – A$180,000</td><td>37%</td></tr>
+              <tr><td>Band 4</td><td>Above A$180,000</td><td>45%</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="disclaimer">* These are the 2024–25 rates following the Stage 3 tax cuts. The Low Income Tax Offset (LITO) of up to A$700 reduces tax for lower earners but is not fully modelled in this estimate.</p>
+      </section>
+
+      <!-- MEDICARE LEVY -->
+      <section class="content-section">
+        <h2>Medicare Levy</h2>
+        <p>The Medicare Levy is a 2% charge on taxable income that funds Australia's public healthcare system. It is separate from income tax and applies to most taxpayers.</p>
+        <div class="deductions-list">
+          <div class="deduction-item">
+            <div class="deduction-name">Medicare Levy</div>
+            <div class="deduction-rate">2%</div>
+            <div class="deduction-desc">Applies to most Australian residents. A Medicare Levy reduction or exemption applies to low-income earners (below approximately A$26,000 for singles in 2024–25). The Medicare Levy Surcharge (1%–1.5%) applies to higher earners without private hospital cover — not included in this estimate.</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SUPERANNUATION -->
+      <section class="content-section">
+        <h2>Superannuation (Super)</h2>
+        <p>Superannuation is Australia's compulsory retirement savings system. Key facts for 2024–25:</p>
+        <div class="deductions-list">
+          <div class="deduction-item">
+            <div class="deduction-name">Superannuation Guarantee (SG) Rate</div>
+            <div class="deduction-rate">11.5%</div>
+            <div class="deduction-desc">Employers must contribute 11.5% of your ordinary time earnings into a complying super fund. This is paid on top of your gross salary — it is not deducted from your take-home pay. The rate increases to 12% from 1 July 2025.</div>
+          </div>
+        </div>
+        <div class="notice-box info">
+          <strong>Why this matters for comparisons:</strong> When comparing Australian salaries to other countries, remember that the employer super contribution (11.5%) is an additional benefit on top of gross salary. A A$80,000 salary in Australia effectively comes with A$9,200 in employer super contributions — making the total employment cost A$89,200.
+        </div>
+      </section>
+
+      <!-- WORKED EXAMPLE -->
+      <section class="content-section">
+        <h2>Worked Example — A$80,000 Gross Salary</h2>
+        <p>A simplified illustration for an Australian resident earning A$80,000 gross per year (2024–25 rates).</p>
+        <div class="worked-example">
+          <div class="worked-example-step">
+            <div class="step-number">1</div>
+            <div class="step-content">
+              <h4>Gross Annual Salary</h4>
+              <p><strong>A$80,000</strong></p>
+            </div>
+          </div>
+          <div class="worked-example-step">
+            <div class="step-number">2</div>
+            <div class="step-content">
+              <h4>Apply Income Tax Bands</h4>
+              <p>0% on A$18,200 = A$0</p>
+              <p>19% on A$26,800 (A$18,201–A$45,000) = A$5,092</p>
+              <p>32.5% on A$35,000 (A$45,001–A$80,000) = A$11,375</p>
+              <p>Total income tax: <strong>~A$16,467</strong></p>
+            </div>
+          </div>
+          <div class="worked-example-step">
+            <div class="step-number">3</div>
+            <div class="step-content">
+              <h4>Medicare Levy (2%)</h4>
+              <p>A$80,000 × 2% = <strong>A$1,600</strong></p>
+            </div>
+          </div>
+          <div class="worked-example-step">
+            <div class="step-number">4</div>
+            <div class="step-content">
+              <h4>Estimated Net Annual</h4>
+              <p>A$80,000 − A$16,467 − A$1,600 = <strong>~A$61,933</strong></p>
+            </div>
+          </div>
+          <div class="worked-example-step">
+            <div class="step-number">5</div>
+            <div class="step-content">
+              <h4>Estimated Net Monthly</h4>
+              <p>A$61,933 ÷ 12 = <strong>~A$5,161/month</strong></p>
+            </div>
+          </div>
+          <div class="worked-example-step">
+            <div class="step-number">6</div>
+            <div class="step-content">
+              <h4>Employer Superannuation (on top)</h4>
+              <p>A$80,000 × 11.5% = <strong>A$9,200/year</strong> paid by employer into your super fund</p>
+            </div>
+          </div>
+        </div>
+        <p class="disclaimer">* The Low Income Tax Offset (LITO) of up to A$700 is not modelled here. Actual income tax may be slightly lower for lower earners.</p>
+      </section>
+
+      <!-- ASSUMPTIONS -->
+      <section class="content-section">
+        <h2>Assumptions &amp; Limitations</h2>
+        <div class="deductions-list">
+          <div class="deduction-item">
+            <div class="deduction-name">LITO not fully modelled</div>
+            <div class="deduction-desc">The Low Income Tax Offset (LITO) of up to A$700 reduces tax for earners below A$66,667. This is not included in the estimate, meaning actual tax for lower earners will be slightly lower than shown.</div>
+          </div>
+          <div class="deduction-item">
+            <div class="deduction-name">Australian resident assumed</div>
+            <div class="deduction-desc">These rates apply to Australian residents. Non-residents are taxed at different rates (32.5% from the first dollar, no tax-free threshold) and are not modelled here.</div>
+          </div>
+          <div class="deduction-item">
+            <div class="deduction-name">Superannuation not deducted</div>
+            <div class="deduction-desc">Superannuation (11.5%) is employer-paid and is not deducted from your gross salary. It is shown separately as an additional employer benefit.</div>
+          </div>
+          <div class="deduction-item">
+            <div class="deduction-name">Medicare Levy Surcharge not included</div>
+            <div class="deduction-desc">The Medicare Levy Surcharge (1%–1.5%) applies to higher earners without private hospital cover. This is not included in the estimate.</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section class="content-section">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-list">
+          <div class="faq-item">
+            <h3 class="faq-question">What is the tax-free threshold in Australia?</h3>
+            <div class="faq-answer">
+              <p>The tax-free threshold for 2024–25 is <strong>A$18,200</strong>. Australian residents do not pay income tax on the first A$18,200 of income. You can claim the tax-free threshold from your employer by completing a Tax File Number (TFN) declaration.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <h3 class="faq-question">Is Superannuation deducted from my salary?</h3>
+            <div class="faq-answer">
+              <p>No. Superannuation (11.5% for 2024–25) is paid by your employer on top of your gross salary — it is not deducted from your take-home pay. When a job advertises a salary of A$80,000, your employer also pays A$9,200 into your super fund separately. Some job ads show "total package" which includes super — always check whether the advertised salary is inclusive or exclusive of super.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <h3 class="faq-question">What is the Medicare Levy?</h3>
+            <div class="faq-answer">
+              <p>The Medicare Levy is a 2% charge on taxable income that funds Australia's public healthcare system (Medicare). It is separate from income tax. Most Australian residents pay it. A Medicare Levy Surcharge (1%–1.5%) also applies to higher earners who do not have private hospital cover.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <h3 class="faq-question">What changed with the Stage 3 tax cuts?</h3>
+            <div class="faq-answer">
+              <p>The Stage 3 tax cuts, effective from 1 July 2024, restructured Australia's income tax bands. The 37% band now starts at A$120,000 (previously A$135,000), and the 32.5% band was extended. The 19% rate now applies from A$18,201 to A$45,000. These changes benefit most middle-income earners.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- RELATED COUNTRIES -->
+      <section class="content-section">
+        <h2>Other Global Countries</h2>
+        <div class="country-grid">
+          <a href="usa.html" class="country-card global">
+            <span class="country-card-flag">🇺🇸</span>
+            <div class="country-card-body">
+              <h3>United States</h3>
+              <p>Federal income tax + FICA. Standard deduction $14,600. Single filer assumed.</p>
+              <div class="country-card-meta"><span>Estimate</span><span>USD ($)</span></div>
+            </div>
+          </a>
+          <a href="canada.html" class="country-card global">
+            <span class="country-card-flag">🇨🇦</span>
+            <div class="country-card-body">
+              <h3>Canada</h3>
+              <p>Federal income tax + CPP + EI. Basic Personal Amount CA$15,705.</p>
+              <div class="country-card-meta"><span>Estimate</span><span>CAD (CA$)</span></div>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <!-- DISCLAIMER -->
+      <div class="notice-box warning">
+        <strong>Disclaimer:</strong> All figures are simplified estimates based on publicly available 2024–25 ATO data. LITO and other offsets are not fully modelled. Results do not constitute financial or tax advice. Consult the ATO or a registered tax agent for advice specific to your situation. <a href="../disclaimer.html">Read our full disclaimer.</a>
+      </div>
+
+      <!-- AD: BOTTOM -->
+      <div class="ad-placeholder ad-bottom">AdSense Bottom Banner (Responsive)</div>
+
+    </div>
+
+    <!-- SIDEBAR -->
+    <aside class="country-page-sidebar">
+      <div class="sidebar-card">
+        <h3>Australia Tax Facts 2024–25</h3>
+        <ul class="sidebar-list">
+          <li><strong>Tax-free threshold:</strong> A$18,200</li>
+          <li><strong>Top Rate:</strong> 45% (above A$180,000)</li>
+          <li><strong>Medicare Levy:</strong> 2%</li>
+          <li><strong>Super (employer):</strong> 11.5%</li>
+          <li><strong>Tax System:</strong> PAYG Withholding</li>
+          <li><strong>Authority:</strong> ATO</li>
+          <li><strong>Currency:</strong> AUD (A$)</li>
+        </ul>
+        <a href="https://www.ato.gov.au" target="_blank" rel="noopener noreferrer" class="sidebar-source-link">Official ATO website ↗</a>
+      </div>
+
+      <div class="sidebar-card">
+        <h3>Other Global Countries</h3>
+        <ul class="sidebar-list">
+          <li><a href="usa.html">🇺🇸 USA</a></li>
+          <li><a href="canada.html">🇨🇦 Canada</a></li>
+        </ul>
+        <h3 style="margin-top:1rem;">EU Countries</h3>
+        <ul class="sidebar-list">
+          <li><a href="../eu/germany.html">🇩🇪 Germany</a></li>
+          <li><a href="../eu/france.html">🇫🇷 France</a></li>
+          <li><a href="../eu/netherlands.html">🇳🇱 Netherlands</a></li>
+          <li><a href="../eu/spain.html">🇪🇸 Spain</a></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-card">
+        <h3>Useful Guides</h3>
+        <ul class="sidebar-list">
+          <li><a href="../guides/gross-vs-net-salary.html">Gross vs Net Salary</a></li>
+          <li><a href="../guides/income-tax-vs-social-contributions.html">Tax vs Social Contributions</a></li>
+          <li><a href="../guides/why-net-salary-differs-by-country.html">Why Net Pay Differs</a></li>
+          <li><a href="../guides/tax-residency-basics.html">Tax Residency Basics</a></li>
+          <li><a href="../methodology.html">Our Methodology</a></li>
+        </ul>
+      </div>
+    </aside>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-col footer-brand">
+      <a href="../index.html" class="nav-brand">Salary<span>UKCalc</span></a>
+      <p>Free salary and tax calculators for the UK, EU, and global countries. All calculations run in your browser. Results are estimates only — not professional tax advice.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Regions</h4>
+      <ul>
+        <li><a href="../uk/index.html">🇬🇧 United Kingdom</a></li>
+        <li><a href="../eu/index.html">🇪🇺 European Union</a></li>
+        <li><a href="index.html">🌍 Global</a></li>
+        <li><a href="../regions.html">All Regions</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Countries</h4>
+      <ul>
+        <li><a href="../eu/ireland.html">🇮🇪 Ireland</a></li>
+        <li><a href="../eu/germany.html">🇩🇪 Germany</a></li>
+        <li><a href="../eu/france.html">🇫🇷 France</a></li>
+        <li><a href="usa.html">🇺🇸 USA</a></li>
+        <li><a href="australia.html">🇦🇺 Australia</a></li>
+        <li><a href="uae.html">🇦🇪 UAE</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Guides</h4>
+      <ul>
+        <li><a href="../guides/gross-vs-net-salary.html">Gross vs Net Salary</a></li>
+        <li><a href="../guides/income-tax-vs-social-contributions.html">Tax vs Social Contributions</a></li>
+        <li><a href="../guides/how-payroll-deductions-work.html">Payroll Deductions</a></li>
+        <li><a href="../guides/tax-residency-basics.html">Tax Residency</a></li>
+        <li><a href="../guides/why-net-salary-differs-by-country.html">Why Net Pay Differs</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <ul>
+        <li><a href="../privacy.html">Privacy Policy</a></li>
+        <li><a href="../terms.html">Terms of Use</a></li>
+        <li><a href="../disclaimer.html">Disclaimer</a></li>
+        <li><a href="../methodology.html">Methodology</a></li>
+        <li><a href="../about.html">About Us</a></li>
+        <li><a href="../contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; <span id="footer-year">2025</span> SalaryUKCalc.com — All results are estimates for informational purposes only.</p>
+    <div class="footer-bottom-links">
+      <a href="../privacy.html">Privacy</a>
+      <a href="../terms.html">Terms</a>
+      <a href="../disclaimer.html">Disclaimer</a>
+      <a href="../methodology.html">Methodology</a>
+    </div>
+  </div>
+</footer>
+
+<script src="../data/countries.js"></script>
+<script>
+  document.getElementById('footer-year').textContent = new Date().getFullYear();
+
+  document.getElementById('au-calculate').addEventListener('click', function() {
+    const gross = parseFloat(document.getElementById('au-salary').value) || 0;
+    if (gross <= 0) return;
+
+    const result = estimateNetSalary(gross, 'au');
+    if (!result) return;
+
+    const superAmount = gross * 0.115;
+
+    document.getElementById('au-gross-out').textContent = formatCountryCurrency(result.grossAnnual, 'au');
+    document.getElementById('au-tax-out').textContent = formatCountryCurrency(result.incomeTax, 'au');
+    document.getElementById('au-medicare-out').textContent = formatCountryCurrency(result.medicareLevy || (gross * 0.02), 'au');
+    document.getElementById('au-deductions-out').textContent = formatCountryCurrency(result.totalDeductions, 'au');
+    document.getElementById('au-net-out').textContent = formatCountryCurrency(result.netAnnual, 'au');
+    document.getElementById('au-net-monthly-out').textContent = formatCountryCurrency(result.netAnnual / 12, 'au');
+    document.getElementById('au-rate-out').textContent = (result.effectiveRate * 100).toFixed(1) + '%';
+    document.getElementById('au-super-out').textContent = superAmount.toLocaleString('en-AU', { minimumFractionDigits: 0, maximumFractionDigits: 0 });
+
+    document.getElementById('au-results').style.display = 'block';
+  });
+
+  document.getElementById('au-calculate').click();
+</script>
+</body>
+</html>

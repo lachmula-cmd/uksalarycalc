@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Netherlands Salary Tax Estimator 2024 — Gross to Net | SalaryUKCalc</title>
+  <meta name="description" content="Estimate your net salary in the Netherlands. Understand Box 1 income tax, general tax credit, and approximate take-home pay. 2024 rates for Dutch employees.">
+  <link rel="canonical" href="https://salaryukcalc.com/eu/netherlands.html">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<header>
+  <div class="nav-wrapper">
+    <a href="../index.html" class="nav-brand">Salary<span>UKCalc</span></a>
+    <nav aria-label="Main navigation">
+      <ul>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../regions.html">Regions</a></li>
+        <li class="has-dropdown">
+          <a href="../regions.html">Countries &#9662;</a>
+          <ul class="nav-dropdown">
+            <li class="nav-dropdown-header">🇬🇧 United Kingdom</li>
+            <li><a href="../uk/index.html">🇬🇧 United Kingdom</a></li>
+            <li class="nav-dropdown-header">🇪🇺 European Union</li>
+            <li><a href="ireland.html">🇮🇪 Ireland</a></li>
+            <li><a href="germany.html">🇩🇪 Germany</a></li>
+            <li><a href="france.html">🇫🇷 France</a></li>
+            <li><a href="netherlands.html">🇳🇱 Netherlands</a></li>
+            <li><a href="spain.html">🇪🇸 Spain</a></li>
+            <li><a href="italy.html">🇮🇹 Italy</a></li>
+            <li><a href="poland.html">🇵🇱 Poland</a></li>
+            <li class="nav-dropdown-header">🌍 Global</li>
+            <li><a href="../global/usa.html">🇺🇸 USA</a></li>
+            <li><a href="../global/canada.html">🇨🇦 Canada</a></li>
+            <li><a href="../global/australia.html">🇦🇺 Australia</a></li>
+            <li><a href="../global/switzerland.html">🇨🇭 Switzerland</a></li>
+            <li><a href="../global/norway.html">🇳🇴 Norway</a></li>
+            <li><a href="../global/uae.html">🇦🇪 UAE</a></li>
+          </ul>
+        </li>
+        <li><a href="../guides/index.html">Guides</a></li>
+        <li><a href="../about.html">About</a></li>
+        <li><a href="../contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <div class="breadcrumb-inner">
+    <a href="../index.html">Home</a>
+    <span>›</span>
+    <a href="index.html">🇪🇺 EU</a>
+    <span>›</span>
+    <span aria-current="page">🇳🇱 Netherlands</span>
+  </div>
+</nav>
+
+<div class="page-header page-header-eu">
+  <div class="page-header-inner">
+    <div class="page-header-flag">🇳🇱</div>
+    <h1>Netherlands Salary Tax Estimator 2024</h1>
+    <p>Estimate your gross-to-net salary in the Netherlands. Understand Box 1 income tax (which includes social contributions), the general tax credit, and approximate take-home pay. Based on publicly available 2024 rates.</p>
+    <div class="page-header-meta">
+      <span>Tax Year: 2024</span>
+      <span>System: Inkomstenbelasting (Box 1)</span>
+      <span>Authority: Belastingdienst</span>
+      <span>Currency: EUR (€)</span>
+      <span class="meta-estimate">⚠ Estimates only</span>
+    </div>
+  </div>
+</div>
+
+<main>
+  <div class="country-page-layout">
+    <div class="country-page-main">
+
+      <!-- AD: TOP -->
+      <div class="ad-placeholder ad-top">AdSense Banner (Responsive)</div>
+
+      <!-- ESTIMATE NOTICE -->
+      <div class="notice-box estimate">
+        <strong>Estimate notice:</strong> This tool provides a simplified gross-to-net estimate for the Netherlands. Dutch tax includes a general tax credit (algemene heffingskorting) and employment tax credit (arbeidskorting) that reduce tax owed. This estimate applies a simplified general tax credit only. Actual tax depends on your personal situation, tax credits, and other income. Results are for informational purposes only.
+      </div>
+
+      <!-- ESTIMATOR WIDGET -->
+      <div class="calculator-card">
+        <div class="calculator-card-header">
+          <h2>Netherlands Salary Estimator</h2>
+          <span class="estimate-badge">Estimate</span>
+        </div>
+
+        <div class="input-group">
+          <label for="nl-salary">Annual Gross Salary (€)</label>
+          <input type="number" id="nl-salary" value="55000" min="0" step="500">
+          <span class="help-text">Enter your gross annual salary in Euros (bruto jaarsalaris)</span>
+        </div>
+
+        <button class="btn btn-primary" id="nl-calculate">Calculate Estimate</button>
+
+        <div id="nl-results" class="estimate-results" style="display:none;">
+          <div class="notice-box estimate" style="margin-bottom:1rem;">
+            <strong>⚠ These are estimates only.</strong> Dutch tax credits (arbeidskorting, algemene heffingskorting) significantly affect your actual net pay. This estimate applies a simplified general tax credit only. Consult the Belastingdienst or a tax adviser for accurate figures.
+          </div>
+
+          <h3 class="results-heading">Estimated Annual Breakdown</h3>
+          <div class="results">
+            <div class="result-item">
+              <span class="result-label">Gross Annual Salary</span>
+              <span class="result-value" id="nl-gross-out">€0</span>
+            </div>
+            <div class="result-item">
+              <span class="result-label">Est. Box 1 Tax (incl. social contributions)</span>
+              <span class="result-value" id="nl-tax-out">€0</span>
+            </div>
+            <div class="result-item">
+              <span class="result-label">General Tax Credit Applied</span>
+              <span class="result-value" id="nl-credit-out">€0</span>
+            </div>
+            <div class="result-item">
+              <span class="result-label">Est. Total Deductions</span>
+              <span class="result-value" id="nl-deductions-out">€0</span>
+            </div>
+            <div class="result-item highlight">
+              <span class="result-label">Est. Net Annual (Netto jaarsalaris)</span>
+              <span class="result-value large" id="nl-net-out">€0</span>
+            </div>
+            <div class="result-item">
+              <span class="result-label">Est. Net Monthly</span>
+              <span class="result-value" id="nl-net-monthly-out">€0</span>
+            </div>
+            <div class="result-item">
+              <span class="result-label">Effective Total Rate</span>
+              <span class="result-value" id="nl-rate-out">0%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- AD: INLINE -->
+      <div class="ad-placeholder ad-inline">AdSense In-Article (Responsive)</div>
+
+      <!-- INTRO -->
+      <section class="content-section">
+        <h2>How Dutch Income Tax Works</h2>
+        <p>The Netherlands uses a <strong>box system</strong> for income tax (inkomstenbelasting). Employment income falls under <strong>Box 1</strong> (work and home). A key feature of the Dutch system is that <strong>social contributions are included within the Box 1 tax rates</strong> — unlike most other countries where they are calculated separately.</p>
+        <p>Box 1 has two bands: 36.97% up to €75,518, and 49.5% above that. These rates already include contributions to the state pension (AOW), survivor's benefit (ANW), and long-term care insurance (WLZ).</p>
+        <p>Tax credits (<strong>heffingskortingen</strong>) are then applied to reduce the amount of tax owed. The two main credits for employees are the <strong>algemene heffingskorting</strong> (general tax credit, up to ~€3,362) and the <strong>arbeidskorting</strong> (employment tax credit, up to ~€5,052). These credits phase out at higher income levels.</p>
+      </section>
+
+      <!-- TAX BANDS -->
+      <section class="content-section">
+        <h2>Netherlands Box 1 Tax Bands 2024</h2>
+        <div class="notice-box info">
+          <strong>Important:</strong> Box 1 rates include social contributions (AOW, ANW, WLZ). They are not separate from income tax — the combined rate is applied to your income.
+        </div>
+        <div class="table-container">
+          <table class="tax-breakdown-table">
+            <thead>
+              <tr><th>Band</th><th>Annual Income</th><th>Rate (incl. social contributions)</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Band 1</td><td>Up to €75,518</td><td>36.97%</td></tr>
+              <tr><td>Band 2</td><td>Above €75,518</td><td>49.5%</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <h3>Tax Credits (Heffingskortingen)</h3>
+        <div class="table-container">
+          <table class="tax-breakdown-table">
+            <thead>
+              <tr><th>Credit</th><th>Maximum Amount</th><th>Notes</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Algemene heffingskorting (General tax credit)</td><td>~€3,362</td><td>Phases out above ~€24,813</td></tr>
+              <tr><td>Arbeidskorting (Employment tax credit)</td><td>~€5,052</td><td>Phases out above ~€39,957</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="disclaimer">* Tax credits reduce the amount of tax owed, not your taxable income. This estimate applies a simplified general tax credit only. The employment tax credit (arbeidskorting) is not modelled in this simplified estimate.</p>
+      </section>
+
+      <!-- SOCIAL CONTRIBUTIONS -->
+      <section class="content-section">
+        <h2>Social Contributions in the Netherlands</h2>
+        <p>Unlike most countries, Dutch social contributions for employees are <strong>included within the Box 1 tax rate</strong>. The 36.97% Band 1 rate breaks down approximately as:</p>
+        <div class="deductions-list">
+          <div class="deduction-item">
+            <div class="deduction-name">Inkomstenbelasting (Income Tax)</div>
+            <div class="deduction-rate">9.32%</div>
+            <div class="deduction-desc">The pure income tax component of the Band 1 rate.</div>
+          </div>
+          <div class="deduction-item">
+            <div class="deduction-name">AOW (Algemene Ouderdomswet — State Pension)</div>
+            <div class="deduction-rate">17.9%</div>
+            <div class="deduction-desc">Contribution to the Dutch state pension (AOW). This is the largest component of the Band 1 rate.</div>
+          </div>
+          <div class="deduction-item">
+            <div class="deduction-name">ANW (Algemene Nabestaandenwet — Survivor's Benefit)</div>
+            <div class="deduction-rate">0.1%</div>
+            <div class="deduction-desc">Contribution to survivor's benefit insurance.</div>
+          </div>
+          <div class="deduction-item">
+            <div class="deduction-name">WLZ (Wet Langdurige Zorg — Long-term Care)</div>
+            <div class="deduction-rate">9.65%</div>
+            <div class="deduction-desc">Contribution to long-term care insurance.</div>
+          </div>
+        </div>
+        <p>Above €75,518 (Band 2), the 49.5% rate is pure income tax — social contributions are capped at the Band 1 ceiling.</p>
+      </section>
+
+      <!-- WORKED EXAMPLE -->
+      <section class="content-section">
+        <h2>Worked Example — €55,000 Gross Salary</h2>
+        <p>A simplified illustration for an employed person earning €55,000 gross per year in the Netherlands (2024).</p>
+        <div class="worked-example">
+          <div class="worked-example-step">
+            <div class="step-number">1</div>
+            <div class="step-content">
+              <h4>Gross Annual Salary</h4>
+              <p><strong>€55,000</strong></p>
+            </div>
+          </div>
+          <div class="worked-example-step">
+            <div class="step-number">2</div>
+            <div class="step-content">
+              <h4>Apply Box 1 Band 1 (36.97% on first €75,518)</h4>
+              <p>€55,000 × 36.97% = <strong>€20,334</strong></p>
+            </div>
+          </div>
+          <div class="worked-example-step">
+            <div class="step-number">3</div>
+            <div class="step-content">
+              <h4>Apply General Tax Credit (Algemene heffingskorting)</h4>
+              <p>Simplified credit: −€3,362</p>
+              <p>Tax after credit: €20,334 − €3,362 = <strong>€16,972</strong></p>
+            </div>
+          </div>
+          <div class="worked-example-step">
+            <div class="step-number">4</div>
+            <div class="step-content">
+              <h4>Estimated Net Annual</h4>
+              <p>€55,000 − €16,972 = <strong>~€38,028</strong></p>
+            </div>
+          </div>
+          <div class="worked-example-step">
+            <div class="step-number">5</div>
+            <div class="step-content">
+              <h4>Estimated Net Monthly</h4>
+              <p>€38,028 ÷ 12 = <strong>~€3,169/month</strong></p>
+            </div>
+          </div>
+        </div>
+        <p class="disclaimer">* This is a simplified estimate. The employment tax credit (arbeidskorting) would further reduce tax owed. Actual net pay will typically be higher than this estimate for most employees.</p>
+      </section>
+
+      <!-- ASSUMPTIONS -->
+      <section class="content-section">
+        <h2>Assumptions &amp; Limitations</h2>
+        <div class="deductions-list">
+          <div class="deduction-item">
+            <div class="deduction-name">General tax credit only</div>
+            <div class="deduction-desc">This estimate applies only the algemene heffingskorting (general tax credit). The arbeidskorting (employment tax credit, up to ~€5,052) is not modelled, meaning actual net pay for most employees will be higher than shown.</div>
+          </div>
+          <div class="deduction-item">
+            <div class="deduction-name">Box 1 income only</div>
+            <div class="deduction-desc">This estimate covers Box 1 (employment) income only. Box 2 (substantial interest) and Box 3 (savings and investments) are taxed differently and are not included.</div>
+          </div>
+          <div class="deduction-item">
+            <div class="deduction-name">No healthcare premium</div>
+            <div class="deduction-desc">The Zorgverzekeringswet (ZVW) healthcare premium (~5.32% employer contribution) is not included as it is paid by the employer, not deducted from your gross salary.</div>
+          </div>
+          <div class="deduction-item">
+            <div class="deduction-name">No 30% ruling</div>
+            <div class="deduction-desc">The 30% ruling (30%-regeling) for highly skilled migrants is not modelled. If you qualify, your effective tax rate may be significantly lower.</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section class="content-section">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-list">
+          <div class="faq-item">
+            <h3 class="faq-question">Why are Dutch tax rates so high?</h3>
+            <div class="faq-answer">
+              <p>The Box 1 rates (36.97% and 49.5%) look high because they include social contributions — state pension (AOW), survivor's benefit (ANW), and long-term care (WLZ). In most other countries, these are shown separately. The actual income tax component of Band 1 is only ~9.32%.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <h3 class="faq-question">What is the arbeidskorting?</h3>
+            <div class="faq-answer">
+              <p>The arbeidskorting (employment tax credit) is a tax credit for people who work. It reduces the amount of income tax you owe. The maximum credit is ~€5,052 (2024), but it phases out at higher income levels. It is applied after the algemene heffingskorting.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <h3 class="faq-question">What is the 30% ruling?</h3>
+            <div class="faq-answer">
+              <p>The 30% ruling (30%-regeling) is a tax advantage for highly skilled migrants recruited from abroad. It allows 30% of your salary to be paid tax-free, significantly reducing your effective tax rate. It applies for a maximum of 5 years and requires meeting specific conditions.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <h3 class="faq-question">What is the difference between bruto and netto in the Netherlands?</h3>
+            <div class="faq-answer">
+              <p><strong>Bruto salaris</strong> is your gross salary before deductions. <strong>Netto salaris</strong> is your take-home pay after Box 1 tax (which includes social contributions) and after tax credits have been applied. The gap between bruto and netto in the Netherlands can be significant, especially at higher income levels.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- RELATED COUNTRIES -->
+      <section class="content-section">
+        <h2>Other EU Countries</h2>
+        <div class="country-grid">
+          <a href="germany.html" class="country-card eu">
+            <span class="country-card-flag">🇩🇪</span>
+            <div class="country-card-body">
+              <h3>Germany</h3>
+              <p>Lohnsteuer + ~20% social contributions. Grundfreibetrag €11,604.</p>
+              <div class="country-card-meta"><span>Estimate</span><span>EUR (€)</span></div>
+            </div>
+          </a>
+          <a href="france.html" class="country-card eu">
+            <span class="country-card-flag">🇫🇷</span>
+            <div class="country-card-body">
+              <h3>France</h3>
+              <p>Impôt sur le revenu + CSG/CRDS. ~22% social contributions.</p>
+              <div class="country-card-meta"><span>Estimate</span><span>EUR (€)</span></div>
+            </div>
+          </a>
+          <a href="spain.html" class="country-card eu">
+            <span class="country-card-flag">🇪🇸</span>
+            <div class="country-card-body">
+              <h3>Spain</h3>
+              <p>IRPF income tax + Social Security ~6.35%.</p>
+              <div class="country-card-meta"><span>Estimate</span><span>EUR (€)</span></div>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <!-- DISCLAIMER -->
+      <div class="notice-box warning">
+        <strong>Disclaimer:</strong> All figures are simplified estimates based on publicly available 2024 Dutch tax data. The employment tax credit (arbeidskorting) is not modelled — actual net pay will typically be higher. Consult the Belastingdienst or a tax adviser for accurate calculations. <a href="../disclaimer.html">Read our full disclaimer.</a>
+      </div>
+
+      <!-- AD: BOTTOM -->
+      <div class="ad-placeholder ad-bottom">AdSense Bottom Banner (Responsive)</div>
+
+    </div>
+
+    <!-- SIDEBAR -->
+    <aside class="country-page-sidebar">
+      <div class="sidebar-card">
+        <h3>Netherlands Tax Facts 2024</h3>
+        <ul class="sidebar-list">
+          <li><strong>Band 1 Rate:</strong> 36.97% (up to €75,518)</li>
+          <li><strong>Band 2 Rate:</strong> 49.5%</li>
+          <li><strong>General Tax Credit:</strong> Up to ~€3,362</li>
+          <li><strong>Employment Credit:</strong> Up to ~€5,052</li>
+          <li><strong>Tax System:</strong> Inkomstenbelasting (Box 1)</li>
+          <li><strong>Authority:</strong> Belastingdienst</li>
+          <li><strong>Currency:</strong> EUR (€)</li>
+        </ul>
+        <a href="https://www.belastingdienst.nl" target="_blank" rel="noopener noreferrer" class="sidebar-source-link">Official Belastingdienst ↗</a>
+      </div>
+
+      <div class="sidebar-card">
+        <h3>Other EU Countries</h3>
+        <ul class="sidebar-list">
+          <li><a href="germany.html">🇩🇪 Germany</a></li>
+          <li><a href="france.html">🇫🇷 France</a></li>
+          <li><a href="spain.html">🇪🇸 Spain</a></li>
+        </ul>
+        <h3 style="margin-top:1rem;">Global Countries</h3>
+        <ul class="sidebar-list">
+          <li><a href="../global/usa.html">🇺🇸 USA</a></li>
+          <li><a href="../global/canada.html">🇨🇦 Canada</a></li>
+          <li><a href="../global/australia.html">🇦🇺 Australia</a></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-card">
+        <h3>Useful Guides</h3>
+        <ul class="sidebar-list">
+          <li><a href="../guides/gross-vs-net-salary.html">Gross vs Net Salary</a></li>
+          <li><a href="../guides/income-tax-vs-social-contributions.html">Tax vs Social Contributions</a></li>
+          <li><a href="../guides/how-payroll-deductions-work.html">Payroll Deductions</a></li>
+          <li><a href="../guides/why-net-salary-differs-by-country.html">Why Net Pay Differs</a></li>
+          <li><a href="../methodology.html">Our Methodology</a></li>
+        </ul>
+      </div>
+    </aside>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-col footer-brand">
+      <a href="../index.html" class="nav-brand">Salary<span>UKCalc</span></a>
+      <p>Free salary and tax calculators for the UK, EU, and global countries. All calculations run in your browser. Results are estimates only — not professional tax advice.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Regions</h4>
+      <ul>
+        <li><a href="../uk/index.html">🇬🇧 United Kingdom</a></li>
+        <li><a href="index.html">🇪🇺 European Union</a></li>
+        <li><a href="../global/index.html">🌍 Global</a></li>
+        <li><a href="../regions.html">All Regions</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Countries</h4>
+      <ul>
+        <li><a href="ireland.html">🇮🇪 Ireland</a></li>
+        <li><a href="germany.html">🇩🇪 Germany</a></li>
+        <li><a href="france.html">🇫🇷 France</a></li>
+        <li><a href="../global/usa.html">🇺🇸 USA</a></li>
+        <li><a href="../global/australia.html">🇦🇺 Australia</a></li>
+        <li><a href="../global/uae.html">🇦🇪 UAE</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Guides</h4>
+      <ul>
+        <li><a href="../guides/gross-vs-net-salary.html">Gross vs Net Salary</a></li>
+        <li><a href="../guides/income-tax-vs-social-contributions.html">Tax vs Social Contributions</a></li>
+        <li><a href="../guides/how-payroll-deductions-work.html">Payroll Deductions</a></li>
+        <li><a href="../guides/tax-residency-basics.html">Tax Residency</a></li>
+        <li><a href="../guides/why-net-salary-differs-by-country.html">Why Net Pay Differs</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <ul>
+        <li><a href="../privacy.html">Privacy Policy</a></li>
+        <li><a href="../terms.html">Terms of Use</a></li>
+        <li><a href="../disclaimer.html">Disclaimer</a></li>
+        <li><a href="../methodology.html">Methodology</a></li>
+        <li><a href="../about.html">About Us</a></li>
+        <li><a href="../contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; <span id="footer-year">2025</span> SalaryUKCalc.com — All results are estimates for informational purposes only.</p>
+    <div class="footer-bottom-links">
+      <a href="../privacy.html">Privacy</a>
+      <a href="../terms.html">Terms</a>
+      <a href="../disclaimer.html">Disclaimer</a>
+      <a href="../methodology.html">Methodology</a>
+    </div>
+  </div>
+</footer>
+
+<script src="../data/countries.js"></script>
+<script>
+  document.getElementById('footer-year').textContent = new Date().getFullYear();
+
+  document.getElementById('nl-calculate').addEventListener('click', function() {
+    const gross = parseFloat(document.getElementById('nl-salary').value) || 0;
+    if (gross <= 0) return;
+
+    const result = estimateNetSalary(gross, 'nl');
+    if (!result) return;
+
+    const creditApplied = Math.min(3362, result.incomeTax + result.socialContributions);
+    document.getElementById('nl-gross-out').textContent = formatCountryCurrency(result.grossAnnual, 'nl');
+    document.getElementById('nl-tax-out').textContent = formatCountryCurrency(result.incomeTax + creditApplied, 'nl');
+    document.getElementById('nl-credit-out').textContent = '−' + formatCountryCurrency(creditApplied, 'nl');
+    document.getElementById('nl-deductions-out').textContent = formatCountryCurrency(result.totalDeductions, 'nl');
+    document.getElementById('nl-net-out').textContent = formatCountryCurrency(result.netAnnual, 'nl');
+    document.getElementById('nl-net-monthly-out').textContent = formatCountryCurrency(result.netAnnual / 12, 'nl');
+    document.getElementById('nl-rate-out').textContent = (result.effectiveRate * 100).toFixed(1) + '%';
+
+    document.getElementById('nl-results').style.display = 'block';
+  });
+
+  document.getElementById('nl-calculate').click();
+</script>
+</body>
+</html>

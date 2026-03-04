@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Italy Salary Tax Estimator 2024 — Gross to Net (IRPEF) | SalaryUKCalc</title>
+  <meta name="description" content="Estimate your net salary in Italy. Understand IRPEF income tax bands, INPS social contributions, and take-home pay. Based on 2024 Agenzia delle Entrate rates.">
+  <link rel="canonical" href="https://salaryukcalc.com/eu/italy.html">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<header>
+  <div class="nav-wrapper">
+    <a href="../index.html" class="nav-brand">Salary<span>UKCalc</span></a>
+    <nav aria-label="Main navigation">
+      <ul>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../regions.html">Regions</a></li>
+        <li class="has-dropdown">
+          <a href="../regions.html">Countries ▾</a>
+          <ul class="nav-dropdown">
+            <li class="nav-dropdown-header">🇬🇧 United Kingdom</li>
+            <li><a href="../uk/index.html">🇬🇧 United Kingdom</a></li>
+            <li class="nav-dropdown-header">🇪🇺 European Union</li>
+            <li><a href="ireland.html">🇮🇪 Ireland</a></li>
+            <li><a href="germany.html">🇩🇪 Germany</a></li>
+            <li><a href="france.html">🇫🇷 France</a></li>
+            <li><a href="netherlands.html">🇳🇱 Netherlands</a></li>
+            <li><a href="spain.html">🇪🇸 Spain</a></li>
+            <li><a href="italy.html">🇮🇹 Italy</a></li>
+            <li><a href="poland.html">🇵🇱 Poland</a></li>
+            <li class="nav-dropdown-header">🌍 Global</li>
+            <li><a href="../global/usa.html">🇺🇸 USA</a></li>
+            <li><a href="../global/canada.html">🇨🇦 Canada</a></li>
+            <li><a href="../global/australia.html">🇦🇺 Australia</a></li>
+            <li><a href="../global/switzerland.html">🇨🇭 Switzerland</a></li>
+            <li><a href="../global/norway.html">🇳🇴 Norway</a></li>
+            <li><a href="../global/uae.html">🇦🇪 UAE</a></li>
+          </ul>
+        </li>
+        <li><a href="../guides/index.html">Guides</a></li>
+        <li><a href="../about.html">About</a></li>
+        <li><a href="../contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <div class="breadcrumb-inner">
+    <a href="../index.html">Home</a>
+    <span>›</span>
+    <a href="index.html">🇪🇺 EU</a>
+    <span>›</span>
+    <span aria-current="page">🇮🇹 Italy</span>
+  </div>
+</nav>
+
+<div class="page-header page-header-eu">
+  <div class="page-header-inner">
+    <div class="page-header-flag">🇮🇹</div>
+    <h1>Italy Salary Tax Estimator 2024</h1>
+    <p>Estimate your gross-to-net salary in Italy. Understand IRPEF income tax bands, INPS social contributions, and approximate take-home pay. Based on publicly available 2024 Agenzia delle Entrate rates.</p>
+    <div class="page-header-meta">
+      <span>Tax Year: 2024</span>
+      <span>System: IRPEF + INPS</span>
+      <span>Authority: Agenzia delle Entrate</span>
+      <span>Currency: EUR (€)</span>
+      <span class="meta-estimate">⚠ Estimates only</span>
+    </div>
+  </div>
+</div>
+
+<main>
+  <div class="country-page-layout container-wide">
+    <div class="country-page-main">
+
+      <div class="ad-placeholder ad-top">AdSense Banner (Responsive)</div>
+
+      <div class="notice-box estimate">
+        <strong>Estimate notice:</strong> This tool provides a simplified gross-to-net estimate for Italy. Italian tax law is complex — actual liability depends on regional taxes, employment deductions, family allowances, and other personal circumstances. Always consult <a href="https://www.agenziaentrate.gov.it" target="_blank" rel="noopener">Agenzia delle Entrate</a> or a qualified commercialista for accurate figures.
+      </div>
+
+      <div class="calculator-card">
+        <div class="calculator-card-header">
+          <h2>🇮🇹 Italy Net Salary Estimator</h2>
+          <span class="estimate-badge">⚠ Estimate Only</span>
+        </div>
+        <div class="input-group">
+          <label for="it-salary">Annual Gross Salary (€)</label>
+          <input type="number" id="it-salary" placeholder="e.g. 40000" min="0" max="1000000" value="40000">
+          <span class="help-text">Enter your annual gross salary (RAL — Reddito Annuo Lordo) before IRPEF and INPS deductions.</span>
+        </div>
+        <button class="btn btn-primary" id="it-calculate" style="width:100%">Calculate Estimate</button>
+        <div id="it-results" class="estimate-results" style="display:none">
+          <p class="results-heading">Estimated Annual Breakdown</p>
+          <div class="results results-estimate">
+            <div class="result-item">
+              <span class="result-label">Gross Annual Salary (RAL)</span>
+              <span class="result-value" id="it-gross-out">—</span>
+            </div>
+            <div class="result-item">
+              <span class="result-label">IRPEF (Income Tax, after deductions)</span>
+              <span class="result-value" id="it-tax-out">—</span>
+            </div>
+            <div class="result-item">
+              <span class="result-label">INPS (Social Contributions, ~9.19%)</span>
+              <span class="result-value" id="it-social-out">—</span>
+            </div>
+            <div class="result-item">
+              <span class="result-label">Total Deductions</span>
+              <span class="result-value" id="it-deductions-out">—</span>
+            </div>
+            <div class="result-item">
+              <span class="result-label">Estimated Net Annual</span>
+              <span class="result-value large" id="it-net-out">—</span>
+            </div>
+            <div class="result-item">
+              <span class="result-label">Estimated Net Monthly</span>
+              <span class="result-value" id="it-net-monthly-out">—</span>
+            </div>
+            <div class="result-item">
+              <span class="result-label">Effective Total Rate</span>
+              <span class="result-value" id="it-rate-out">—</span>
+            </div>
+          </div>
+          <p class="disclaimer">⚠ Simplified estimate. Excludes regional/municipal taxes (~1.5–3.5%), addizionale regionale and addizionale comunale. Actual net pay will be lower. Does not account for family allowances (ANF) or other personal deductions.</p>
+        </div>
+      </div>
+
+      <section class="content-section">
+        <h2>Italy IRPEF Income Tax Bands 2024</h2>
+        <p>Italy's income tax (IRPEF — Imposta sul Reddito delle Persone Fisiche) uses a progressive rate system. The 2024 reform consolidated the previous four bands into three, reducing the tax burden for many middle-income earners.</p>
+        <div class="table-container">
+          <table class="tax-breakdown-table">
+            <thead>
+              <tr>
+                <th>Band</th>
+                <th>Rate</th>
+                <th>Income Range</th>
+                <th>Notes</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Band 1</td>
+                <td>23%</td>
+                <td>€0 – €28,000</td>
+                <td>Standard rate band</td>
+              </tr>
+              <tr>
+                <td>Band 2</td>
+                <td>35%</td>
+                <td>€28,001 – €50,000</td>
+                <td>Middle rate band</td>
+              </tr>
+              <tr>
+                <td>Band 3</td>
+                <td>43%</td>
+                <td>Above €50,000</td>
+                <td>Top rate band</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="notice-box info" style="margin-top:1rem">
+          <strong>Employment deductions (detrazioni per lavoro dipendente):</strong> Employees receive a tax deduction that reduces their IRPEF liability. The deduction is approximately €1,880 for lower incomes and tapers off as income rises, reaching zero above €50,000. This is applied automatically by your employer.
+        </div>
+        <div class="notice-box warning" style="margin-top:0.75rem">
+          <strong>Regional and municipal taxes:</strong> In addition to national IRPEF, Italian residents pay addizionale regionale (regional surcharge, typically 1.23–3.33%) and addizionale comunale (municipal surcharge, up to 0.9%). These are <strong>not included</strong> in this estimator but can add 1.5–4% to your total tax burden.
+        </div>
+      </section>
+
+      <section class="content-section">
+        <h2>INPS — Social Security Contributions</h2>
+        <p>Italian employees pay INPS (Istituto Nazionale della Previdenza Sociale) contributions, which fund the state pension, illness benefits, and other social protections. The employee contribution rate varies by employment category.</p>
+        <div class="deduction-item">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start">
+            <div>
+              <div class="deduction-name">INPS — Employee Pension Contribution</div>
+              <div class="deduction-desc">The main employee social contribution. Funds the state pension (pensione) and other INPS benefits. Rate applies up to a contribution ceiling (massimale contributivo).</div>
+            </div>
+            <div class="deduction-rate">~9.19%</div>
+          </div>
+        </div>
+        <div class="deduction-item">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start">
+            <div>
+              <div class="deduction-name">INPS — Employer Contribution</div>
+              <div class="deduction-desc">Employers pay approximately 23–30% of gross salary in INPS contributions. This is not deducted from your salary but significantly increases the total cost of employment.</div>
+            </div>
+            <div class="deduction-rate">~23–30%</div>
+          </div>
+        </div>
+        <div class="notice-box info" style="margin-top:1rem">
+          <strong>Note on RAL vs. busta paga:</strong> In Italy, your gross salary is often quoted as RAL (Reddito Annuo Lordo). Your monthly payslip (busta paga) will show deductions for IRPEF, INPS, and any regional/municipal taxes. The net figure on your payslip is your take-home pay.
+        </div>
+      </section>
+
+      <section class="content-section">
+        <h2>Worked Example: €40,000 Gross Salary (2024)</h2>
+        <p>This illustrative example shows how an employee earning €40,000 RAL might calculate their approximate take-home pay. All figures are estimates and exclude regional/municipal taxes.</p>
+        <div class="worked-example">
+          <h3>Step-by-step breakdown (€40,000 RAL)</h3>
+          <div class="worked-example-row">
+            <span>Gross Annual Salary (RAL)</span>
+            <span>€40,000</span>
+          </div>
+          <div class="worked-example-row">
+            <span>INPS — 9.19% on €40,000</span>
+            <span>€3,676</span>
+          </div>
+          <div class="worked-example-row">
+            <span>IRPEF — 23% on €28,000</span>
+            <span>€6,440</span>
+          </div>
+          <div class="worked-example-row">
+            <span>IRPEF — 35% on €12,000</span>
+            <span>€4,200</span>
+          </div>
+          <div class="worked-example-row">
+            <span>IRPEF before deductions</span>
+            <span>€10,640</span>
+          </div>
+          <div class="worked-example-row">
+            <span>Less: Employment deduction (approx.)</span>
+            <span>−€1,385</span>
+          </div>
+          <div class="worked-example-row">
+            <span>Net IRPEF</span>
+            <span>€9,255</span>
+          </div>
+          <div class="worked-example-row">
+            <span>Total Deductions (IRPEF + INPS)</span>
+            <span>€12,931</span>
+          </div>
+          <div class="worked-example-row total">
+            <span>Estimated Net Annual (excl. regional taxes)</span>
+            <span>≈ €27,069</span>
+          </div>
+          <div class="worked-example-row total">
+            <span>Estimated Net Monthly</span>
+            <span>≈ €2,256</span>
+          </div>
+        </div>
+        <p class="disclaimer">⚠ Illustrative estimate only. Excludes addizionale regionale and addizionale comunale (typically 1.5–4% additional). Actual take-home pay will be lower. Employment deduction is approximate.</p>
+      </section>
+
+      <section class="content-section">
+        <h2>Key Facts About the Italian Tax System</h2>
+        <div class="stat-grid">
+          <div class="stat-box">
+            <span class="stat-value">23–43%</span>
+            <span class="stat-label">IRPEF Rates</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-value">~9.19%</span>
+            <span class="stat-label">Employee INPS</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-value">~23–30%</span>
+            <span class="stat-label">Employer INPS</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-value">+1.5–4%</span>
+            <span class="stat-label">Regional/Municipal Tax</span>
+          </div>
+        </div>
+        <ul style="margin-top:1rem">
+          <li>Italy's tax year runs from 1 January to 31 December.</li>
+          <li>IRPEF is withheld monthly by your employer (sostituto d'imposta) via the PAYE-equivalent system.</li>
+          <li>The 2024 reform reduced IRPEF from four bands to three, benefiting middle-income earners.</li>
+          <li>Italy has one of the highest employer social contribution rates in the EU (23–30%).</li>
+          <li>Employees receive 13 or 14 monthly salary payments per year in many sectors (tredicesima/quattordicesima).</li>
+          <li>TFR (Trattamento di Fine Rapporto) — a severance fund — is accrued at ~6.91% of gross salary per year and paid on leaving employment.</li>
+          <li>Regional taxes vary significantly: residents of Lombardy pay less than those in Calabria or Lazio.</li>
+        </ul>
+      </section>
+
+      <section class="content-section faq-section">
+        <h2>Frequently Asked Questions — Italy Tax</h2>
+        <div class="faq-item">
+          <h3>What is RAL in Italy?</h3>
+          <p>RAL stands for Reddito Annuo Lordo — your annual gross salary before any deductions. When Italian employers advertise salaries, they typically quote the RAL. Your actual take-home pay (netto) will be significantly lower after IRPEF, INPS, and regional taxes are deducted.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Why is Italian take-home pay lower than in other EU countries?</h3>
+          <p>Italy has relatively high social contribution rates and progressive income tax bands that start at 23%. Combined with regional and municipal surcharges, the total effective deduction rate for a €40,000 salary can exceed 30–35%. High employer contributions also make Italy an expensive country to hire in.</p>
+        </div>
+        <div class="faq-item">
+          <h3>What is the tredicesima (13th month salary)?</h3>
+          <p>Most Italian employees receive a 13th monthly salary payment (tredicesima) in December, equivalent to one month's gross pay. Some sectors also pay a 14th salary (quattordicesima) in June or July. These are included in your RAL and are subject to normal IRPEF and INPS deductions.</p>
+        </div>
+        <div class="faq-item">
+          <h3>What is TFR?</h3>
+          <p>TFR (Trattamento di Fine Rapporto) is a mandatory severance fund. Your employer sets aside approximately 6.91% of your gross salary each year. You receive this lump sum when you leave the company (resignation, redundancy, or retirement). You can also choose to direct TFR contributions to a pension fund.</p>
+        </div>
+        <div class="faq-item">
+          <h3>How does Italy compare to Germany or France for take-home pay?</h3>
+          <p>Italy generally has lower net salaries than Germany or the Netherlands at equivalent gross levels, due to higher combined deduction rates and lower average wages. However, Italy's cost of living varies significantly by region. See our <a href="../guides/why-net-salary-differs-by-country.html">guide on why net pay differs by country</a> for a broader comparison.</p>
+        </div>
+      </section>
+
+      <div class="ad-placeholder ad-bottom">AdSense Bottom Banner (Responsive)</div>
+
+    </div>
+
+    <aside class="country-page-sidebar">
+
+      <div class="sidebar-card">
+        <h3>🇮🇹 Italy at a Glance</h3>
+        <ul class="sidebar-list">
+          <li><strong>Currency:</strong> Euro (€)</li>
+          <li><strong>Tax Year:</strong> Jan–Dec 2024</li>
+          <li><strong>Tax System:</strong> IRPEF + INPS</li>
+          <li><strong>Authority:</strong> Agenzia delle Entrate</li>
+          <li><strong>IRPEF Bands:</strong> 23% / 35% / 43%</li>
+          <li><strong>Employee INPS:</strong> ~9.19%</li>
+          <li><strong>Regional Tax:</strong> +1.5–4% (varies)</li>
+          <li><strong>13th Salary:</strong> Yes (tredicesima)</li>
+        </ul>
+        <a href="https://www.agenziaentrate.gov.it/portale/web/guest/schede/pagamenti/irpef-chi-la-paga-e-come-si-calcola" target="_blank" rel="noopener" class="sidebar-source-link">→ Agenzia delle Entrate</a>
+      </div>
+
+      <div class="sidebar-card">
+        <h3>Other EU Countries</h3>
+        <ul>
+          <li><a href="ireland.html">🇮🇪 Ireland</a></li>
+          <li><a href="germany.html">🇩🇪 Germany</a></li>
+          <li><a href="france.html">🇫🇷 France</a></li>
+          <li><a href="netherlands.html">🇳🇱 Netherlands</a></li>
+          <li><a href="spain.html">🇪🇸 Spain</a></li>
+          <li><a href="poland.html">🇵🇱 Poland</a></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-card">
+        <h3>Related Guides</h3>
+        <ul>
+          <li><a href="../guides/gross-vs-net-salary.html">Gross vs Net Salary Explained</a></li>
+          <li><a href="../guides/income-tax-vs-social-contributions.html">Tax vs Social Contributions</a></li>
+          <li><a href="../guides/how-payroll-deductions-work.html">Payroll Deductions Explained</a></li>
+          <li><a href="../guides/tax-residency-basics.html">Tax Residency Basics</a></li>
+          <li><a href="../guides/why-net-salary-differs-by-country.html">Why Net Pay Differs</a></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-card">
+        <h3>Compare Regions</h3>
+        <ul>
+          <li><a href="../uk/index.html">🇬🇧 United Kingdom</a></li>
+          <li><a href="index.html">🇪🇺 European Union</a></li>
+          <li><a href="../global/index.html">🌍 Global Countries</a></li>
+        </ul>
+      </div>
+
+    </aside>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-col footer-brand">
+      <a href="../index.html" class="nav-brand">Salary<span>UKCalc</span></a>
+      <p>Free salary and tax calculators for the UK, EU, and global countries. All calculations run in your browser. Results are estimates only — not professional tax advice.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Regions</h4>
+      <ul>
+        <li><a href="../uk/index.html">🇬🇧 United Kingdom</a></li>
+        <li><a href="index.html">🇪🇺 European Union</a></li>
+        <li><a href="../global/index.html">🌍 Global</a></li>
+        <li><a href="../regions.html">All Regions</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Countries</h4>
+      <ul>
+        <li><a href="ireland.html">🇮🇪 Ireland</a></li>
+        <li><a href="germany.html">🇩🇪 Germany</a></li>
+        <li><a href="france.html">🇫🇷 France</a></li>
+        <li><a href="../global/usa.html">🇺🇸 USA</a></li>
+        <li><a href="../global/australia.html">🇦🇺 Australia</a></li>
+        <li><a href="../global/uae.html">🇦🇪 UAE</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Guides</h4>
+      <ul>
+        <li><a href="../guides/gross-vs-net-salary.html">Gross vs Net Salary</a></li>
+        <li><a href="../guides/income-tax-vs-social-contributions.html">Tax vs Social Contributions</a></li>
+        <li><a href="../guides/how-payroll-deductions-work.html">Payroll Deductions</a></li>
+        <li><a href="../guides/tax-residency-basics.html">Tax Residency</a></li>
+        <li><a href="../guides/why-net-salary-differs-by-country.html">Why Net Pay Differs</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <ul>
+        <li><a href="../privacy.html">Privacy Policy</a></li>
+        <li><a href="../terms.html">Terms of Use</a></li>
+        <li><a href="../disclaimer.html">Disclaimer</a></li>
+        <li><a href="../methodology.html">Methodology</a></li>
+        <li><a href="../about.html">About Us</a></li>
+        <li><a href="../contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; <span id="footer-year">2025</span> SalaryUKCalc.com — All results are estimates for informational purposes only.</p>
+    <div class="footer-bottom-links">
+      <a href="../privacy.html">Privacy</a>
+      <a href="../terms.html">Terms</a>
+      <a href="../disclaimer.html">Disclaimer</a>
+      <a href="../methodology.html">Methodology</a>
+    </div>
+  </div>
+</footer>
+
+<script src="../data/countries.js"></script>
+<script>
+  document.getElementById('footer-year').textContent = new Date().getFullYear();
+
+  function calcIRPEF(gross) {
+    let tax = 0;
+    if (gross <= 28000) {
+      tax = gross * 0.23;
+    } else if (gross <= 50000) {
+      tax = 28000 * 0.23 + (gross - 28000) * 0.35;
+    } else {
+      tax = 28000 * 0.23 + 22000 * 0.35 + (gross - 50000) * 0.43;
+    }
+    // Employment deduction (detrazione per lavoro dipendente) — simplified
+    let deduction = 0;
+    if (gross <= 15000) {
+      deduction = 1880;
+    } else if (gross <= 28000) {
+      deduction = 1910 + (28000 - gross) * 0.0502;
+    } else if (gross <= 50000) {
+      deduction = 1190 + (50000 - gross) * 0.0195;
+    }
+    return Math.max(0, tax - deduction);
+  }
+
+  document.getElementById('it-calculate').addEventListener('click', function () {
+    const gross = parseFloat(document.getElementById('it-salary').value) || 0;
+    if (gross <= 0) return;
+
+    const irpef = calcIRPEF(gross);
+    const inps = gross * 0.0919;
+    const totalDeductions = irpef + inps;
+    const net = gross - totalDeductions;
+    const effectiveRate = totalDeductions / gross;
+
+    const fmt = (n) => '€' + Math.round(n).toLocaleString('en-IE');
+
+    document.getElementById('it-gross-out').textContent = fmt(gross);
+    document.getElementById('it-tax-out').textContent = fmt(irpef);
+    document.getElementById('it-social-out').textContent = fmt(inps);
+    document.getElementById('it-deductions-out').textContent = fmt(totalDeductions);
+    document.getElementById('it-net-out').textContent = fmt(net);
+    document.getElementById('it-net-monthly-out').textContent = fmt(net / 12);
+    document.getElementById('it-rate-out').textContent = (effectiveRate * 100).toFixed(1) + '%';
+    document.getElementById('it-results').style.display = 'block';
+  });
+
+  document.getElementById('it-calculate').click();
+</script>
+</body>
+</html>

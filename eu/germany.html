@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Germany Salary Tax Estimator 2024 — Gross to Net | SalaryUKCalc</title>
+  <meta name="description" content="Estimate your net salary in Germany. Understand Lohnsteuer income tax bands, social contributions (pension, health, unemployment), and take-home pay. 2024 rates.">
+  <link rel="canonical" href="https://salaryukcalc.com/eu/germany.html">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<header>
+  <div class="nav-wrapper">
+    <a href="../index.html" class="nav-brand">Salary<span>UKCalc</span></a>
+    <nav aria-label="Main navigation">
+      <ul>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../regions.html">Regions</a></li>
+        <li class="has-dropdown">
+          <a href="../regions.html">Countries &#9662;</a>
+          <ul class="nav-dropdown">
+            <li class="nav-dropdown-header">🇬🇧 United Kingdom</li>
+            <li><a href="../uk/index.html">🇬🇧 United Kingdom</a></li>
+            <li class="nav-dropdown-header">🇪🇺 European Union</li>
+            <li><a href="ireland.html">🇮🇪 Ireland</a></li>
+            <li><a href="germany.html">🇩🇪 Germany</a></li>
+            <li><a href="france.html">🇫🇷 France</a></li>
+            <li><a href="netherlands.html">🇳🇱 Netherlands</a></li>
+            <li><a href="spain.html">🇪🇸 Spain</a></li>
+            <li><a href="italy.html">🇮🇹 Italy</a></li>
+            <li><a href="poland.html">🇵🇱 Poland</a></li>
+            <li class="nav-dropdown-header">🌍 Global</li>
+            <li><a href="../global/usa.html">🇺🇸 USA</a></li>
+            <li><a href="../global/canada.html">🇨🇦 Canada</a></li>
+            <li><a href="../global/australia.html">🇦🇺 Australia</a></li>
+            <li><a href="../global/switzerland.html">🇨🇭 Switzerland</a></li>
+            <li><a href="../global/norway.html">🇳🇴 Norway</a></li>
+            <li><a href="../global/uae.html">🇦🇪 UAE</a></li>
+          </ul>
+        </li>
+        <li><a href="../guides/index.html">Guides</a></li>
+        <li><a href="../about.html">About</a></li>
+        <li><a href="../contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <div class="breadcrumb-inner">
+    <a href="../index.html">Home</a>
+    <span>›</span>
+    <a href="index.html">🇪🇺 EU</a>
+    <span>›</span>
+    <span aria-current="page">🇩🇪 Germany</span>
+  </div>
+</nav>
+
+<div class="page-header page-header-eu">
+  <div class="page-header-inner">
+    <div class="page-header-flag">🇩🇪</div>
+    <h1>Germany Salary Tax Estimator 2024</h1>
+    <p>Estimate your gross-to-net salary in Germany. Understand Lohnsteuer income tax bands, social contribution rates, and approximate take-home pay. Based on publicly available 2024 rates.</p>
+    <div class="page-header-meta">
+      <span>Tax Year: 2024</span>
+      <span>System: Lohnsteuer</span>
+      <span>Authority: BZSt / Finanzamt</span>
+      <span>Currency: EUR (€)</span>
+      <span class="meta-estimate">⚠ Estimates only</span>
+    </div>
+  </div>
+</div>
+
+<main>
+  <div class="country-page-layout">
+    <div class="country-page-main">
+
+      <!-- AD: TOP -->
+      <div class="ad-placeholder ad-top">AdSense Banner (Responsive)</div>
+
+      <!-- ESTIMATE NOTICE -->
+      <div class="notice-box estimate">
+        <strong>Estimate notice:</strong> This tool provides a simplified gross-to-net estimate for Germany. German tax law is complex — actual tax depends on your Steuerklasse (tax class), church tax, solidarity surcharge, specific social insurance rates, and other personal factors. This estimate assumes Tax Class I (single, no church tax). Results are for informational purposes only.
+      </div>
+
+      <!-- ESTIMATOR WIDGET -->
+      <div class="calculator-card">
+        <div class="calculator-card-header">
+          <h2>Germany Salary Estimator</h2>
+          <span class="estimate-badge">Estimate</span>
+        </div>
+
+        <div class="input-group">
+          <label for="de-salary">Annual Gross Salary (€)</label>
+          <input type="number" id="de-salary" value="50000" min="0" step="500">
+          <span class="help-text">Enter your gross annual salary in Euros (Bruttolohn)</span>
+        </div>
+
+        <button class="btn btn-primary" id="de-calculate">Calculate Estimate</button>
+
+        <div id="de-results" class="estimate-results" style="display:none;">
+          <div class="notice-box estimate" style="margin-bottom:1rem;">
+            <strong>⚠ These are estimates only.</strong> Actual tax depends on your Steuerklasse, church tax, exact social insurance rates, and personal circumstances. Consult a Steuerberater (tax adviser) for accurate figures.
+          </div>
+
+          <h3 class="results-heading">Estimated Annual Breakdown</h3>
+          <div class="results">
+            <div class="result-item">
+              <span class="result-label">Gross Annual Salary</span>
+              <span class="result-value" id="de-gross-out">€0</span>
+            </div>
+            <div class="result-item">
+              <span class="result-label">Est. Income Tax (Lohnsteuer)</span>
+              <span class="result-value" id="de-tax-out">€0</span>
+            </div>
+            <div class="result-item">
+              <span class="result-label">Est. Social Contributions (~20.05%)</span>
+              <span class="result-value" id="de-social-out">€0</span>
+            </div>
+            <div class="result-item">
+              <span class="result-label">Est. Total Deductions</span>
+              <span class="result-value" id="de-deductions-out">€0</span>
+            </div>
+            <div class="result-item highlight">
+              <span class="result-label">Est. Net Annual (Nettolohn)</span>
+              <span class="result-value large" id="de-net-out">€0</span>
+            </div>
+            <div class="result-item">
+              <span class="result-label">Est. Net Monthly</span>
+              <span class="result-value" id="de-net-monthly-out">€0</span>
+            </div>
+            <div class="result-item">
+              <span class="result-label">Effective Total Rate</span>
+              <span class="result-value" id="de-rate-out">0%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- AD: INLINE -->
+      <div class="ad-placeholder ad-inline">AdSense In-Article (Responsive)</div>
+
+      <!-- INTRO -->
+      <section class="content-section">
+        <h2>How German Income Tax Works</h2>
+        <p>Germany uses a <strong>Lohnsteuer</strong> (wage tax) system. Your employer withholds income tax and social contributions from your gross salary each month and pays them directly to the tax authorities. The amount withheld depends on your <strong>Steuerklasse</strong> (tax class), which is assigned based on your marital status and employment situation.</p>
+        <p>Germany's income tax is progressive — the more you earn, the higher the rate on the top portion of your income. The <strong>Grundfreibetrag</strong> (basic tax-free allowance) of €11,604 (2024) means you pay no income tax on the first €11,604 of your annual income.</p>
+      </section>
+
+      <!-- TAX BANDS -->
+      <section class="content-section">
+        <h2>Germany Income Tax Bands 2024</h2>
+        <div class="table-container">
+          <table class="tax-breakdown-table">
+            <thead>
+              <tr><th>Band</th><th>Annual Income</th><th>Rate</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Grundfreibetrag (tax-free)</td><td>Up to €11,604</td><td>0%</td></tr>
+              <tr><td>Progressive zone 1</td><td>€11,605 – €17,005</td><td>14–24%</td></tr>
+              <tr><td>Progressive zone 2</td><td>€17,006 – €66,760</td><td>24–42%</td></tr>
+              <tr><td>High income zone</td><td>€66,761 – €277,825</td><td>42%</td></tr>
+              <tr><td>Reichensteuer (top rate)</td><td>Above €277,826</td><td>45%</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="disclaimer">* Germany uses a mathematical formula for progressive tax calculation rather than fixed bands. The rates shown are simplified approximations. A Solidaritätszuschlag (solidarity surcharge) of 5.5% on income tax may apply to higher earners, though most employees have been exempt since 2021.</p>
+      </section>
+
+      <!-- SOCIAL CONTRIBUTIONS -->
+      <section class="content-section">
+        <h2>Social Contributions (Sozialversicherung)</h2>
+        <p>In addition to income tax, German employees pay mandatory social insurance contributions. These are split between employee and employer. The employee share is approximately:</p>
+        <div class="deductions-list">
+          <div class="deduction-item">
+            <div class="deduction-name">Rentenversicherung (Pension)</div>
+            <div class="deduction-rate">9.3%</div>
+            <div class="deduction-desc">State pension insurance. Contributions are capped at the Beitragsbemessungsgrenze (contribution ceiling).</div>
+          </div>
+          <div class="deduction-item">
+            <div class="deduction-name">Krankenversicherung (Health)</div>
+            <div class="deduction-rate">~7.3% + supplement</div>
+            <div class="deduction-desc">Statutory health insurance. The base rate is 7.3% plus a health fund-specific supplement (Zusatzbeitrag), averaging ~1.6% in 2024.</div>
+          </div>
+          <div class="deduction-item">
+            <div class="deduction-name">Arbeitslosenversicherung (Unemployment)</div>
+            <div class="deduction-rate">1.3%</div>
+            <div class="deduction-desc">Unemployment insurance, providing benefits if you lose your job.</div>
+          </div>
+          <div class="deduction-item">
+            <div class="deduction-name">Pflegeversicherung (Long-term Care)</div>
+            <div class="deduction-rate">1.7–2.0%</div>
+            <div class="deduction-desc">Long-term care insurance. Rate is slightly higher for those without children.</div>
+          </div>
+        </div>
+        <p>Total employee social contributions are approximately <strong>20.05%</strong> of gross salary, subject to contribution ceilings.</p>
+      </section>
+
+      <!-- WORKED EXAMPLE -->
+      <section class="content-section">
+        <h2>Worked Example — €50,000 Gross Salary</h2>
+        <p>The following is a simplified illustration of how deductions are estimated for a gross annual salary of €50,000 in Germany (Tax Class I, no church tax, 2024).</p>
+        <div class="worked-example">
+          <div class="worked-example-step">
+            <div class="step-number">1</div>
+            <div class="step-content">
+              <h4>Gross Annual Salary</h4>
+              <p><strong>€50,000</strong></p>
+            </div>
+          </div>
+          <div class="worked-example-step">
+            <div class="step-number">2</div>
+            <div class="step-content">
+              <h4>Estimated Income Tax (Lohnsteuer)</h4>
+              <p>Progressive calculation on income above €11,604 Grundfreibetrag.</p>
+              <p>Approximate Lohnsteuer: <strong>~€10,200</strong></p>
+            </div>
+          </div>
+          <div class="worked-example-step">
+            <div class="step-number">3</div>
+            <div class="step-content">
+              <h4>Estimated Social Contributions (~20.05%)</h4>
+              <p>€50,000 × 20.05% = <strong>~€10,025</strong></p>
+            </div>
+          </div>
+          <div class="worked-example-step">
+            <div class="step-number">4</div>
+            <div class="step-content">
+              <h4>Estimated Net Annual (Nettolohn)</h4>
+              <p>€50,000 − €10,200 − €10,025 = <strong>~€29,775</strong></p>
+            </div>
+          </div>
+          <div class="worked-example-step">
+            <div class="step-number">5</div>
+            <div class="step-content">
+              <h4>Estimated Net Monthly</h4>
+              <p>€29,775 ÷ 12 = <strong>~€2,481/month</strong></p>
+            </div>
+          </div>
+        </div>
+        <p class="disclaimer">* This is a simplified estimate. Actual figures depend on your Steuerklasse, church tax, exact social insurance rates, and other factors. Use a German payroll calculator (Brutto-Netto-Rechner) for more precise results.</p>
+      </section>
+
+      <!-- ASSUMPTIONS -->
+      <section class="content-section">
+        <h2>Assumptions &amp; Limitations</h2>
+        <div class="deductions-list">
+          <div class="deduction-item">
+            <div class="deduction-name">Tax Class I assumed</div>
+            <div class="deduction-desc">This estimate uses Tax Class I (Steuerklasse I), which applies to single employees with no children. Married couples, single parents, and those with multiple jobs use different tax classes with different withholding rates.</div>
+          </div>
+          <div class="deduction-item">
+            <div class="deduction-name">No church tax</div>
+            <div class="deduction-desc">Kirchensteuer (church tax) of 8–9% on income tax is not included. If you are a registered member of a church in Germany, this will reduce your net pay further.</div>
+          </div>
+          <div class="deduction-item">
+            <div class="deduction-name">Simplified progressive bands</div>
+            <div class="deduction-desc">Germany uses a mathematical formula for tax calculation. This estimator uses simplified band approximations which may differ slightly from the exact formula.</div>
+          </div>
+          <div class="deduction-item">
+            <div class="deduction-name">Contribution ceilings not fully modelled</div>
+            <div class="deduction-desc">Social contribution ceilings (Beitragsbemessungsgrenze) cap the amount subject to contributions. For very high salaries, actual social contributions may be lower than the flat rate estimate.</div>
+          </div>
+          <div class="deduction-item">
+            <div class="deduction-name">No Solidaritätszuschlag</div>
+            <div class="deduction-desc">The solidarity surcharge (5.5% on income tax) is not included. Most employees have been exempt since 2021, but it may apply to higher earners.</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section class="content-section">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-list">
+          <div class="faq-item">
+            <h3 class="faq-question">What is the Grundfreibetrag?</h3>
+            <div class="faq-answer">
+              <p>The Grundfreibetrag is Germany's basic tax-free allowance — the amount of income you can earn before paying any income tax. For 2024, it is <strong>€11,604</strong>. Income above this threshold is taxed progressively.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <h3 class="faq-question">What is Steuerklasse (tax class)?</h3>
+            <div class="faq-answer">
+              <p>Germany assigns employees a Steuerklasse (tax class I–VI) based on marital status, number of jobs, and other factors. Tax Class I applies to single employees. Married couples can choose between Class III/V or Class IV/IV. Your tax class significantly affects how much is withheld from your salary each month.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <h3 class="faq-question">What is the difference between Brutto and Netto?</h3>
+            <div class="faq-answer">
+              <p><strong>Bruttolohn</strong> is your gross salary — the total amount before any deductions. <strong>Nettolohn</strong> is your net salary — what you actually receive after income tax and social contributions have been deducted. In Germany, the gap between gross and net is significant due to high social contribution rates.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <h3 class="faq-question">Does Germany have a solidarity surcharge?</h3>
+            <div class="faq-answer">
+              <p>The Solidaritätszuschlag (solidarity surcharge) was 5.5% on income tax, originally introduced to fund German reunification. Since 2021, most employees are exempt. It now only applies to higher earners (roughly those with income tax above ~€18,130 per year).</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <h3 class="faq-question">Is superannuation / pension included?</h3>
+            <div class="faq-answer">
+              <p>Yes — the Rentenversicherung (state pension insurance) contribution of 9.3% (employee share) is included in the social contributions estimate. This is mandatory for most employees.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- RELATED COUNTRIES -->
+      <section class="content-section">
+        <h2>Other EU Countries</h2>
+        <div class="country-grid">
+          <a href="france.html" class="country-card eu">
+            <span class="country-card-flag">🇫🇷</span>
+            <div class="country-card-body">
+              <h3>France</h3>
+              <p>Impôt sur le revenu + CSG/CRDS. ~22% social contributions.</p>
+              <div class="country-card-meta"><span>Estimate</span><span>EUR (€)</span></div>
+            </div>
+          </a>
+          <a href="netherlands.html" class="country-card eu">
+            <span class="country-card-flag">🇳🇱</span>
+            <div class="country-card-body">
+              <h3>Netherlands</h3>
+              <p>Box 1 income tax includes social contributions. Up to 49.5%.</p>
+              <div class="country-card-meta"><span>Estimate</span><span>EUR (€)</span></div>
+            </div>
+          </a>
+          <a href="spain.html" class="country-card eu">
+            <span class="country-card-flag">🇪🇸</span>
+            <div class="country-card-body">
+              <h3>Spain</h3>
+              <p>IRPF income tax + Social Security ~6.35%.</p>
+              <div class="country-card-meta"><span>Estimate</span><span>EUR (€)</span></div>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <!-- RELATED GUIDES -->
+      <section class="content-section">
+        <h2>Related Guides</h2>
+        <div class="guides-grid">
+          <a href="../guides/gross-vs-net-salary.html" class="guide-card">
+            <span class="guide-card-icon">💰</span>
+            <h3>Gross vs Net Salary Explained</h3>
+            <p>Understand the difference between Brutto and Netto pay.</p>
+            <span class="read-more">Read guide →</span>
+          </a>
+          <a href="../guides/income-tax-vs-social-contributions.html" class="guide-card">
+            <span class="guide-card-icon">📊</span>
+            <h3>Income Tax vs Social Contributions</h3>
+            <p>How Lohnsteuer and Sozialversicherung differ.</p>
+            <span class="read-more">Read guide →</span>
+          </a>
+          <a href="../guides/why-net-salary-differs-by-country.html" class="guide-card">
+            <span class="guide-card-icon">🗺️</span>
+            <h3>Why Net Salary Differs by Country</h3>
+            <p>Why the same gross salary gives different take-home pay across Europe.</p>
+            <span class="read-more">Read guide →</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- DISCLAIMER -->
+      <div class="notice-box warning">
+        <strong>Disclaimer:</strong> All figures are simplified estimates based on publicly available 2024 German tax data. They do not constitute financial or tax advice. German tax law is complex — consult a Steuerberater (tax adviser) or use the official Bundesministerium der Finanzen tools for accurate calculations. <a href="../disclaimer.html">Read our full disclaimer.</a>
+      </div>
+
+      <!-- AD: BOTTOM -->
+      <div class="ad-placeholder ad-bottom">AdSense Bottom Banner (Responsive)</div>
+
+    </div>
+
+    <!-- SIDEBAR -->
+    <aside class="country-page-sidebar">
+      <div class="sidebar-card">
+        <h3>Germany Tax Facts 2024</h3>
+        <ul class="sidebar-list">
+          <li><strong>Grundfreibetrag:</strong> €11,604</li>
+          <li><strong>Top Rate:</strong> 45% (Reichensteuer)</li>
+          <li><strong>Social Contributions:</strong> ~20.05%</li>
+          <li><strong>Tax System:</strong> Lohnsteuer</li>
+          <li><strong>Authority:</strong> Finanzamt / BZSt</li>
+          <li><strong>Currency:</strong> EUR (€)</li>
+          <li><strong>Tax Class:</strong> I assumed</li>
+        </ul>
+        <a href="https://www.bzst.de" target="_blank" rel="noopener noreferrer" class="sidebar-source-link">Official BZSt website ↗</a>
+      </div>
+
+      <div class="sidebar-card">
+        <h3>Other EU Countries</h3>
+        <ul class="sidebar-list">
+          <li><a href="france.html">🇫🇷 France</a></li>
+          <li><a href="netherlands.html">🇳🇱 Netherlands</a></li>
+          <li><a href="spain.html">🇪🇸 Spain</a></li>
+        </ul>
+        <h3 style="margin-top:1rem;">Global Countries</h3>
+        <ul class="sidebar-list">
+          <li><a href="../global/usa.html">🇺🇸 USA</a></li>
+          <li><a href="../global/canada.html">🇨🇦 Canada</a></li>
+          <li><a href="../global/australia.html">🇦🇺 Australia</a></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-card">
+        <h3>Useful Guides</h3>
+        <ul class="sidebar-list">
+          <li><a href="../guides/gross-vs-net-salary.html">Gross vs Net Salary</a></li>
+          <li><a href="../guides/income-tax-vs-social-contributions.html">Tax vs Social Contributions</a></li>
+          <li><a href="../guides/how-payroll-deductions-work.html">Payroll Deductions</a></li>
+          <li><a href="../guides/why-net-salary-differs-by-country.html">Why Net Pay Differs</a></li>
+          <li><a href="../methodology.html">Our Methodology</a></li>
+        </ul>
+      </div>
+    </aside>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-col footer-brand">
+      <a href="../index.html" class="nav-brand">Salary<span>UKCalc</span></a>
+      <p>Free salary and tax calculators for the UK, EU, and global countries. All calculations run in your browser. Results are estimates only — not professional tax advice.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Regions</h4>
+      <ul>
+        <li><a href="../uk/index.html">🇬🇧 United Kingdom</a></li>
+        <li><a href="index.html">🇪🇺 European Union</a></li>
+        <li><a href="../global/index.html">🌍 Global</a></li>
+        <li><a href="../regions.html">All Regions</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Countries</h4>
+      <ul>
+        <li><a href="ireland.html">🇮🇪 Ireland</a></li>
+        <li><a href="germany.html">🇩🇪 Germany</a></li>
+        <li><a href="france.html">🇫🇷 France</a></li>
+        <li><a href="../global/usa.html">🇺🇸 USA</a></li>
+        <li><a href="../global/australia.html">🇦🇺 Australia</a></li>
+        <li><a href="../global/uae.html">🇦🇪 UAE</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Guides</h4>
+      <ul>
+        <li><a href="../guides/gross-vs-net-salary.html">Gross vs Net Salary</a></li>
+        <li><a href="../guides/income-tax-vs-social-contributions.html">Tax vs Social Contributions</a></li>
+        <li><a href="../guides/how-payroll-deductions-work.html">Payroll Deductions</a></li>
+        <li><a href="../guides/tax-residency-basics.html">Tax Residency</a></li>
+        <li><a href="../guides/why-net-salary-differs-by-country.html">Why Net Pay Differs</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <ul>
+        <li><a href="../privacy.html">Privacy Policy</a></li>
+        <li><a href="../terms.html">Terms of Use</a></li>
+        <li><a href="../disclaimer.html">Disclaimer</a></li>
+        <li><a href="../methodology.html">Methodology</a></li>
+        <li><a href="../about.html">About Us</a></li>
+        <li><a href="../contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; <span id="footer-year">2025</span> SalaryUKCalc.com — All results are estimates for informational purposes only.</p>
+    <div class="footer-bottom-links">
+      <a href="../privacy.html">Privacy</a>
+      <a href="../terms.html">Terms</a>
+      <a href="../disclaimer.html">Disclaimer</a>
+      <a href="../methodology.html">Methodology</a>
+    </div>
+  </div>
+</footer>
+
+<script src="../data/countries.js"></script>
+<script>
+  document.getElementById('footer-year').textContent = new Date().getFullYear();
+
+  document.getElementById('de-calculate').addEventListener('click', function() {
+    const gross = parseFloat(document.getElementById('de-salary').value) || 0;
+    if (gross <= 0) return;
+
+    const result = estimateNetSalary(gross, 'de');
+    if (!result) return;
+
+    document.getElementById('de-gross-out').textContent = formatCountryCurrency(result.grossAnnual, 'de');
+    document.getElementById('de-tax-out').textContent = formatCountryCurrency(result.incomeTax, 'de');
+    document.getElementById('de-social-out').textContent = formatCountryCurrency(result.socialContributions, 'de');
+    document.getElementById('de-deductions-out').textContent = formatCountryCurrency(result.totalDeductions, 'de');
+    document.getElementById('de-net-out').textContent = formatCountryCurrency(result.netAnnual, 'de');
+    document.getElementById('de-net-monthly-out').textContent = formatCountryCurrency(result.netAnnual / 12, 'de');
+    document.getElementById('de-rate-out').textContent = (result.effectiveRate * 100).toFixed(1) + '%';
+
+    document.getElementById('de-results').style.display = 'block';
+  });
+
+  // Auto-calculate on load
+  document.getElementById('de-calculate').click();
+</script>
+</body>
+</html>

@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>France Salary Tax Estimator 2024 — Gross to Net | SalaryUKCalc</title>
+  <meta name="description" content="Estimate your net salary in France. Understand impôt sur le revenu tax bands, CSG/CRDS social contributions, and approximate take-home pay. 2024 rates.">
+  <link rel="canonical" href="https://salaryukcalc.com/eu/france.html">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<header>
+  <div class="nav-wrapper">
+    <a href="../index.html" class="nav-brand">Salary<span>UKCalc</span></a>
+    <nav aria-label="Main navigation">
+      <ul>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../regions.html">Regions</a></li>
+        <li class="has-dropdown">
+          <a href="../regions.html">Countries &#9662;</a>
+          <ul class="nav-dropdown">
+            <li class="nav-dropdown-header">🇬🇧 United Kingdom</li>
+            <li><a href="../uk/index.html">🇬🇧 United Kingdom</a></li>
+            <li class="nav-dropdown-header">🇪🇺 European Union</li>
+            <li><a href="ireland.html">🇮🇪 Ireland</a></li>
+            <li><a href="germany.html">🇩🇪 Germany</a></li>
+            <li><a href="france.html">🇫🇷 France</a></li>
+            <li><a href="netherlands.html">🇳🇱 Netherlands</a></li>
+            <li><a href="spain.html">🇪🇸 Spain</a></li>
+            <li><a href="italy.html">🇮🇹 Italy</a></li>
+            <li><a href="poland.html">🇵🇱 Poland</a></li>
+            <li class="nav-dropdown-header">🌍 Global</li>
+            <li><a href="../global/usa.html">🇺🇸 USA</a></li>
+            <li><a href="../global/canada.html">🇨🇦 Canada</a></li>
+            <li><a href="../global/australia.html">🇦🇺 Australia</a></li>
+            <li><a href="../global/switzerland.html">🇨🇭 Switzerland</a></li>
+            <li><a href="../global/norway.html">🇳🇴 Norway</a></li>
+            <li><a href="../global/uae.html">🇦🇪 UAE</a></li>
+          </ul>
+        </li>
+        <li><a href="../guides/index.html">Guides</a></li>
+        <li><a href="../about.html">About</a></li>
+        <li><a href="../contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <div class="breadcrumb-inner">
+    <a href="../index.html">Home</a>
+    <span>›</span>
+    <a href="index.html">🇪🇺 EU</a>
+    <span>›</span>
+    <span aria-current="page">🇫🇷 France</span>
+  </div>
+</nav>
+
+<div class="page-header page-header-eu">
+  <div class="page-header-inner">
+    <div class="page-header-flag">🇫🇷</div>
+    <h1>France Salary Tax Estimator 2024</h1>
+    <p>Estimate your gross-to-net salary in France. Understand impôt sur le revenu tax bands, CSG/CRDS social contributions, and approximate take-home pay. Based on publicly available 2024 rates.</p>
+    <div class="page-header-meta">
+      <span>Tax Year: 2024</span>
+      <span>System: Impôt sur le revenu</span>
+      <span>Authority: DGFiP</span>
+      <span>Currency: EUR (€)</span>
+      <span class="meta-estimate">⚠ Estimates only</span>
+    </div>
+  </div>
+</div>
+
+<main>
+  <div class="country-page-layout">
+    <div class="country-page-main">
+
+      <!-- AD: TOP -->
+      <div class="ad-placeholder ad-top">AdSense Banner (Responsive)</div>
+
+      <!-- ESTIMATE NOTICE -->
+      <div class="notice-box estimate">
+        <strong>Estimate notice:</strong> This tool provides a simplified gross-to-net estimate for France. French tax is assessed on household income (foyer fiscal) and uses a quotient familial system. This estimate assumes a single employed person with no dependants. Actual tax depends on household composition, specific deductions, and other personal factors. Results are for informational purposes only.
+      </div>
+
+      <!-- ESTIMATOR WIDGET -->
+      <div class="calculator-card">
+        <div class="calculator-card-header">
+          <h2>France Salary Estimator</h2>
+          <span class="estimate-badge">Estimate</span>
+        </div>
+
+        <div class="input-group">
+          <label for="fr-salary">Annual Gross Salary (€)</label>
+          <input type="number" id="fr-salary" value="45000" min="0" step="500">
+          <span class="help-text">Enter your gross annual salary in Euros (salaire brut annuel)</span>
+        </div>
+
+        <button class="btn btn-primary" id="fr-calculate">Calculate Estimate</button>
+
+        <div id="fr-results" class="estimate-results" style="display:none;">
+          <div class="notice-box estimate" style="margin-bottom:1rem;">
+            <strong>⚠ These are estimates only.</strong> French income tax is assessed on household income. This estimate assumes a single person. Actual tax depends on your foyer fiscal, quotient familial, and personal deductions. Consult a conseiller fiscal for accurate figures.
+          </div>
+
+          <h3 class="results-heading">Estimated Annual Breakdown</h3>
+          <div class="results">
+            <div class="result-item">
+              <span class="result-label">Gross Annual Salary</span>
+              <span class="result-value" id="fr-gross-out">€0</span>
+            </div>
+            <div class="result-item">
+              <span class="result-label">10% Employment Deduction Applied</span>
+              <span class="result-value" id="fr-deduction-out">€0</span>
+            </div>
+            <div class="result-item">
+              <span class="result-label">Est. Income Tax (Impôt sur le revenu)</span>
+              <span class="result-value" id="fr-tax-out">€0</span>
+            </div>
+            <div class="result-item">
+              <span class="result-label">Est. Social Contributions (~22%)</span>
+              <span class="result-value" id="fr-social-out">€0</span>
+            </div>
+            <div class="result-item">
+              <span class="result-label">Est. Total Deductions</span>
+              <span class="result-value" id="fr-deductions-out">€0</span>
+            </div>
+            <div class="result-item highlight">
+              <span class="result-label">Est. Net Annual (Salaire net)</span>
+              <span class="result-value large" id="fr-net-out">€0</span>
+            </div>
+            <div class="result-item">
+              <span class="result-label">Est. Net Monthly</span>
+              <span class="result-value" id="fr-net-monthly-out">€0</span>
+            </div>
+            <div class="result-item">
+              <span class="result-label">Effective Total Rate</span>
+              <span class="result-value" id="fr-rate-out">0%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- AD: INLINE -->
+      <div class="ad-placeholder ad-inline">AdSense In-Article (Responsive)</div>
+
+      <!-- INTRO -->
+      <section class="content-section">
+        <h2>How French Income Tax Works</h2>
+        <p>France uses a system called <strong>impôt sur le revenu</strong> (IR) — income tax assessed annually on your household's total income. Unlike the UK's PAYE system, French income tax is calculated on the <strong>foyer fiscal</strong> (tax household), which can include a spouse and dependants. The number of "parts" in your household (quotient familial) affects how much tax you pay.</p>
+        <p>Since 2019, France has introduced <strong>prélèvement à la source</strong> — withholding at source — meaning your employer now deducts an estimated income tax amount from your monthly salary, similar to PAYE. The final amount is reconciled in your annual tax return.</p>
+        <p>A standard <strong>10% employment deduction</strong> (abattement forfaitaire) is applied to employment income before calculating tax, with a minimum of €495 and a maximum of €14,171.</p>
+      </section>
+
+      <!-- TAX BANDS -->
+      <section class="content-section">
+        <h2>France Income Tax Bands 2024</h2>
+        <p>These bands apply to taxable income per "part" of the household. For a single person with no dependants, there is 1 part.</p>
+        <div class="table-container">
+          <table class="tax-breakdown-table">
+            <thead>
+              <tr><th>Band</th><th>Taxable Income (per part)</th><th>Rate</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Tax-free band</td><td>Up to €11,294</td><td>0%</td></tr>
+              <tr><td>Band 1</td><td>€11,295 – €28,797</td><td>11%</td></tr>
+              <tr><td>Band 2</td><td>€28,798 – €82,341</td><td>30%</td></tr>
+              <tr><td>Band 3</td><td>€82,342 – €177,106</td><td>41%</td></tr>
+              <tr><td>Top rate</td><td>Above €177,106</td><td>45%</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="disclaimer">* Rates apply after the 10% employment deduction. For households with multiple parts (married couples, dependants), income is divided by the number of parts before applying bands, then multiplied back — this is the quotient familial system.</p>
+      </section>
+
+      <!-- SOCIAL CONTRIBUTIONS -->
+      <section class="content-section">
+        <h2>Social Contributions (Cotisations Sociales)</h2>
+        <p>French employees pay significant social contributions on top of income tax. These fund health insurance, pension, unemployment, and other social benefits. The main employee contributions are:</p>
+        <div class="deductions-list">
+          <div class="deduction-item">
+            <div class="deduction-name">CSG (Contribution Sociale Généralisée)</div>
+            <div class="deduction-rate">9.2%</div>
+            <div class="deduction-desc">The main social solidarity contribution. Applied to 98.25% of gross salary. Partially deductible from income tax.</div>
+          </div>
+          <div class="deduction-item">
+            <div class="deduction-name">CRDS (Contribution au Remboursement de la Dette Sociale)</div>
+            <div class="deduction-rate">0.5%</div>
+            <div class="deduction-desc">Contribution to repay social debt. Applied to 98.25% of gross salary. Not deductible from income tax.</div>
+          </div>
+          <div class="deduction-item">
+            <div class="deduction-name">Assurance maladie (Health)</div>
+            <div class="deduction-rate">~0.75%</div>
+            <div class="deduction-desc">Employee health insurance contribution (reduced rate since 2018 reform).</div>
+          </div>
+          <div class="deduction-item">
+            <div class="deduction-name">Retraite complémentaire (Supplementary Pension)</div>
+            <div class="deduction-rate">~3.93–4.72%</div>
+            <div class="deduction-desc">AGIRC-ARRCO supplementary pension contributions. Rate depends on salary level relative to the PASS (plafond annuel de la Sécurité sociale).</div>
+          </div>
+          <div class="deduction-item">
+            <div class="deduction-name">Prévoyance (Disability/Death)</div>
+            <div class="deduction-rate">~0.5–1%</div>
+            <div class="deduction-desc">Supplementary disability and death insurance. Rate varies by employer agreement.</div>
+          </div>
+        </div>
+        <p>Total employee social contributions are approximately <strong>22%</strong> of gross salary, though the exact rate depends on salary level and employer agreement.</p>
+      </section>
+
+      <!-- WORKED EXAMPLE -->
+      <section class="content-section">
+        <h2>Worked Example — €45,000 Gross Salary</h2>
+        <p>A simplified illustration for a single employed person earning €45,000 gross per year in France (2024).</p>
+        <div class="worked-example">
+          <div class="worked-example-step">
+            <div class="step-number">1</div>
+            <div class="step-content">
+              <h4>Gross Annual Salary (Salaire brut)</h4>
+              <p><strong>€45,000</strong></p>
+            </div>
+          </div>
+          <div class="worked-example-step">
+            <div class="step-number">2</div>
+            <div class="step-content">
+              <h4>Apply 10% Employment Deduction</h4>
+              <p>€45,000 × 10% = €4,500 (within €495–€14,171 range)</p>
+              <p>Taxable income: €45,000 − €4,500 = <strong>€40,500</strong></p>
+            </div>
+          </div>
+          <div class="worked-example-step">
+            <div class="step-number">3</div>
+            <div class="step-content">
+              <h4>Apply Income Tax Bands</h4>
+              <p>0% on €11,294 = €0</p>
+              <p>11% on €17,503 (€11,295–€28,797) = €1,925</p>
+              <p>30% on €11,703 (€28,798–€40,500) = €3,511</p>
+              <p>Total income tax: <strong>~€5,436</strong></p>
+            </div>
+          </div>
+          <div class="worked-example-step">
+            <div class="step-number">4</div>
+            <div class="step-content">
+              <h4>Estimated Social Contributions (~22%)</h4>
+              <p>€45,000 × 22% = <strong>~€9,900</strong></p>
+            </div>
+          </div>
+          <div class="worked-example-step">
+            <div class="step-number">5</div>
+            <div class="step-content">
+              <h4>Estimated Net Annual (Salaire net)</h4>
+              <p>€45,000 − €5,436 − €9,900 = <strong>~€29,664</strong></p>
+            </div>
+          </div>
+          <div class="worked-example-step">
+            <div class="step-number">6</div>
+            <div class="step-content">
+              <h4>Estimated Net Monthly</h4>
+              <p>€29,664 ÷ 12 = <strong>~€2,472/month</strong></p>
+            </div>
+          </div>
+        </div>
+        <p class="disclaimer">* This is a simplified estimate for a single person. Actual figures depend on household composition, specific deductions, and other personal factors.</p>
+      </section>
+
+      <!-- ASSUMPTIONS -->
+      <section class="content-section">
+        <h2>Assumptions &amp; Limitations</h2>
+        <div class="deductions-list">
+          <div class="deduction-item">
+            <div class="deduction-name">Single person assumed</div>
+            <div class="deduction-desc">This estimate assumes a single employed person with no dependants (1 part in the quotient familial). Married couples and those with children will have a different tax calculation.</div>
+          </div>
+          <div class="deduction-item">
+            <div class="deduction-name">10% employment deduction applied</div>
+            <div class="deduction-desc">The standard 10% abattement forfaitaire is applied. If you have higher actual professional expenses, you may be able to deduct more.</div>
+          </div>
+          <div class="deduction-item">
+            <div class="deduction-name">Flat social contribution rate</div>
+            <div class="deduction-desc">Social contributions are estimated at a flat ~22% rate. Actual rates vary by salary level, employer agreement, and specific contribution type.</div>
+          </div>
+          <div class="deduction-item">
+            <div class="deduction-name">No regional or local taxes</div>
+            <div class="deduction-desc">France does not have significant regional income taxes for employees. The estimate covers national income tax and social contributions only.</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section class="content-section">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-list">
+          <div class="faq-item">
+            <h3 class="faq-question">What is the quotient familial?</h3>
+            <div class="faq-answer">
+              <p>The quotient familial is France's system for adjusting income tax based on household size. A single person has 1 part. A married couple has 2 parts. Each dependent child adds 0.5 parts. Income is divided by the number of parts, tax is calculated, then multiplied back — this reduces the effective tax rate for larger households.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <h3 class="faq-question">What is the difference between salaire brut and salaire net?</h3>
+            <div class="faq-answer">
+              <p><strong>Salaire brut</strong> is your gross salary before any deductions. <strong>Salaire net</strong> is your take-home pay after social contributions and income tax. In France, the gap is significant — social contributions alone are around 22% of gross salary for employees.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <h3 class="faq-question">What is prélèvement à la source?</h3>
+            <div class="faq-answer">
+              <p>Since January 2019, France has operated a withholding-at-source system (prélèvement à la source). Your employer deducts an estimated income tax amount from your monthly salary based on a rate provided by the tax authority (DGFiP). The final amount is reconciled when you file your annual tax return.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <h3 class="faq-question">Is CSG deductible from income tax?</h3>
+            <div class="faq-answer">
+              <p>Part of the CSG (6.8% out of 9.2%) is deductible from your taxable income for income tax purposes. This partially offsets the impact of CSG on your overall tax burden. Our simplified estimate does not model this deductibility.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- RELATED COUNTRIES -->
+      <section class="content-section">
+        <h2>Other EU Countries</h2>
+        <div class="country-grid">
+          <a href="germany.html" class="country-card eu">
+            <span class="country-card-flag">🇩🇪</span>
+            <div class="country-card-body">
+              <h3>Germany</h3>
+              <p>Lohnsteuer + ~20% social contributions. Grundfreibetrag €11,604.</p>
+              <div class="country-card-meta"><span>Estimate</span><span>EUR (€)</span></div>
+            </div>
+          </a>
+          <a href="netherlands.html" class="country-card eu">
+            <span class="country-card-flag">🇳🇱</span>
+            <div class="country-card-body">
+              <h3>Netherlands</h3>
+              <p>Box 1 income tax includes social contributions. Up to 49.5%.</p>
+              <div class="country-card-meta"><span>Estimate</span><span>EUR (€)</span></div>
+            </div>
+          </a>
+          <a href="spain.html" class="country-card eu">
+            <span class="country-card-flag">🇪🇸</span>
+            <div class="country-card-body">
+              <h3>Spain</h3>
+              <p>IRPF income tax + Social Security ~6.35%.</p>
+              <div class="country-card-meta"><span>Estimate</span><span>EUR (€)</span></div>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <!-- RELATED GUIDES -->
+      <section class="content-section">
+        <h2>Related Guides</h2>
+        <div class="guides-grid">
+          <a href="../guides/gross-vs-net-salary.html" class="guide-card">
+            <span class="guide-card-icon">💰</span>
+            <h3>Gross vs Net Salary Explained</h3>
+            <p>Understand the difference between salaire brut and salaire net.</p>
+            <span class="read-more">Read guide →</span>
+          </a>
+          <a href="../guides/income-tax-vs-social-contributions.html" class="guide-card">
+            <span class="guide-card-icon">📊</span>
+            <h3>Income Tax vs Social Contributions</h3>
+            <p>How impôt sur le revenu and cotisations sociales differ.</p>
+            <span class="read-more">Read guide →</span>
+          </a>
+          <a href="../guides/why-net-salary-differs-by-country.html" class="guide-card">
+            <span class="guide-card-icon">🗺️</span>
+            <h3>Why Net Salary Differs by Country</h3>
+            <p>Why the same gross salary gives different take-home pay across Europe.</p>
+            <span class="read-more">Read guide →</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- DISCLAIMER -->
+      <div class="notice-box warning">
+        <strong>Disclaimer:</strong> All figures are simplified estimates based on publicly available 2024 French tax data. They do not constitute financial or tax advice. French tax law is complex — consult a conseiller fiscal or use the official DGFiP tools for accurate calculations. <a href="../disclaimer.html">Read our full disclaimer.</a>
+      </div>
+
+      <!-- AD: BOTTOM -->
+      <div class="ad-placeholder ad-bottom">AdSense Bottom Banner (Responsive)</div>
+
+    </div>
+
+    <!-- SIDEBAR -->
+    <aside class="country-page-sidebar">
+      <div class="sidebar-card">
+        <h3>France Tax Facts 2024</h3>
+        <ul class="sidebar-list">
+          <li><strong>Employment Deduction:</strong> 10% (min €495, max €14,171)</li>
+          <li><strong>Top Rate:</strong> 45%</li>
+          <li><strong>Social Contributions:</strong> ~22%</li>
+          <li><strong>Tax System:</strong> Impôt sur le revenu</li>
+          <li><strong>Authority:</strong> DGFiP</li>
+          <li><strong>Currency:</strong> EUR (€)</li>
+          <li><strong>Assumed:</strong> Single person, 1 part</li>
+        </ul>
+        <a href="https://www.impots.gouv.fr" target="_blank" rel="noopener noreferrer" class="sidebar-source-link">Official DGFiP website ↗</a>
+      </div>
+
+      <div class="sidebar-card">
+        <h3>Other EU Countries</h3>
+        <ul class="sidebar-list">
+          <li><a href="germany.html">🇩🇪 Germany</a></li>
+          <li><a href="netherlands.html">🇳🇱 Netherlands</a></li>
+          <li><a href="spain.html">🇪🇸 Spain</a></li>
+        </ul>
+        <h3 style="margin-top:1rem;">Global Countries</h3>
+        <ul class="sidebar-list">
+          <li><a href="../global/usa.html">🇺🇸 USA</a></li>
+          <li><a href="../global/canada.html">🇨🇦 Canada</a></li>
+          <li><a href="../global/australia.html">🇦🇺 Australia</a></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-card">
+        <h3>Useful Guides</h3>
+        <ul class="sidebar-list">
+          <li><a href="../guides/gross-vs-net-salary.html">Gross vs Net Salary</a></li>
+          <li><a href="../guides/income-tax-vs-social-contributions.html">Tax vs Social Contributions</a></li>
+          <li><a href="../guides/how-payroll-deductions-work.html">Payroll Deductions</a></li>
+          <li><a href="../guides/why-net-salary-differs-by-country.html">Why Net Pay Differs</a></li>
+          <li><a href="../methodology.html">Our Methodology</a></li>
+        </ul>
+      </div>
+    </aside>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-col footer-brand">
+      <a href="../index.html" class="nav-brand">Salary<span>UKCalc</span></a>
+      <p>Free salary and tax calculators for the UK, EU, and global countries. All calculations run in your browser. Results are estimates only — not professional tax advice.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Regions</h4>
+      <ul>
+        <li><a href="../uk/index.html">🇬🇧 United Kingdom</a></li>
+        <li><a href="index.html">🇪🇺 European Union</a></li>
+        <li><a href="../global/index.html">🌍 Global</a></li>
+        <li><a href="../regions.html">All Regions</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Countries</h4>
+      <ul>
+        <li><a href="ireland.html">🇮🇪 Ireland</a></li>
+        <li><a href="germany.html">🇩🇪 Germany</a></li>
+        <li><a href="france.html">🇫🇷 France</a></li>
+        <li><a href="../global/usa.html">🇺🇸 USA</a></li>
+        <li><a href="../global/australia.html">🇦🇺 Australia</a></li>
+        <li><a href="../global/uae.html">🇦🇪 UAE</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Guides</h4>
+      <ul>
+        <li><a href="../guides/gross-vs-net-salary.html">Gross vs Net Salary</a></li>
+        <li><a href="../guides/income-tax-vs-social-contributions.html">Tax vs Social Contributions</a></li>
+        <li><a href="../guides/how-payroll-deductions-work.html">Payroll Deductions</a></li>
+        <li><a href="../guides/tax-residency-basics.html">Tax Residency</a></li>
+        <li><a href="../guides/why-net-salary-differs-by-country.html">Why Net Pay Differs</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <ul>
+        <li><a href="../privacy.html">Privacy Policy</a></li>
+        <li><a href="../terms.html">Terms of Use</a></li>
+        <li><a href="../disclaimer.html">Disclaimer</a></li>
+        <li><a href="../methodology.html">Methodology</a></li>
+        <li><a href="../about.html">About Us</a></li>
+        <li><a href="../contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; <span id="footer-year">2025</span> SalaryUKCalc.com — All results are estimates for informational purposes only.</p>
+    <div class="footer-bottom-links">
+      <a href="../privacy.html">Privacy</a>
+      <a href="../terms.html">Terms</a>
+      <a href="../disclaimer.html">Disclaimer</a>
+      <a href="../methodology.html">Methodology</a>
+    </div>
+  </div>
+</footer>
+
+<script src="../data/countries.js"></script>
+<script>
+  document.getElementById('footer-year').textContent = new Date().getFullYear();
+
+  document.getElementById('fr-calculate').addEventListener('click', function() {
+    const gross = parseFloat(document.getElementById('fr-salary').value) || 0;
+    if (gross <= 0) return;
+
+    const result = estimateNetSalary(gross, 'fr');
+    if (!result) return;
+
+    const deduction = Math.min(14171, Math.max(495, gross * 0.10));
+    document.getElementById('fr-gross-out').textContent = formatCountryCurrency(result.grossAnnual, 'fr');
+    document.getElementById('fr-deduction-out').textContent = '−' + formatCountryCurrency(deduction, 'fr');
+    document.getElementById('fr-tax-out').textContent = formatCountryCurrency(result.incomeTax, 'fr');
+    document.getElementById('fr-social-out').textContent = formatCountryCurrency(result.socialContributions, 'fr');
+    document.getElementById('fr-deductions-out').textContent = formatCountryCurrency(result.totalDeductions, 'fr');
+    document.getElementById('fr-net-out').textContent = formatCountryCurrency(result.netAnnual, 'fr');
+    document.getElementById('fr-net-monthly-out').textContent = formatCountryCurrency(result.netAnnual / 12, 'fr');
+    document.getElementById('fr-rate-out').textContent = (result.effectiveRate * 100).toFixed(1) + '%';
+
+    document.getElementById('fr-results').style.display = 'block';
+  });
+
+  document.getElementById('fr-calculate').click();
+</script>
+</body>
+</html>
